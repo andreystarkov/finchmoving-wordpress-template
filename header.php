@@ -177,7 +177,8 @@
                 </div>
             </div>
 
-            <div class="box-light anchor" id="estimate">
+        <? if($pagename == "california"){ ?>       
+        <div class="box-light anchor" id="estimate">
                 <div class="wrap box-estimate">
                     <div class="box-light-content">
                         <h2>Free Estimate</h2>
@@ -210,6 +211,6 @@
                     </div>
                 </div>
             </div>
+            <? } ?>
 
-                           <?php
-
+                  
