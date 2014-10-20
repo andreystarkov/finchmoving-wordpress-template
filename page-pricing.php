@@ -2,7 +2,9 @@
 /*
 Template Name: Pricing
 */
+
 ?>
+    <? $work_dir = "/wp-content/themes/nexus"; ?>
 <?php get_header(); ?>
 
     

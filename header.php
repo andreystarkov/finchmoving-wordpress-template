@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="fav.png" />
 
-    <title>Finch Moving</title>
+    <title><?php
+    if (!defined('WPSEO_VERSION')) {
+        wp_title('|', true, 'right');
+        bloginfo('name');
+    }
+    else {
+        wp_title('');
+    }?></title>
 
     <link rel="apple-touch-icon" sizes="72x72" href="images/touch/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/touch/apple-touch-icon-114x114.png">
@@ -15,10 +22,14 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
 
+    <?php // wp_head(); ?>
+    <?php // roots_head(); ?>
+
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/component.css" />
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/fullwidth-slider.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/svg-icons.css" />
 
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/fonts/bebasneue/bebasneue.css" />
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/fonts/alegreya/alegreya.css" />
@@ -36,7 +47,7 @@
     <script src="<? echo $work_dir; ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script src="<? echo $work_dir; ?>/js/vendor/snap.svg-min.js"></script>
     <script src="<? echo $work_dir; ?>/js/vendor/less-1.7.5.min.js"></script>
-    <script src="<? echo $work_dir; ?>/js/vendor/snap.svg-min.js"></script>
+
         <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -45,6 +56,9 @@
     <!-- <script src="<? echo $work_dir; ?>/js/menu.js"></script>  -->
     <script src="<? echo $work_dir; ?>/js/sidebarEffects.js"></script>
 
+    <style>
+    .svg-wrap { width: 100%; height: 100%; padding: 0; margin: 0; position: relative;}
+    </style>    
 </head>
 <body class="no-js">
 
@@ -53,34 +67,41 @@
 <div class="st-pusher content">
 
     <div id="st-trigger-effects">
-        <button class="btn-nav" data-effect="st-effect-6"><i class="fa fa-bars"></i></button>
-        <div class="top-nav">
 
-    <?php
-    $pagename = get_query_var('pagename');
-    if ( !$pagename && $id > 0 ) {
-        $post = $wp_query->get_queried_object();
-        $pagename = $post->post_name;
-    }
+        <button class="btn-nav" data-effect="st-effect-6">
+            <div class="svg-wrap">
+                <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
+            </div>
+        </button>
 
-    if($pagename != "california"){
+        <div class="top-nav" style="display: none">
 
-        $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT'); 
+        <?php
 
-        if ( $child_pages ) {
-            foreach ( $child_pages as $pageChild ) {
-                setup_postdata( $pageChild ); ?>
-                  <?php // echo get_the_post_thumbnail($pageChild->ID, 'thumbnail'); ?>
-                     <a href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>">
-                        <?php echo $pageChild->post_title; ?>
-                     </a>
-        <?php 
-            }
-        } else {
-            ?><a href="#pricing" onclick="history.go(-1);"><i class="fa fa-arrow-circle-o-left"></i><span>Prevous </span></a><?
+        $pagename = get_query_var('pagename');
+        if ( !$pagename && $id > 0 ) {
+            $post = $wp_query->get_queried_object();
+            $pagename = $post->post_name;
         }
-    }
-    ?>
+
+        if($pagename != "california"){
+
+            $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT'); 
+ 
+            if ( $child_pages ) {
+                foreach ( $child_pages as $pageChild ) {
+                    setup_postdata( $pageChild ); ?>
+                      <?php // echo get_the_post_thumbnail($pageChild->ID, 'thumbnail'); ?>
+                         <a href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>">
+                            <?php echo $pageChild->post_title; ?>
+                         </a>
+            <?php 
+                }
+            } else {
+                ?><a href="#pricing" onclick="history.go(-1);"><i class="fa fa-arrow-circle-o-left"></i><span>Prevous </span></a><?
+            }
+        }
+        ?>
 
         </div>
     </div>
@@ -88,13 +109,8 @@
     <nav class="st-menu st-effect-6" id="menu-6">
         <h2 class="icon icon-stack"></h2>
         <?
-        wp_nav_menu(array(
-                         'theme_location' => 'primary_navigation',
-                         'walker' => new roots_nav_walker(),
-                         'menu_id' => 'topmenu',
-                         'menu_class' => '',
-                         'fallback_cb' => 'prime_menu_fallback'
-                    ));
+        wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(), 
+                         'menu_id' => 'topmenu', 'menu_class' => '', 'fallback_cb' => 'prime_menu_fallback' ));
         ?>
     </nav>
 
@@ -126,9 +142,9 @@
                             <img src="<? echo $work_dir; ?>/images/bird.png" class="header-img">
                             <div class="header-wrapper">
                                 <h1>Finch Moving <span>Company</span></h1>          
-                                <p>One out of every five Californians require moving services each year. Now that you have found yourself among this group, you can make your move a positive and exciting experience with Finch Movers.</p>
-
-
+                                <p>One out of every five Californians require moving services each year. 
+                                Now that you have found yourself among this group, you can make your move a 
+                                positive and exciting experience with Finch Movers.</p>
                                 <div class="buttons-wrapper">
                                     <a href="#estimate" id="btn-es-go" class="button">Free Estimate <i class="ico li_paperplane"></i></a>
                                 </div>

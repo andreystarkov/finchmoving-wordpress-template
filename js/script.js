@@ -8,6 +8,7 @@ $(document).ready(function(){
     $('.wpcf7 label').each(function(){
       $(this).parent().find('.input-text').attr("placeholder", $(this).html()); $(this).remove();
     });  
+
     $.fn.waypoint.defaults = {
       context: '.main',
       continuous: true,

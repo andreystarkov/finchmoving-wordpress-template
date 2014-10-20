@@ -1,6 +1,16 @@
 
         <? 
+        function getSubMenus($wpdb,$post){
+             $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT'); 
+            if ( $child_pages ) {
+                foreach ( $child_pages as $pageChild ) {
+                    setup_postdata( $pageChild ); ?><a class="submenu-item" href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>"><?php echo $pageChild->post_title; ?></a><?php 
+                }
+            }
+        }
+
         $work_dir = "/wp-content/themes/nexus";
+
         if($pagename != "california"){ ?>       
         <div class="box-light anchor" id="estimate">
                 <div class="wrap box-estimate">
@@ -24,13 +34,7 @@
                     </div>
                     <div class="box-form waypoint">
                         <div class="forms-form clearfix">
-                            <form action="">
-                                <input type="email" placeholder="First Name" class="input-text">
-                                <input type="email" placeholder="Last Name" class="input-text">
-                                <input type="email" placeholder="E-Mail Address" class="input-text">
-                                <input type="email" placeholder="Phone Number" class="input-text">
-                                <button class="button button-submit" style="width: 100%"><i class='ico li_paperplane'></i> Get a Free Quote!</button>
-                            </form>
+                          <?php get_sidebar(); ?>
                         </div>
                     </div>
                 </div>
@@ -73,6 +77,20 @@
     <script src="<? echo $work_dir; ?>/js/script.js"></script>
     <script src="<? echo $work_dir; ?>/js/classie.js"></script>
     <script src="<? echo $work_dir; ?>/js/sidebarEffects.js"></script>
+
+    <script src="<? echo $work_dir; ?>/js/svgicons-config.js"></script>
+    <script src="<? echo $work_dir; ?>/js/svgicons.js"></script>
+
+    <script>
+    $(function() {
+
+        $('.current-menu-item').append('<? getSubMenus($wpdb,$post); ?>');
+        [].slice.call( document.querySelectorAll( '.si-icon' ) ).forEach( function( el ) {
+            var svgicon = new svgIcon( el, svgIconConfig );
+        } );
+ 
+    });
+    </script>
 
 </body>
 </html>

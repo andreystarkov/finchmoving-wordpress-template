@@ -37,13 +37,17 @@
 			el.addEventListener( eventtype, function( ev ) {
 				ev.stopPropagation();
 				ev.preventDefault();
-				container.className = 'st-container'; // clear
-				classie.add( container, effect );
-				setTimeout( function() {
-				
-					classie.add( container, 'st-menu-open' );
-				}, 25 );
-				document.addEventListener( eventtype, bodyClickFn );
+				if (document.getElementById('st-container').classList.contains('st-menu-open')){  
+					resetMenu();
+					document.removeEventListener( eventtype, bodyClickFn );
+				} else {
+					container.className = 'st-container'; // clear
+					classie.add( container, effect );
+					setTimeout( function() {
+						classie.add( container, 'st-menu-open' );
+					}, 25 );
+					document.addEventListener( eventtype, bodyClickFn );
+				}
 			});
 		} );
 
