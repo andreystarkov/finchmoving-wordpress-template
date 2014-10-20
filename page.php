@@ -4,6 +4,7 @@
             <div class="box-light clearfix anchor box-content" id="info">
                 <div class="wrap">
                     <div class="box-full clearfix">
+                    <h2><? echo get_the_title(); ?> </h2>
                     <?php roots_loop_before(); ?>
                     <?php get_template_part('loop', 'page'); ?>
                     <?php roots_loop_after(); ?>

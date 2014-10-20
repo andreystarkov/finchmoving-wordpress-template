@@ -5,7 +5,7 @@ Template Name: Page with Left Sidebar
 ?>
 <?php get_header(); ?>
 
-            <div class="comments clearfix bg-green anchor" id="reviews">
+        <!--       <div class="comments clearfix bg-green anchor" id="reviews">
                 <div class="wrap">
                     <div class="tab waypoint box-reviews">
                         <div class="box visible">
@@ -38,7 +38,7 @@ Template Name: Page with Left Sidebar
 
             </div>
 
-            <!-- /.comments clearfix -->
+          /.comments clearfix 
 
             <div class="box-light clearfix anchor" id="pricing">
                 <div class="wrap">
@@ -114,6 +114,6 @@ Template Name: Page with Left Sidebar
              <?php get_sidebar(); ?>
                                  </div>
                  </div>
-             </div>
+             </div>-->
 <?php get_footer(); ?>
 

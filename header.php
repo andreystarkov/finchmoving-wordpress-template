@@ -4,7 +4,7 @@
     <? $work_dir = "/wp-content/themes/nexus"; ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="fav.png" />
+    <link rel="icon" type="image/png" href="<? echo $work_dir; ?>/images/fav.png" />
 
     <title><?php
     if (!defined('WPSEO_VERSION')) {
@@ -15,12 +15,11 @@
         wp_title('');
     }?></title>
 
-    <link rel="apple-touch-icon" sizes="72x72" href="images/touch/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/touch/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="images/touch/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<? echo $work_dir; ?>images/touch/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<? echo $work_dir; ?>images/touch/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<? echo $work_dir; ?>images/touch/apple-touch-icon-144x144.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="telephone=8559696683">
 
     <?php // wp_head(); ?>
     <?php // roots_head(); ?>
@@ -30,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/fullwidth-slider.css" />
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/svg-icons.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/tooltipster.css" />
 
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/fonts/bebasneue/bebasneue.css" />
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/fonts/alegreya/alegreya.css" />
@@ -124,11 +124,14 @@
                  <div id="nice-slider" class="nice-slider nice-slider-fullwidth">
 
                       <ul class="itemwrap">
+
                         <li class="current"><img src="<? echo $work_dir; ?>/images/beach1.jpg" alt="img07"/></li>
+                        <li><img src="<? echo $work_dir; ?>/images/slides/3.jpg" alt="img08"/></li>
                         <li><img src="<? echo $work_dir; ?>/images/beach.jpg" alt="img08"/></li>
-                        <li><img src="<? echo $work_dir; ?>/images/guy-1b.jpg" alt="img08"/></li>
+                        <li><img src="<? echo $work_dir; ?>/images/slides/1.jpg" alt="img08"/></li>
                         <li><img src="<? echo $work_dir; ?>/images/house.jpg" alt="img08"/></li>
-                        <li><img src="<? echo $work_dir; ?>/images/truck-2.jpg" alt="img08"/></li>
+                        <li><img src="<? echo $work_dir; ?>/images/slides/2.jpg" alt="img08"/></li>
+                        <li><img src="<? echo $work_dir; ?>/images/slides/4.jpg" alt="img08"/></li>
                       </ul>
 
                       <div class="top-wrap">
@@ -146,7 +149,7 @@
                                 Now that you have found yourself among this group, you can make your move a 
                                 positive and exciting experience with Finch Movers.</p>
                                 <div class="buttons-wrapper">
-                                    <a href="#estimate" id="btn-es-go" class="button">Free Estimate <i class="ico li_paperplane"></i></a>
+                                    <a href="#estimate" id="btn-es-go" class="button tip" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
                                 </div>
                             </div>
                             <!-- /.header-wrapper -->

@@ -1,13 +1,15 @@
 $(document).ready(function(){
 
-    $('.wpcf7-submit').removeClass('wpcf7-submit wpcf7-form-control').addClass('button button-submit');
+    $('.wpcf7-submit').addClass('button button-submit');
 
     $('.wpcf7-text').addClass('input-text').removeClass('wpcf7-form-control');
     $('.wpcf7-captchar').addClass('input-text').removeClass('wpcf7-form-control');
     $('.wpcf7-textarea').addClass('input-text').removeClass('wpcf7-form-control');
-    $('.wpcf7 label').each(function(){
+
+  /*  $('.wpcf7 label').each(function(){
       $(this).parent().find('.input-text').attr("placeholder", $(this).html()); $(this).remove();
     });  
+  */  
 
     $.fn.waypoint.defaults = {
       context: '.main',
@@ -18,6 +20,8 @@ $(document).ready(function(){
       triggerOnce: false
     }
 
+    $('.tooltip').tooltipster();
+ 
     $("body").removeClass("no-js");
 
     $('a[href="#"]').on('click',function(e){e.preventDefault();});
@@ -27,7 +31,7 @@ $(document).ready(function(){
     $(function(){
         $('.tabs').delegate('li:not(.active)','click',function(){
             $(this).addClass('active').siblings().removeClass('active').parents('.tab').find('.box').hide().eq($(this).index()).fadeIn(250);
-        })
+        });
     });
 
     if ( $(".tab").has(".tab-prev").length || $(".tab").has(".tab-next").length ) {
