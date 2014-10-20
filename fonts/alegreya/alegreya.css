@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'alegreyaregular';
+    src: url('alegreya-regular.eot');
+    src: url('alegreya-regular.eot?#iefix') format('embedded-opentype'),
+         url('alegreya-regular.woff') format('woff'),
+         url('alegreya-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alegreyablack';
+    src: url('alegreya-black.eot');
+    src: url('alegreya-black.eot?#iefix') format('embedded-opentype'),
+         url('alegreya-black.woff') format('woff'),
+         url('alegreya-black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alegreyablack_italic';
+    src: url('alegreya-blackitalic.eot');
+    src: url('alegreya-blackitalic.eot?#iefix') format('embedded-opentype'),
+         url('alegreya-blackitalic.woff') format('woff'),
+         url('alegreya-blackitalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alegreyabold';
+    src: url('alegreya-bold.eot');
+    src: url('alegreya-bold.eot?#iefix') format('embedded-opentype'),
+         url('alegreya-bold.woff') format('woff'),
+         url('alegreya-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alegreyabold_italic';
+    src: url('alegreya-bolditalic.eot');
+    src: url('alegreya-bolditalic.eot?#iefix') format('embedded-opentype'),
+         url('alegreya-bolditalic.woff') format('woff'),
+         url('alegreya-bolditalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alegreyaitalic';
+    src: url('alegreya-italic.eot');
+    src: url('alegreya-italic.eot?#iefix') format('embedded-opentype'),
+         url('alegreya-italic.woff') format('woff'),
+         url('alegreya-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: 'alegreya_scregular';
+    src: url('alegreyasc-regular.eot');
+    src: url('alegreyasc-regular.eot?#iefix') format('embedded-opentype'),
+         url('alegreyasc-regular.woff') format('woff'),
+         url('alegreyasc-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alegreya_scblack';
+    src: url('alegreyasc-black.eot');
+    src: url('alegreyasc-black.eot?#iefix') format('embedded-opentype'),
+         url('alegreyasc-black.woff') format('woff'),
+         url('alegreyasc-black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alegreya_scblack_italic';
+    src: url('alegreyasc-blackitalic.eot');
+    src: url('alegreyasc-blackitalic.eot?#iefix') format('embedded-opentype'),
+         url('alegreyasc-blackitalic.woff') format('woff'),
+         url('alegreyasc-blackitalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alegreya_scbold';
+    src: url('alegreyasc-bold.eot');
+    src: url('alegreyasc-bold.eot?#iefix') format('embedded-opentype'),
+         url('alegreyasc-bold.woff') format('woff'),
+         url('alegreyasc-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alegreya_scbold_italic';
+    src: url('alegreyasc-bolditalic.eot');
+    src: url('alegreyasc-bolditalic.eot?#iefix') format('embedded-opentype'),
+         url('alegreyasc-bolditalic.woff') format('woff'),
+         url('alegreyasc-bolditalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'alegreya_scitalic';
+    src: url('alegreyasc-italic.eot');
+    src: url('alegreyasc-italic.eot?#iefix') format('embedded-opentype'),
+         url('alegreyasc-italic.woff') format('woff'),
+         url('alegreyasc-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
