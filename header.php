@@ -1,31 +1,9 @@
     <?
-    function getSubMenus($wpdb,$post){
-         $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
-        if ( $child_pages ) {
-            foreach ( $child_pages as $pageChild ) {
-                setup_postdata( $pageChild ); ?><a class="submenu-item" href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>"><?php echo $pageChild->post_title; ?></a><?php
-            }
-        }
-    }
+     session_start();
 
-    function makeLinks($town){
-    ?>
-        <script>
-        $(function () {
-            $(".st-menu ul li a[title=services]").attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_moving_services/");
-            $(".st-menu ul li a[title=tips]").attr("href", "http://finchmovingservices.com/california/professional_movers_<? echo $town; ?>/");
-            $(".st-menu ul li a[title=about]").attr("href", "http://finchmovingservices.com/california/licensed_and_insured_movers_moving_company_<? echo $town; ?>");
-            $(".st-menu ul li a[title=home]").attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_movers_moving_companies/");
-            $(".st-menu ul li a[title=contact]").attr("href", "http://finchmovingservices.com/california/online_moving_quote_<? echo $town; ?>/");
-            $(".st-menu ul li a[title=pricing]").attr("href", "http://finchmovingservices.com/california/moving_companies_rates/<? echo $town; ?>_movers_prices/");
-         //   $(".logo a").attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_movers_moving_companies/");
-        });
-        </script>
-      <?
-    }
-
+     $pagename = get_query_var('pagename');
      $rurl = "http://finchmovingservices.com/california/";
-
+     $parent_id = $post->ID;
      $curl = $_SERVER['REQUEST_URI'];
 
      $tnames = array(
@@ -34,25 +12,31 @@
             3  => "small_moves",
             4  => "local_movers_moving_company",
             5  => "long_distance_movers_moving_company"
-     );
+    );
 
-    if(strpos($curl, "san-diego") != FALSE) $town = "san_diego";
-    if(strpos($curl, "san_diego") != FALSE) $town = "san_diego";
-    if(strpos($curl, "la_jolla") != FALSE) $town = "la_jolla";
-    if(strpos($curl, "lakeside") != FALSE) $town = "lakeside";
-    if(strpos($curl, "el_cajon") != FALSE) $town = "el_cajon";
-    if(strpos($curl, "coronado") != FALSE) $town = "coronado";
-    if(strpos($curl, "santee") != FALSE) $town = "santee";
-    if(strpos($curl, "poway") != FALSE) $town = "poway";
-    if(strpos($curl, "mission_bay") != FALSE) $town = "mission_bay";
-    if(strpos($curl, "la_mesa") != FALSE) $town = "la_mesa";
+
+    if( !empty($_SESSION["town"]) ){
+      $town = $_SESSION["town"];
+    } else {
+        if(strpos($curl, "san-diego") != FALSE) $town = "san_diego";
+        if(strpos($curl, "san_diego") != FALSE) $town = "san_diego";
+        if(strpos($curl, "la_jolla") != FALSE) $town = "la_jolla";
+        if(strpos($curl, "lakeside") != FALSE) $town = "lakeside";
+        if(strpos($curl, "el_cajon") != FALSE) $town = "el_cajon";
+        if(strpos($curl, "coronado") != FALSE) $town = "coronado";
+        if(strpos($curl, "santee") != FALSE) $town = "santee";
+        if(strpos($curl, "poway") != FALSE) $town = "poway";
+        if(strpos($curl, "mission_bay") != FALSE) $town = "mission_bay";
+        if(strpos($curl, "la_mesa") != FALSE) $town = "la_mesa";
+    }
 
      if(!empty($town)){
-         $url_trucks[1] .= $town."_moving_quote";
-         $url_trucks[2] .= $town."_packers";
-         $url_trucks[3] .= $town;
-         $url_trucks[4] .= $town;
-         $url_trucks[5] .= $town;
+         $_SESSION["town"] = $town;
+         $url_trucks[1] .= $rurl.$tnames[1]."/".$town."_moving_quote";
+         $url_trucks[2] .= $rurl.$tnames[2]."/".$town."_packers";
+         $url_trucks[3] .= $rurl.$tnames[3]."/".$town;
+         $url_trucks[4] .= $rurl.$tnames[4]."/".$town;
+         $url_trucks[5] .= $rurl.$tnames[5]."/".$town;
      }
 
 ?><!DOCTYPE HTML>
@@ -79,9 +63,6 @@
 
     <meta name="format-detection" content="telephone=8559696683">
 
-    <?php // wp_head(); ?>
-    <?php // roots_head(); ?>
-
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/component.css" />
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/font-awesome.min.css" />
@@ -95,8 +76,8 @@
 
     <!-- <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/menu_wave.css" /> -->
 
-    <!-- <link rel="stylesheet/less" type="text/css" href="<? echo $work_dir; ?>/css/style.less" /> -->
-    <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/style.css" />
+     <link rel="stylesheet/less" type="text/css" href="<? echo $work_dir; ?>/css/style.less" />
+    <!--<link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/style.css" />-->
 
     <script src="<? echo $work_dir; ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo $work_dir; ?>/js/vendor/jquery.easing.1.3.js"></script>
@@ -105,6 +86,7 @@
     <script src="<? echo $work_dir; ?>/js/vendor/jquery.tooltipster.min.js"></script>
     <script src="<? echo $work_dir; ?>/js/library.js"></script>
     <script src="<? echo $work_dir; ?>/js/script.js"></script>
+    <?php // roots_head(); ?>
 
     <script type='text/javascript' src='/wp-includes/js/admin-bar.min.js?ver=3.8.4'></script>
     <script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.50.0-2014.02.05'></script>
@@ -134,10 +116,16 @@
     <script>
     $(function() {
         $('.current-menu-item').append('<? getSubMenus($wpdb,$post); ?>');
+        $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);
+        ?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+
+        $('#footmenu').html());
+      //  alert('<? echo $parent_id; ?> ');
+       console.log('<? echo $post->post_parent; ?> ');
+      $('.tip').tooltipster();
     });
     </script>
 
-    <? if(!empty($town)) makeLinks($town); ?>
+    <? if(!empty($town)) { makeLinks($town); } ?>
     <style>
     .svg-wrap { width: 100%; height: 100%; padding: 0; margin: 0; position: relative;}
     </style>
@@ -150,44 +138,18 @@
         <div class="top-nav">
 
         <?php
+        $parent = trueParent();
 
-        $pagename = get_query_var('pagename');
+        if( $parent != false) { $parent_id = $parent; }
         if ( !$pagename && $id > 0 ) {
             $post = $wp_query->get_queried_object();
             $pagename = $post->post_name;
         }
-
-        if( ($pagename != "california") &&
-            ($pagename != "contact")
-            ){
-
-            $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
-            if ( $child_pages ) {
-
-                foreach ( $child_pages as $pageChild ) {
-                    setup_postdata( $pageChild ); ?>
-                      <?php // echo get_the_post_thumbnail($pageChild->ID, 'thumbnail'); ?>
-                         <a href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>">
-                            <?php echo $pageChild->post_title; ?>
-                         </a>
-                <?
-                }
-            } else {
-        /*      $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->post_parent." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
-                if ( $child_pages ) {
-                  foreach ( $child_pages as $pageChild ) {
-                      setup_postdata( $pageChild ); ?>
-                     <a href="<?php echo  get_permalink($pageChild->ID); ?>" <?
-                     if(get_the_title($post->ID) == $pageChild->post_title){
-                      ?> class="submenu-current" <?
-                     }
-                     ?> rel="bookmark" title="<?php echo $pageChild->post_title; ?>">
-                        <?php echo $pageChild->post_title; ?>
-                     </a>
-                  <?
-                  }
-              }*/
-            }
+        echo "<a>$parent</a>";
+        if($pagename != "california"){
+        if( $parent_id != -1 ) {
+            makeMenu($wpdb, $post, $parent_id);
+        } makeMenu($wpdb, $post, $parent_id);
         }
         ?>
 
@@ -206,7 +168,7 @@
         <h2 class="icon icon-stack"></h2>
         <?
         wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
-                         'menu_id' => 'topmenu', 'menu_class' => '', 'fallback_cb' => 'prime_menu_fallback' ));
+                         'menu_id' => 'topmenu', 'menu_class' => 'top-menu-list', 'fallback_cb' => 'prime_menu_fallback' ));
         ?>
     </nav>
 

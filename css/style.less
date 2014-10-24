@@ -3,6 +3,26 @@
 @import 'less/common.less';
 @import 'less/buttons.less';
 
+@link-color: @blue;
+@link-hover-color: @blue;
+
+
+.box-content a {
+    color: darken(desaturate(@link-color, 5%), 8%);
+    border-bottom: 2px solid fade(darken(desaturate(@link-color, 8%), 16%), 20%);
+    transition: 0.5s ease-in-out all;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-weight:500;
+    &:hover {
+        background: desaturate(@link-hover-color, 5%);
+        color: white;
+        text-shadow: 1px 1px 1px fade(@darkbrown, 50%);
+        border-bottom: 4px solid lighten(desaturate(@link-hover-color, 8%), 15%);
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
+    }
+}
+
 .st-content-inner, .st-content { overflow-x: hidden !important; }
 .input-text,.textarea,.wpcf7-form-control {
     width: 100%;
@@ -26,6 +46,8 @@
     box-sizing: border-box;
     transition: 0.6s ease-in-out all;
 }
+
+
 .input-text:focus,.textarea:focus {
     border-color: lighten(@brown, 20%);
     box-shadow: 0 2px 4px rgba(0,0,0,0.4);
@@ -134,9 +156,11 @@ header {
         }
 
         ul {
+            margin-bottom: 30px;
              border-left: 6px dashed fade(darken(desaturate(@red, 20%), 20%), 20%);
             li {
-
+                margin-top: 5px; margin-bottom:5px;
+                 font: 22px/32px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
                 padding-left: 40px;
                 span {
                     font: 20px/30px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif
@@ -167,28 +191,26 @@ header {
 
         .btn-back {
             .fa {
-                font-size:44px;
+
             }
-             padding: 10px 20px;
-             border-top-left-radius: 40px;
-             border-bottom-left-radius: 40px;
         }
+
         a {
 
-            font-size: 35px;
+            font-size: 31px;
             color: #fff;
-            background: fade(@color-links, 80%);
-            font-family: @caps-head;
+            font-family: @caps-narrow;
             margin: 6px;
             display: inline-block;
-            padding: 16px 25px;
+            padding: 14px 23px;
             border-radius: 5px;
-            border-bottom: 5px solid fade(darken(@color-links, 3%), 80%);
             transform: 0.5s;
             transition: 0.6 ease-in-out all;
-
+            border-bottom: 4px solid darken(desaturate(@purple, 19%),15%);
+            background: desaturate(@purple, 19%);
+            box-shadow: 0 5px 12px fade(@brown, 35%);
             &:hover {
-                transform: perspective(100px) rotateX(3deg);
+                transform: perspective(100px) rotateX(6deg);
                 text-shadow: 0px 1px 3px fade(@darkbrown, 50%);
                 background: fade(@red, 80%);
                 border-bottom: 4px solid darken(fade(@red, 80%), 20%);
@@ -563,6 +585,7 @@ i,span { color: fade(@light, 40%); }
     margin-bottom:25px;
     font-weight:500;
 }
+
 
 .img-blur-1 {
     background: url(../images/guys-blur.jpg);
