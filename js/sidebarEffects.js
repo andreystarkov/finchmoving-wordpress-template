@@ -26,6 +26,7 @@
 			},
 			bodyClickFn = function(evt) {
 				if( !hasParentClass( evt.target, 'st-menu' ) ) {
+
 					resetMenu();
 					document.removeEventListener( eventtype, bodyClickFn );
 				}

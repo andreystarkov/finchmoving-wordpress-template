@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <? $work_dir = "/wp-content/themes/nexus"; ?>
+    <? $work_dir = "/wp-content/themes/nexus"; 
+    ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="<? echo $work_dir; ?>/images/fav.png" />
@@ -65,16 +66,7 @@
 <div id="st-container" class="st-container container">
 
 <div class="st-pusher content">
-
-    <div id="st-trigger-effects">
-
-        <button class="btn-nav" data-effect="st-effect-6">
-            <div class="svg-wrap">
-                <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
-            </div>
-        </button>
-
-        <div class="top-nav" style="display: none">
+        <div class="top-nav">
 
         <?php
 
@@ -87,23 +79,44 @@
         if($pagename != "california"){
 
             $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT'); 
- 
             if ( $child_pages ) {
+
                 foreach ( $child_pages as $pageChild ) {
                     setup_postdata( $pageChild ); ?>
                       <?php // echo get_the_post_thumbnail($pageChild->ID, 'thumbnail'); ?>
                          <a href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>">
                             <?php echo $pageChild->post_title; ?>
                          </a>
-            <?php 
-                }
-            } else {
-                ?><a href="#pricing" onclick="history.go(-1);"><i class="fa fa-arrow-circle-o-left"></i><span>Prevous </span></a><?
+                <?
+                } 
+            } else { 
+              $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->post_parent." AND post_type = 'page' ORDER BY menu_order", 'OBJECT'); 
+                if ( $child_pages ) {
+                  foreach ( $child_pages as $pageChild ) {
+                      setup_postdata( $pageChild ); ?>
+                     <a href="<?php echo  get_permalink($pageChild->ID); ?>" <? 
+                     if(get_the_title($post->ID) == $pageChild->post_title){
+                      ?> class="submenu-current" <?
+                     }
+                     ?> rel="bookmark" title="<?php echo $pageChild->post_title; ?>">
+                        <?php echo $pageChild->post_title; ?> 
+                     </a>
+                  <? 
+                  } 
+              }
             }
         }
         ?>
 
         </div>
+    <div id="st-trigger-effects">
+
+        <button class="btn-nav" data-effect="st-effect-6">
+            <div class="svg-wrap">
+                <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
+            </div>
+        </button>
+
     </div>
 
     <nav class="st-menu st-effect-6" id="menu-6">
@@ -125,11 +138,12 @@
 
                       <ul class="itemwrap">
 
-                        <li class="current"><img src="<? echo $work_dir; ?>/images/beach1.jpg" alt="img07"/></li>
+                        <li class="current"><img src="<? echo $work_dir; ?>/images/house.jpg" alt="img08"/></li>
                         <li><img src="<? echo $work_dir; ?>/images/slides/3.jpg" alt="img08"/></li>
+                        <li><img src="<? echo $work_dir; ?>/images/beach1.jpg" alt="img07"/></li>
                         <li><img src="<? echo $work_dir; ?>/images/beach.jpg" alt="img08"/></li>
                         <li><img src="<? echo $work_dir; ?>/images/slides/1.jpg" alt="img08"/></li>
-                        <li><img src="<? echo $work_dir; ?>/images/house.jpg" alt="img08"/></li>
+
                         <li><img src="<? echo $work_dir; ?>/images/slides/2.jpg" alt="img08"/></li>
                         <li><img src="<? echo $work_dir; ?>/images/slides/4.jpg" alt="img08"/></li>
                       </ul>
