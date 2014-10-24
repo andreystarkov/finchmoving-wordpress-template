@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
     function animateHeader(){
@@ -30,8 +31,6 @@ $(document).ready(function(){
         }, 400);
 
     }
-
-
 
     function waypointsInit(){
           /*  $('.promo').css({scale: 0, perspective: '100px', rotateX: '90deg'});

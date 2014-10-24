@@ -5,8 +5,10 @@
 
 @link-color: @blue;
 @link-hover-color: @blue;
-#wpadminbar { z-index: 9999999999999999; }
+
+#wpadminbar { z-index: 9999999999999999; display: block !important; }
 .footer-menu {  position: relative; }
+
 #footer-nav {
 
         li {
@@ -39,7 +41,8 @@
     }
 }
 
-    .svg-wrap { width: 100%; height: 100%; padding: 0; margin: 0; position: relative;}
+.svg-wrap { width: 100%; height: 100%; padding: 0; margin: 0; position: relative;}
+
 .box-content a {
     color: darken(desaturate(@link-color, 5%), 8%);
     border-bottom: 2px solid fade(darken(desaturate(@link-color, 8%), 16%), 20%);
@@ -224,16 +227,21 @@ header {
 
         .btn-back {
             .fa {
-
+                float:none !important;
             }
         }
 
         a {
 
+            i {
+                font-size: 28px; margin-right: 18px; float: left; margin-right: 12px; display: inline-block;
+            }
+
             font-size: 31px;
             color: #fff;
             font-family: @caps-narrow;
             margin: 6px;
+            font-weight: 400;
             display: inline-block;
             padding: 14px 23px;
             border-radius: 5px;
@@ -409,21 +417,19 @@ header {
     width: 300px;
     height: 100%;
     background: darken(desaturate(@red, 20%), 10%);
-    //  background: url(../images/bg/creampaper1.png) repeat;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-
-
 
     ul {
         margin: 0;
         padding: 0;
         list-style: none;
+
         .current-menu-item {
             background: darken(desaturate(@red, 20%), 15%);
-
             a {      text-shadow: 0px 1px 4px fade(@brown, 50%); }
         }
+
         li {
             a {
                 display: block;
@@ -442,7 +448,8 @@ header {
             .submenu-item {
                 padding-left:2.2em;
             }
-            i { font-size: 24px; margin-right: 12px; }
+
+            i { font-size: 24px; margin-right: 12px; float: left; margin-right: 12px; display: inline-block; }
             a:hover {
                 background: rgba(0,0,0,0.2);
                 box-shadow: inset 0 -1px rgba(0,0,0,0);
@@ -1207,10 +1214,24 @@ header {
     box-sizing: border-box;
     h2,h1,h3 {
         font-family: @caps-head;
-        font-size: 72px;
-        line-height: 72px;
         font-weight: bold;
         margin-bottom: 29px;
+    }
+    h1 {
+        font-size: 72px;
+        line-height: 75px;
+    }
+    h2 {
+        font-size:62px;
+        line-height: 65px;
+    }
+    h3 {
+        font-size: 52px;
+        line-height: 55px;
+    }
+    h4 {
+        font-size: 35px;
+        line-height: 45px;
     }
 }
 
