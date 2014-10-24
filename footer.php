@@ -1,17 +1,10 @@
 
-        <? 
-        function getSubMenus($wpdb,$post){
-             $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT'); 
-            if ( $child_pages ) {
-                foreach ( $child_pages as $pageChild ) {
-                    setup_postdata( $pageChild ); ?><a class="submenu-item" href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>"><?php echo $pageChild->post_title; ?></a><?php 
-                }
-            }
-        }
+        <?
+
 
         $work_dir = "/wp-content/themes/nexus";
 
-        if($pagename != "california"){ ?>       
+        if($pagename != "california"){ ?>
         <div class="box-light anchor" id="estimate">
                 <div class="wrap box-estimate">
                     <div class="box-light-content">
@@ -48,8 +41,8 @@
                     <div class="box-light-content clearfix">
                         <h2>see also:</h2>
                             <?
-                            $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT'); 
-                           if ( $child_pages ) {
+                            $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
+                            if ( $child_pages ) {
 
                                 foreach ( $child_pages as $pageChild ) {
                                     setup_postdata( $pageChild ); ?>
@@ -57,8 +50,8 @@
                                          <a href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>">
                                             <?php echo $pageChild->post_title; ?>
                                          </a>
-                            <?php 
-                                } 
+                            <?php
+                                }
                             }?>
                     </div>
                 </div>
@@ -90,40 +83,14 @@
 </div>
 </div>
 
-    <script src="<? echo $work_dir; ?>/js/vendor/jquery-2.1.1.min.js"></script>
-    <script src="<? echo $work_dir; ?>/js/vendor/jquery.easing.1.3.js"></script>
-    <script src="<? echo $work_dir; ?>/js/vendor/waypoints.min.js"></script>
-    <script src="<? echo $work_dir; ?>/js/vendor/jquery.transit.min.js"></script>
-    <script src="<? echo $work_dir; ?>/js/vendor/jquery.tooltipster.min.js"></script>
 
-    <script src="<? echo $work_dir; ?>/js/library.js"></script>
     <script src="<? echo $work_dir; ?>/js/retina.js"></script>
     <script src="<? echo $work_dir; ?>/js/fullwidth-slider.js"></script>
-    <script src="<? echo $work_dir; ?>/js/script.js"></script>
     <script src="<? echo $work_dir; ?>/js/classie.js"></script>
     <script src="<? echo $work_dir; ?>/js/sidebarEffects.js"></script>
 
     <script src="<? echo $work_dir; ?>/js/svgicons-config.js"></script>
     <script src="<? echo $work_dir; ?>/js/svgicons.js"></script>
-
-    <script type='text/javascript' src='/wp-includes/js/admin-bar.min.js?ver=3.8.4'></script>
-    <script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.50.0-2014.02.05'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var _wpcf7 = {"loaderUrl":"http:\/\/finchmovingservices.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.7.2'></script>
-    <script type="text/javascript">
-            (function() {
-                var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
-
-                request = true;
-
-                b[c] = b[c].replace( rcs, ' ' );
-                b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
-            }());
-    </script>
 
     <script>
     $(function() {

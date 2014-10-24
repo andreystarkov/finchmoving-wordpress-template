@@ -1,7 +1,62 @@
-<!DOCTYPE HTML>
+    <?
+    function getSubMenus($wpdb,$post){
+         $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
+        if ( $child_pages ) {
+            foreach ( $child_pages as $pageChild ) {
+                setup_postdata( $pageChild ); ?><a class="submenu-item" href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>"><?php echo $pageChild->post_title; ?></a><?php
+            }
+        }
+    }
+
+    function makeLinks($town){
+    ?>
+        <script>
+        $(function () {
+            $(".st-menu ul li a[title=services]").attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_moving_services/");
+            $(".st-menu ul li a[title=tips]").attr("href", "http://finchmovingservices.com/california/professional_movers_<? echo $town; ?>/");
+            $(".st-menu ul li a[title=about]").attr("href", "http://finchmovingservices.com/california/licensed_and_insured_movers_moving_company_<? echo $town; ?>");
+            $(".st-menu ul li a[title=home]").attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_movers_moving_companies/");
+            $(".st-menu ul li a[title=contact]").attr("href", "http://finchmovingservices.com/california/online_moving_quote_<? echo $town; ?>/");
+            $(".st-menu ul li a[title=pricing]").attr("href", "http://finchmovingservices.com/california/moving_companies_rates/<? echo $town; ?>_movers_prices/");
+         //   $(".logo a").attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_movers_moving_companies/");
+        });
+        </script>
+      <?
+    }
+
+     $rurl = "http://finchmovingservices.com/california/";
+
+     $curl = $_SERVER['REQUEST_URI'];
+
+     $tnames = array(
+            1  => "free_moving_estimate",
+            2  => "packing_services",
+            3  => "small_moves",
+            4  => "local_movers_moving_company",
+            5  => "long_distance_movers_moving_company"
+     );
+
+    if(strpos($curl, "san-diego") != FALSE) $town = "san_diego";
+    if(strpos($curl, "san_diego") != FALSE) $town = "san_diego";
+    if(strpos($curl, "la_jolla") != FALSE) $town = "la_jolla";
+    if(strpos($curl, "lakeside") != FALSE) $town = "lakeside";
+    if(strpos($curl, "el_cajon") != FALSE) $town = "el_cajon";
+    if(strpos($curl, "coronado") != FALSE) $town = "coronado";
+    if(strpos($curl, "santee") != FALSE) $town = "santee";
+    if(strpos($curl, "poway") != FALSE) $town = "poway";
+    if(strpos($curl, "mission_bay") != FALSE) $town = "mission_bay";
+    if(strpos($curl, "la_mesa") != FALSE) $town = "la_mesa";
+
+     $url_trucks[1] .= $town."_moving_quote";
+     $url_trucks[2] .= $town."_packers";
+     $url_trucks[3] .= $town;
+     $url_trucks[4] .= $town;
+     $url_trucks[5] .= $town;
+
+?><!DOCTYPE HTML>
 <html>
 <head>
-    <? $work_dir = "/wp-content/themes/nexus"; 
+    <? $work_dir = "/wp-content/themes/nexus";
     ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,6 +95,24 @@
 
     <link rel="stylesheet/less" type="text/css" href="<? echo $work_dir; ?>/css/style.less" />
 
+
+    <script src="<? echo $work_dir; ?>/js/vendor/jquery-2.1.1.min.js"></script>
+    <script src="<? echo $work_dir; ?>/js/vendor/jquery.easing.1.3.js"></script>
+    <script src="<? echo $work_dir; ?>/js/vendor/waypoints.min.js"></script>
+    <script src="<? echo $work_dir; ?>/js/vendor/jquery.transit.min.js"></script>
+    <script src="<? echo $work_dir; ?>/js/vendor/jquery.tooltipster.min.js"></script>
+    <script src="<? echo $work_dir; ?>/js/library.js"></script>
+    <script src="<? echo $work_dir; ?>/js/script.js"></script>
+
+    <script type='text/javascript' src='/wp-includes/js/admin-bar.min.js?ver=3.8.4'></script>
+    <script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.50.0-2014.02.05'></script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var _wpcf7 = {"loaderUrl":"http:\/\/finchmovingservices.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
+    /* ]]> */
+    </script>
+    <script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.7.2'></script>
+
     <!--[if lt IE 9]>
         <script src="<? echo $work_dir; ?>/js/html5.js"></script>
         <script src="<? echo $work_dir; ?>/js/respond.js"></script>
@@ -55,11 +128,17 @@
 
     <script src="<? echo $work_dir; ?>/js/classie.js"></script>
     <!-- <script src="<? echo $work_dir; ?>/js/menu.js"></script>  -->
-    <script src="<? echo $work_dir; ?>/js/sidebarEffects.js"></script>
 
+    <script>
+    $(function() {
+        $('.current-menu-item').append('<? getSubMenus($wpdb,$post); ?>');
+    });
+    </script>
+
+    <? makeLinks($town); ?>
     <style>
     .svg-wrap { width: 100%; height: 100%; padding: 0; margin: 0; position: relative;}
-    </style>    
+    </style>
 </head>
 <body class="no-js">
 
@@ -76,9 +155,11 @@
             $pagename = $post->post_name;
         }
 
-        if($pagename != "california"){
+        if( ($pagename != "california") &&
+            ($pagename != "contact")
+            ){
 
-            $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT'); 
+            $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
             if ( $child_pages ) {
 
                 foreach ( $child_pages as $pageChild ) {
@@ -88,22 +169,22 @@
                             <?php echo $pageChild->post_title; ?>
                          </a>
                 <?
-                } 
-            } else { 
-              $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->post_parent." AND post_type = 'page' ORDER BY menu_order", 'OBJECT'); 
+                }
+            } else {
+        /*      $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->post_parent." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
                 if ( $child_pages ) {
                   foreach ( $child_pages as $pageChild ) {
                       setup_postdata( $pageChild ); ?>
-                     <a href="<?php echo  get_permalink($pageChild->ID); ?>" <? 
+                     <a href="<?php echo  get_permalink($pageChild->ID); ?>" <?
                      if(get_the_title($post->ID) == $pageChild->post_title){
                       ?> class="submenu-current" <?
                      }
                      ?> rel="bookmark" title="<?php echo $pageChild->post_title; ?>">
-                        <?php echo $pageChild->post_title; ?> 
+                        <?php echo $pageChild->post_title; ?>
                      </a>
-                  <? 
-                  } 
-              }
+                  <?
+                  }
+              }*/
             }
         }
         ?>
@@ -122,7 +203,7 @@
     <nav class="st-menu st-effect-6" id="menu-6">
         <h2 class="icon icon-stack"></h2>
         <?
-        wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(), 
+        wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
                          'menu_id' => 'topmenu', 'menu_class' => '', 'fallback_cb' => 'prime_menu_fallback' ));
         ?>
     </nav>
@@ -158,9 +239,9 @@
                         <div class="flt">
                             <img src="<? echo $work_dir; ?>/images/bird.png" class="header-img">
                             <div class="header-wrapper">
-                                <h1>Finch Moving <span>Company</span></h1>          
-                                <p>One out of every five Californians require moving services each year. 
-                                Now that you have found yourself among this group, you can make your move a 
+                                <h1>Finch Moving <span>Company</span></h1>
+                                <p>One out of every five Californians require moving services each year.
+                                Now that you have found yourself among this group, you can make your move a
                                 positive and exciting experience with Finch Movers.</p>
                                 <div class="buttons-wrapper">
                                     <a href="#estimate" id="btn-es-go" class="button tip" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
@@ -180,37 +261,37 @@
             <div class="promo clearfix section-cars">
                 <div class="wrap">
                     <div class="promo-wrapper clearfix">
-                        <div id="car-1" class="promo-column car-item">
+                        <a id="car-1" href="<?echo $url_trucks[1]; ?>" class="promo-column car-item">
                             <img src="<? echo $work_dir; ?>/images/1.png" alt="">
                             <h5>Free Estimate</h5>
                             <p>Accurate visual free moving estimate. Per your request our certified move consultant will meet with you in person to conduct free moving quote at no cost or obligation.</p>
-                        </div>
-                        <div id="car-2" class="promo-column car-item">
+                        </a>
+                        <a id="car-2" href="<?echo $url_trucks[2]; ?>" class="promo-column car-item">
                             <img src="<? echo $work_dir; ?>/images/2.png"  alt="">
                             <h5>Full Packing</h5>
                             <p>High quality packing services California. Packing can be a very stressful task that requires a significant commitment of time and energy. </p>
-                        </div>
-                        <div id="car-3" class="promo-column car-item">
+                        </a>
+                        <a id="car-3" href="<?echo $url_trucks[3]; ?>" class="promo-column car-item">
                             <img src="<? echo $work_dir; ?>/images/3.png"  alt="">
                             <h5>Small Moves</h5>
                             <p>Interactively procrastinate high-payoff content without backward-compatible data. </p>
-                        </div>
-                        <div id="car-4" class="promo-column car-item">
+                        </a>
+                        <a id="car-4" href="<?echo $url_trucks[4]; ?>" class="promo-column car-item">
                             <img src="<? echo $work_dir; ?>/images/4.png"  alt="">
                             <h5>Local Movers</h5>
                             <p>Proudly servicing entire California. Local Movers California provide professional and efficient moving solutions.</p>
-                        </div> 
+                        </a>
 
-                        <div id="car-5" class="promo-column car-item" id="long">
+                        <a id="car-5" href="<?echo $url_trucks[5]; ?>" class="promo-column car-item" id="long">
                             <img src="<? echo $work_dir; ?>/images/5.png" width="273" style="width:273px" alt="">
                             <h5>Long Distance Movers</h5>
                             <p>Credibly innovate granular internal or "organic" sources whereas high standards in web-readiness. </p>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
 
-        <? if($pagename == "california"){ ?>       
+        <? if($pagename == "california"){ ?>
         <div class="box-light anchor" id="estimate">
                 <div class="wrap box-estimate">
                     <div class="box-light-content">
@@ -246,4 +327,4 @@
             </div>
             <? } ?>
 
-                  
+
