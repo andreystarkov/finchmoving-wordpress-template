@@ -1,22 +1,22 @@
-    <?
-    session_start();
+<?
 
-     $pagename = get_query_var('pagename');
-     $rurl = "http://finchmovingservices.com/california/";
+    $tnames = array(
+        1  => "free_moving_estimate",
+        2  => "packing_services",
+        3  => "small_moves",
+        4  => "local_movers_moving_company",
+        5  => "long_distance_movers_moving_company"
+    );
 
-     $curl = $_SERVER['REQUEST_URI'];
+    $work_dir = "/wp-content/themes/nexus";
 
-     $tnames = array(
-            1  => "free_moving_estimate",
-            2  => "packing_services",
-            3  => "small_moves",
-            4  => "local_movers_moving_company",
-            5  => "long_distance_movers_moving_company"
-     );
+    $pagename = get_query_var('pagename');
+    $rurl = "http://finchmovingservices.com/california/";
+    $curl = $_SERVER['REQUEST_URI'];
+    $town = getTown($curl);
 
-
-     $town = getTown($curl);
-
+    $parent_id = $post->ID;
+    $parent_id = getTrueParentId($curl);
 
      if( !empty($town) ){
         $_SESSION["town"] == $town;
@@ -25,11 +25,10 @@
             $town = "san_diego";
             $_SESSION["town"] = "san_diego";
         }
-     }
+    }
 
     if( !empty($_SESSION["town"]) ){
       $town = $_SESSION["town"];
-    } else {
     }
 
      if(!empty($town)){
@@ -40,14 +39,10 @@
          $url_trucks[4] .= $rurl.$tnames[4]."/".$town;
          $url_trucks[5] .= $rurl.$tnames[5]."/".$town;
      }
-            $parent_id = $post->ID;
-            $parent_id = getTrueParentId($curl);
 
 ?><!DOCTYPE HTML>
 <html>
 <head>
-    <? $work_dir = "/wp-content/themes/nexus";
-    ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="<? echo $work_dir; ?>/images/fav.png" />
