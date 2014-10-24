@@ -16,8 +16,8 @@
         </div>
   </div>
 
-          <div id="subpages" class="slide-1 clearfix img-blur-1 box-img waypoint">
-          <div class="wrap"><div class="box-light-content clearfix">
+          <div id="subpages" class="slide-1 clearfix img-blur-1 box-img">
+          <div class="wrap"><div class="box-light-content clearfix waypoint">
             <?
             $curl = $_SERVER['REQUEST_URI'];
             $parent_id = $post->ID;

@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
     function animateHeader(){
@@ -7,31 +8,29 @@ $(document).ready(function(){
         $('.header-wrapper .button').css({y: '300px', opacity: 0});
 
         setTimeout(function() {
-          $('header h1').transition({y: '0px', x: '0px', rotate: '-15deg', scale:'0.8'}, 300, 'easeOutExpo', function(){
-                $('header h1').transition({scale:'1.1', rotate: '5deg'}, 300, 'easeInOutCirc', function(){
+          $('header h1').transition({y: '0px', x: '0px', rotate: '-15deg', scale:'0.8'},300, 'easeOutExpo', function(){
+                $('header h1').transition({scale:'1.1', rotate: '5deg'}, 400, 'easeInOutCirc', function(){
                     $(this).transition({scale:1,rotate: '0'}, 'easeInOutCirc');
                     $('header p').transition({
                          x: '0px',
                         rotate: '0deg', scale: 0.85
-                    }, 500, 'easeOutBack', function(){
-                            $(this).transition({x:'0px', rotate: '0deg', scale: 1}, 200, 'easeOutExpo');
+                    }, 600, 'easeOutBack', function(){
+                            $(this).transition({x:'0px', rotate: '0deg', scale: 1}, 300, 'easeOutExpo');
                             $('.header-wrapper .button').transition({y: '0', opacity: 1}, 'easeInOutCirc');
                     });
                 });
           });
-        }, 800);
+        }, 500);
 
         setTimeout(function() {
           $('.header-img').transition({y: '0px', rotate: '-35deg', scale:'1.1'}, 400, 'easeOutExpo', function(){
-                $('.header-img').transition({rotate: '15deg', scale:'1'}, 300, 'easeInOutCirc', function(){
+                $('.header-img').transition({rotate: '15deg', scale:'1'},500, 'easeInOutCirc', function(){
                     $(this).transition({y: '0px', rotate: '0deg', scale: '1'}, 300, 'easeOutExpo');
                 });
           });
-        }, 400);
+        }, 300);
 
     }
-
-
 
     function waypointsInit(){
           /*  $('.promo').css({scale: 0, perspective: '100px', rotateX: '90deg'});
@@ -41,7 +40,7 @@ $(document).ready(function(){
                  $('#estimate').transition({y: '0px'}, 500, 'easeInOutCirc');
             }, { offset: '20%', triggerOnce: true });
         */
-
+        $('.waypoint').css({ scale: '0', rotate: '90deg'});
         $('.section-cars').css({ padding: '0', height: '0px'});
         $('.wp-appear').css({ x: '1800px' });
         $('.car-item').css({x: '1500px', scale: '0'});
@@ -55,6 +54,9 @@ $(document).ready(function(){
                 });
         });
 
+        $('.waypoint').waypoint(function(direction) {
+            $(this).transition({ scale: '1', rotate: '0deg'}, 800, 'easeOutBack');
+        }, {offset: '75%', triggerOnce: true});
 
         $('.wp-appear').waypoint(function(direction) {
             $(this).transition({ x: '0'}, 1200, 'easeOutBack');
@@ -72,27 +74,27 @@ $(document).ready(function(){
         }, {offset: '75%', triggerOnce: true}); */
 
 
-        $('#estimate').waypoint(function(direction) {
-            $('.ico', this).transition({scale: '1.5', x: '-50px', rotate: '80deg'}, 800, 'easeOutBack', function(){
-                $(this).transition({scale: '0.8', x: '30px', rotate: '-20deg'}, 900, function(){
+        $('.box-light').waypoint(function(direction) {
+            $('.ico', this).transition({scale: '1.5', x: '-50px', rotate: '80deg'}, 1000, 'easeOutBack', function(){
+                $(this).transition({scale: '0.8', x: '30px', rotate: '-20deg'}, 1100, function(){
                     $(this).transition({scale: '1', x: '0px', rotate: '0deg'}, 1200, 'easeOutBack');
                  //   $('.box-estimate h2').transition({backgroundColor: '#dc8c2b'});
                 });
             })
             $('.section-cars').transition({ height:'auto', x: '0px', scale: '1', padding: '35px 0 5px'}, function(){
                 for(var i = 0; i < 6; i++){
-                    $('#car-'+i).transition({x: '0px', scale: '1'}, 300*i, 'easeOutBack');
+                    $('#car-'+i).transition({x: '0px', scale: '1'}, 400*i, 'easeOutBack');
                 }
             });
 
-        }, {offset: '65%', triggerOnce: true});
+        }, {offset: '78%', triggerOnce: true});
 
         $('#pricing').waypoint(function(direction) {
                 for(var i = 0; i < 4; ++i){
                     $('#price-'+i).transition({x: '0px', scale: '1', rotate: '0deg'}, 550*i, 'easeOutBack');
                 }
 
-        }, {offset: '10%', triggerOnce: true});
+        }, {offset: '70%', triggerOnce: true});
 
     }
 
@@ -198,8 +200,7 @@ $(document).ready(function(){
 
                 })
             });
-  //  waypointsInit();
-   // animateHeader();
+
 /*
     $('.header-img').each(function(){ $(this).transition({x:'1500px'},1); });
 

@@ -1,29 +1,16 @@
 
-        <?
 
-
-        $work_dir = "/wp-content/themes/nexus";
-
+       <?
         if($pagename != "california"){ ?>
         <div class="box-light anchor" id="estimate">
                 <div class="wrap box-estimate">
-                    <div class="box-light-content">
+                    <div class="box-light-content waypoint">
                         <h2>Free Estimate</h2>
                         <p>Get the seamless and stress-free move of your belongings. We'll contact you as soon as possible.</p>
                         <div class="phone">
                             <i class="li_phone"></i><b>855 969 6683</b>
                             <span>free<br>call</span>
                         </div>
-                   <!--     <div class="box-light-button clearfix">
-                            <a href="#" class="button button-download">
-                                <span class="button-download-title">Download for</span>
-                                <span class="button-download-subtitle">Apple iOS</span>
-                            </a>
-                            <a href="#" class="button button-download android">
-                                <span class="button-download-title">Download for</span>
-                                <span class="button-download-subtitle">Android</span>
-                            </a>
-                        </div> -->
                     </div>
                     <div class="box-form waypoint">
                         <div class="forms-form clearfix">
@@ -85,20 +72,20 @@
 
             </div>
 
-        </div> <!-- spanning -->
+        </div>
     </div>
 
 </div>
 </div>
 
 
-    <script src="<? echo $work_dir; ?>/js/retina.js"></script>
-    <script src="<? echo $work_dir; ?>/js/fullwidth-slider.js"></script>
-    <script src="<? echo $work_dir; ?>/js/classie.js"></script>
-    <script src="<? echo $work_dir; ?>/js/sidebarEffects.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/retina.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/fullwidth-slider.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/classie.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/sidebarEffects.js"></script>
 
-    <script src="<? echo $work_dir; ?>/js/svgicons-config.js"></script>
-    <script src="<? echo $work_dir; ?>/js/svgicons.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/svgicons-config.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/svgicons.js"></script>
 
     <script>
     $(function() {

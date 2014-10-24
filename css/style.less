@@ -5,8 +5,11 @@
 
 @link-color: @blue;
 @link-hover-color: @blue;
-#wpadminbar { z-index: 9999999999999999; }
+
+#wpadminbar { z-index: 9999999999999999; display: block !important; }
 .footer-menu {  position: relative; }
+
+.form-estimate h3 { display: none; }
 #footer-nav {
 
         li {
@@ -15,7 +18,8 @@
                     color: @light;
                     background: fade(@light, 10%);
                 }
-                strong { font-weight: 400; font-family: @caps-narrow; font-size: 34px; }
+                i { font-size: 28px; float: left; display: inline-block; margin-right: 10px;}
+                strong { font-weight: 400; font-family: @caps-narrow; font-size: 28px; }
             }
            display: inline-block; padding: 8px 12px;
         }
@@ -39,7 +43,8 @@
     }
 }
 
-    .svg-wrap { width: 100%; height: 100%; padding: 0; margin: 0; position: relative;}
+.svg-wrap { width: 100%; height: 100%; padding: 0; margin: 0; position: relative;}
+
 .box-content a {
     color: darken(desaturate(@link-color, 5%), 8%);
     border-bottom: 2px solid fade(darken(desaturate(@link-color, 8%), 16%), 20%);
@@ -224,16 +229,21 @@ header {
 
         .btn-back {
             .fa {
-
+                float:none !important;
             }
         }
 
         a {
 
+            i {
+                font-size: 28px; margin-right: 18px; float: left; margin-right: 12px; display: inline-block;
+            }
+
             font-size: 31px;
             color: #fff;
             font-family: @caps-narrow;
             margin: 6px;
+            font-weight: 400;
             display: inline-block;
             padding: 14px 23px;
             border-radius: 5px;
@@ -342,7 +352,8 @@ header {
         background: fade(@brown, 50%);
         color: white;
         margin-left: 10px;
-        display: inline-block; float: left;
+        display: inline-block;
+        float: right;
         box-shadow: 0 0 0 rgba(0,0,0,0);
         border-bottom: 0px solid rgba(0,0,0,0);
         font-family: @caps-head;
@@ -409,21 +420,19 @@ header {
     width: 300px;
     height: 100%;
     background: darken(desaturate(@red, 20%), 10%);
-    //  background: url(../images/bg/creampaper1.png) repeat;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-
-
 
     ul {
         margin: 0;
         padding: 0;
         list-style: none;
+
         .current-menu-item {
             background: darken(desaturate(@red, 20%), 15%);
-
             a {      text-shadow: 0px 1px 4px fade(@brown, 50%); }
         }
+
         li {
             a {
                 display: block;
@@ -442,7 +451,8 @@ header {
             .submenu-item {
                 padding-left:2.2em;
             }
-            i { font-size: 24px; margin-right: 12px; }
+
+            i { font-size: 24px; margin-right: 12px; float: left; margin-right: 12px; display: inline-block; }
             a:hover {
                 background: rgba(0,0,0,0.2);
                 box-shadow: inset 0 -1px rgba(0,0,0,0);
@@ -1207,10 +1217,24 @@ header {
     box-sizing: border-box;
     h2,h1,h3 {
         font-family: @caps-head;
-        font-size: 72px;
-        line-height: 72px;
         font-weight: bold;
         margin-bottom: 29px;
+    }
+    h1 {
+        font-size: 72px;
+        line-height: 75px;
+    }
+    h2 {
+        font-size:62px;
+        line-height: 65px;
+    }
+    h3 {
+        font-size: 52px;
+        line-height: 55px;
+    }
+    h4 {
+        font-size: 35px;
+        line-height: 45px;
     }
 }
 
@@ -1316,6 +1340,7 @@ header {
 /* Smartphones (landscape) ----------- */
 @media only screen
 and (min-width : 480px) and (max-width : 1024px) {
+    .top-nav a { font-size: 22px; padding: 6px 8px; border-bottom: 2px;margin-top: 5px; }
     #pricing-bonus p { font-size: 28px; line-height: 34px; }
 .header-wrapper { padding-top: 130px; padding-left: 45px; }
 .header-img { position: absolute; right: 40px; top: 0px; width: 28%; }
@@ -1327,7 +1352,7 @@ header p { font-size: 20px; line-height: 26px; max-width: 400px; display: inline
 .wrap p, .comments .box p { font-size: 20px; line-height: 27px;}
 .box-estimate .phone b { font-size: 28px !important; }
 
-footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;}
+footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;  }
 .box-estimate .phone i { font-size: 23px; }
 .box-estimate .phone span { top: 9px;  }
 .box-estimate .phone { padding: 4px 25px 7px 7px; }
@@ -1383,7 +1408,8 @@ footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;}
     .comments .box h4 { line-height: 52px; }
     .comments .box h4 i { display: block; max-width: 70px; margin: 0 auto; margin-bottom: 10px; }
     .comments .wrap { padding: 0; }
-    .box-full h2 { font-size: 55px; }
+    .box-full h2,.box-full h3 { font-size: 40px; line-height: 48px; }
+    .box-full ul li { font-size: 18px; line-height: 26px; }
     .top-nav {
         margin-top:0px;
         a {
@@ -1517,10 +1543,11 @@ footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;}
         padding-left:25px;
     }
    }
-   .wrap p { font-size: 23px; line-height: 32px; }
-
+   .wrap p { font-size: 18px; line-height: 26px; }
+   #subpages .box-light-content h2 { font-size: 50px; }
    .buttons-wrapper { margin-top: 20px; padding-top: 0 !important; }
-
+   #subpages .box-light-content a { font-size: 25px; padding: 10px 15px;}
+   #subpages .box-light-content i { font-size: 25px; }
   .box-img {
     .box-light-content { width: auto; }
   }
