@@ -34,8 +34,6 @@ $(document).ready(function(){
 
 
     function waypointsInit(){
-
-
           /*  $('.promo').css({scale: 0, perspective: '100px', rotateX: '90deg'});
             $('#estimate').css({y: '-267px'});
             $('.promo').waypoint(function(direction) {
@@ -142,16 +140,17 @@ $(document).ready(function(){
             return false;
         });
     }
-var docWidth = document.documentElement.offsetWidth;
 
-[].forEach.call(
-  document.querySelectorAll('*'),
-  function(el) {
-    if (el.offsetWidth > docWidth) {
-      console.log(el);
-    }
-  }
-);
+    var docWidth = document.documentElement.offsetWidth;
+
+    [].forEach.call(
+      document.querySelectorAll('*'),
+      function(el) {
+        if (el.offsetWidth > docWidth) {
+          console.log(el);
+        }
+      }
+    );
 
     $('a[href*=#]:not([href=#])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -199,7 +198,8 @@ var docWidth = document.documentElement.offsetWidth;
 
                 })
             });
-    // waypointsInit();
+  //  waypointsInit();
+   // animateHeader();
 /*
     $('.header-img').each(function(){ $(this).transition({x:'1500px'},1); });
 

@@ -3,7 +3,7 @@
 
      $pagename = get_query_var('pagename');
      $rurl = "http://finchmovingservices.com/california/";
-     $parent_id = $post->ID;
+
      $curl = $_SERVER['REQUEST_URI'];
 
      $tnames = array(
@@ -14,8 +14,9 @@
             5  => "long_distance_movers_moving_company"
      );
 
-     $parent_id = getTrueParentId($curl);
+
      $town = getTown($curl);
+
 
      if( !empty($town) ){
         $_SESSION["town"] == $town;
@@ -39,6 +40,8 @@
          $url_trucks[4] .= $rurl.$tnames[4]."/".$town;
          $url_trucks[5] .= $rurl.$tnames[5]."/".$town;
      }
+            $parent_id = $post->ID;
+            $parent_id = getTrueParentId($curl);
 
 ?><!DOCTYPE HTML>
 <html>
@@ -77,8 +80,8 @@
 
     <!-- <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/menu_wave.css" /> -->
 
-     <link rel="stylesheet/less" type="text/css" href="<? echo $work_dir; ?>/css/style.less" />
-    <!--<link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/style.css" />-->
+    <!-- <link rel="stylesheet/less" type="text/css" href="<? echo $work_dir; ?>/css/style.less" />-->
+    <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/style.css" />
 
     <script src="<? echo $work_dir; ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo $work_dir; ?>/js/vendor/jquery.easing.1.3.js"></script>
@@ -116,20 +119,14 @@
 
     <script>
     $(function() {
-        $('.current-menu-item').append('<? getSubMenus($wpdb,$post); ?>');
-        $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);
-        ?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+
-        $('#footmenu').html());
-      //  alert('<? echo $parent_id; ?> ');
-       console.log('<? echo $post->post_parent; ?> ');
+        $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+$('#footmenu').html());
+        $('.current-menu-item').append('<?getSubMenus($wpdb,$parent_id);?>');
       $('.tip').tooltipster();
     });
     </script>
 
     <? if(!empty($town)) { makeLinks($town); } ?>
-    <style>
-    .svg-wrap { width: 100%; height: 100%; padding: 0; margin: 0; position: relative;}
-    </style>
+
 </head>
 <body class="no-js">
 
@@ -140,14 +137,14 @@
 
         <?php
 
-        if ( !$pagename && $id > 0 ) {
-            $post = $wp_query->get_queried_object();
-            $pagename = $post->post_name;
-        }
-       // echo "<a>".$post->ID."</a>";
-        if( $parent_id != -1 ) {
-            if( (makeMenu($wpdb, $post, $parent_id)) == -1) makeMenu($wpdb, $post, $post->post_parent);
-        }
+            if ( !$pagename && $id > 0 ) {
+                $post = $wp_query->get_queried_object();
+                $pagename = $post->post_name;
+            }
+
+            if( $parent_id != -1 ) {
+                if( (makeMenu($wpdb, $post, $parent_id)) == -1) makeMenu($wpdb, $post, $post->post_parent);
+            }
 
         ?>
 

@@ -74,7 +74,15 @@
                         </div>
 
                     </div>
+
+                        <div class="footer-menu">
+                            <?
+                            wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
+                                             'menu_id' => 'footer-nav', 'menu_class' => 'top-menu-list', 'fallback_cb' => 'prime_menu_fallback' ));
+                            ?>
+                        </div>
             </footer>
+
             </div>
 
         </div> <!-- spanning -->
@@ -95,7 +103,6 @@
     <script>
     $(function() {
 
-        $('.current-menu-item').append('<? getSubMenus($wpdb,$post); ?>');
         [].slice.call( document.querySelectorAll( '.si-icon' ) ).forEach( function( el ) {
             var svgicon = new svgIcon( el, svgIconConfig );
         } );
