@@ -1424,8 +1424,9 @@ footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;}
     .nice-slider nav a i { font-size: 70px; }
     .nice-slider nav a { padding: 5px; }
 
-    .forms-form .button-submit { font-family: @caps-narrow; font-size: 33px; padding-left: 0px; }
+    .forms-form .button-submit { font-family: @caps-narrow; font-size: 33px; }
 
+    .box-light-content { padding: 0; }
     .button {            font-size: 33px; }
     .header-wrapper { padding-top: 15px !important; }
 
@@ -1448,7 +1449,7 @@ footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;}
     }
 
     .promo-column, #long {
-        max-width: 130px;
+        max-width: 180px;
         float: none; display: inline-block;
         padding: 5px !important;
         margin-bottom: 5px !important;
@@ -1462,7 +1463,7 @@ footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;}
             a { padding: 15px; }
         }
     }
-
+   .promo-wrapper { padding-top: 30px;}
   .comments .tab-next { right: -15px; top: 0 }
   .comments .tab-prev { left: -15px; top: 0 }
       .box-estimate .phone, .box-footer .phone {
@@ -1477,7 +1478,12 @@ footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;}
       .box-form { width: auto; }
 
    }
-   .wrap p { font-size: 16px; line-height: 22px; }
+   input {
+    &.button-submit {
+        padding-left:25px;
+    }
+   }
+   .wrap p { font-size: 23px; line-height: 32px; }
 
    .buttons-wrapper { margin-top: 20px; padding-top: 0 !important; }
 

@@ -14,30 +14,21 @@
             5  => "long_distance_movers_moving_company"
      );
 
+     $parent_id = getTrueParentId($curl);
+     $town = getTown($curl);
 
-    if(isUrlHas($curl, "professional_movers")) $parent_id = 6964;
-    if(isUrlHas($curl, "moving_services")) $parent_id = -1;
-    if(isUrlHas($curl, "online_moving_quote")) $parent_id = 6327;
-    if( (isUrlHas($curl, "movers_prices")) or (isUrlHas($curl, "online_moving_quote_"))  ) $parent_id = -1;
-    if(isUrlHas($curl, "moving-services")) $parent_id = -1;
-    if(isUrlHas($curl, "movers_moving_companies")) $parent_id = -1;
-
-    ///  6782
-    if(strpos($curl, "licensed_and_insured_movers_moving_company") != FALSE) $parent_id = 6782;
+     if( !empty($town) ){
+        $_SESSION["town"] == $town;
+     } else {
+        if(empty($_SESSION["town"])){
+            $town = "san_diego";
+            $_SESSION["town"] = "san_diego";
+        }
+     }
 
     if( !empty($_SESSION["town"]) ){
       $town = $_SESSION["town"];
     } else {
-        if(strpos($curl, "san-diego") != FALSE) $town = "san_diego";
-        if(strpos($curl, "san_diego") != FALSE) $town = "san_diego";
-        if(strpos($curl, "la_jolla") != FALSE) $town = "la_jolla";
-        if(strpos($curl, "lakeside") != FALSE) $town = "lakeside";
-        if(strpos($curl, "el_cajon") != FALSE) $town = "el_cajon";
-        if(strpos($curl, "coronado") != FALSE) $town = "coronado";
-        if(strpos($curl, "santee") != FALSE) $town = "santee";
-        if(strpos($curl, "poway") != FALSE) $town = "poway";
-        if(strpos($curl, "mission_bay") != FALSE) $town = "mission_bay";
-        if(strpos($curl, "la_mesa") != FALSE) $town = "la_mesa";
     }
 
      if(!empty($town)){
