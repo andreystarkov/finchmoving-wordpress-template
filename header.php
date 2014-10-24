@@ -47,11 +47,13 @@
     if(strpos($curl, "mission_bay") != FALSE) $town = "mission_bay";
     if(strpos($curl, "la_mesa") != FALSE) $town = "la_mesa";
 
-     $url_trucks[1] .= $town."_moving_quote";
-     $url_trucks[2] .= $town."_packers";
-     $url_trucks[3] .= $town;
-     $url_trucks[4] .= $town;
-     $url_trucks[5] .= $town;
+     if(!empty($town)){
+         $url_trucks[1] .= $town."_moving_quote";
+         $url_trucks[2] .= $town."_packers";
+         $url_trucks[3] .= $town;
+         $url_trucks[4] .= $town;
+         $url_trucks[5] .= $town;
+     }
 
 ?><!DOCTYPE HTML>
 <html>
@@ -93,8 +95,8 @@
 
     <!-- <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/menu_wave.css" /> -->
 
-    <link rel="stylesheet/less" type="text/css" href="<? echo $work_dir; ?>/css/style.less" />
-
+    <!-- <link rel="stylesheet/less" type="text/css" href="<? echo $work_dir; ?>/css/style.less" /> -->
+    <link rel="stylesheet" type="text/css" href="<? echo $work_dir; ?>/css/style.css" />
 
     <script src="<? echo $work_dir; ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo $work_dir; ?>/js/vendor/jquery.easing.1.3.js"></script>
@@ -135,7 +137,7 @@
     });
     </script>
 
-    <? makeLinks($town); ?>
+    <? if(!empty($town)) makeLinks($town); ?>
     <style>
     .svg-wrap { width: 100%; height: 100%; padding: 0; margin: 0; position: relative;}
     </style>
