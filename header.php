@@ -1,5 +1,5 @@
     <?
-     session_start();
+    session_start();
 
      $pagename = get_query_var('pagename');
      $rurl = "http://finchmovingservices.com/california/";
@@ -12,8 +12,18 @@
             3  => "small_moves",
             4  => "local_movers_moving_company",
             5  => "long_distance_movers_moving_company"
-    );
+     );
 
+
+    if(isUrlHas($curl, "professional_movers")) $parent_id = 6964;
+    if(isUrlHas($curl, "moving_services")) $parent_id = -1;
+    if(isUrlHas($curl, "online_moving_quote")) $parent_id = 6327;
+    if( (isUrlHas($curl, "movers_prices")) or (isUrlHas($curl, "online_moving_quote_"))  ) $parent_id = -1;
+    if(isUrlHas($curl, "moving-services")) $parent_id = -1;
+    if(isUrlHas($curl, "movers_moving_companies")) $parent_id = -1;
+
+    ///  6782
+    if(strpos($curl, "licensed_and_insured_movers_moving_company") != FALSE) $parent_id = 6782;
 
     if( !empty($_SESSION["town"]) ){
       $town = $_SESSION["town"];
@@ -138,19 +148,16 @@
         <div class="top-nav">
 
         <?php
-        $parent = trueParent();
 
-        if( $parent != false) { $parent_id = $parent; }
         if ( !$pagename && $id > 0 ) {
             $post = $wp_query->get_queried_object();
             $pagename = $post->post_name;
         }
-        echo "<a>$parent</a>";
-        if($pagename != "california"){
+       // echo "<a>".$post->ID."</a>";
         if( $parent_id != -1 ) {
-            makeMenu($wpdb, $post, $parent_id);
-        } makeMenu($wpdb, $post, $parent_id);
+            if( (makeMenu($wpdb, $post, $parent_id)) == -1) makeMenu($wpdb, $post, $post->post_parent);
         }
+
         ?>
 
         </div>
