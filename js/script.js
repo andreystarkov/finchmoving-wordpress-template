@@ -8,27 +8,27 @@ $(document).ready(function(){
         $('.header-wrapper .button').css({y: '300px', opacity: 0});
 
         setTimeout(function() {
-          $('header h1').transition({y: '0px', x: '0px', rotate: '-15deg', scale:'0.8'},400, 'easeOutExpo', function(){
-                $('header h1').transition({scale:'1.1', rotate: '5deg'}, 500, 'easeInOutCirc', function(){
+          $('header h1').transition({y: '0px', x: '0px', rotate: '-15deg', scale:'0.8'},300, 'easeOutExpo', function(){
+                $('header h1').transition({scale:'1.1', rotate: '5deg'}, 400, 'easeInOutCirc', function(){
                     $(this).transition({scale:1,rotate: '0'}, 'easeInOutCirc');
                     $('header p').transition({
                          x: '0px',
                         rotate: '0deg', scale: 0.85
-                    }, 700, 'easeOutBack', function(){
-                            $(this).transition({x:'0px', rotate: '0deg', scale: 1}, 400, 'easeOutExpo');
+                    }, 600, 'easeOutBack', function(){
+                            $(this).transition({x:'0px', rotate: '0deg', scale: 1}, 300, 'easeOutExpo');
                             $('.header-wrapper .button').transition({y: '0', opacity: 1}, 'easeInOutCirc');
                     });
                 });
           });
-        }, 800);
+        }, 500);
 
         setTimeout(function() {
-          $('.header-img').transition({y: '0px', rotate: '-35deg', scale:'1.1'}, 500, 'easeOutExpo', function(){
-                $('.header-img').transition({rotate: '15deg', scale:'1'},700, 'easeInOutCirc', function(){
-                    $(this).transition({y: '0px', rotate: '0deg', scale: '1'}, 400, 'easeOutExpo');
+          $('.header-img').transition({y: '0px', rotate: '-35deg', scale:'1.1'}, 400, 'easeOutExpo', function(){
+                $('.header-img').transition({rotate: '15deg', scale:'1'},500, 'easeInOutCirc', function(){
+                    $(this).transition({y: '0px', rotate: '0deg', scale: '1'}, 300, 'easeOutExpo');
                 });
           });
-        }, 400);
+        }, 300);
 
     }
 
@@ -94,7 +94,7 @@ $(document).ready(function(){
                     $('#price-'+i).transition({x: '0px', scale: '1', rotate: '0deg'}, 550*i, 'easeOutBack');
                 }
 
-        }, {offset: '10%', triggerOnce: true});
+        }, {offset: '70%', triggerOnce: true});
 
     }
 
@@ -200,8 +200,7 @@ $(document).ready(function(){
 
                 })
             });
-    waypointsInit();
-    animateHeader();
+
 /*
     $('.header-img').each(function(){ $(this).transition({x:'1500px'},1); });
 

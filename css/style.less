@@ -9,6 +9,7 @@
 #wpadminbar { z-index: 9999999999999999; display: block !important; }
 .footer-menu {  position: relative; }
 
+.form-estimate h3 { display: none; }
 #footer-nav {
 
         li {
@@ -351,7 +352,8 @@ header {
         background: fade(@brown, 50%);
         color: white;
         margin-left: 10px;
-        display: inline-block; float: left;
+        display: inline-block;
+        float: right;
         box-shadow: 0 0 0 rgba(0,0,0,0);
         border-bottom: 0px solid rgba(0,0,0,0);
         font-family: @caps-head;
@@ -1338,6 +1340,7 @@ header {
 /* Smartphones (landscape) ----------- */
 @media only screen
 and (min-width : 480px) and (max-width : 1024px) {
+    .top-nav a { font-size: 22px; padding: 6px 8px; border-bottom: 2px;margin-top: 5px; }
     #pricing-bonus p { font-size: 28px; line-height: 34px; }
 .header-wrapper { padding-top: 130px; padding-left: 45px; }
 .header-img { position: absolute; right: 40px; top: 0px; width: 28%; }
@@ -1349,7 +1352,7 @@ header p { font-size: 20px; line-height: 26px; max-width: 400px; display: inline
 .wrap p, .comments .box p { font-size: 20px; line-height: 27px;}
 .box-estimate .phone b { font-size: 28px !important; }
 
-footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;}
+footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;  }
 .box-estimate .phone i { font-size: 23px; }
 .box-estimate .phone span { top: 9px;  }
 .box-estimate .phone { padding: 4px 25px 7px 7px; }
@@ -1405,7 +1408,8 @@ footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;}
     .comments .box h4 { line-height: 52px; }
     .comments .box h4 i { display: block; max-width: 70px; margin: 0 auto; margin-bottom: 10px; }
     .comments .wrap { padding: 0; }
-    .box-full h2 { font-size: 55px; }
+    .box-full h2,.box-full h3 { font-size: 40px; line-height: 48px; }
+    .box-full ul li { font-size: 18px; line-height: 26px; }
     .top-nav {
         margin-top:0px;
         a {
@@ -1539,10 +1543,11 @@ footer { padding: 20px 0; } .box-footer { padding: 10px 0 10px;}
         padding-left:25px;
     }
    }
-   .wrap p { font-size: 23px; line-height: 32px; }
-
+   .wrap p { font-size: 18px; line-height: 26px; }
+   #subpages .box-light-content h2 { font-size: 50px; }
    .buttons-wrapper { margin-top: 20px; padding-top: 0 !important; }
-
+   #subpages .box-light-content a { font-size: 25px; padding: 10px 15px;}
+   #subpages .box-light-content i { font-size: 25px; }
   .box-img {
     .box-light-content { width: auto; }
   }

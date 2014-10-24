@@ -89,7 +89,7 @@
     <script src="<? echo get_template_directory_uri(); ?>/js/script.js"></script>
 
     <?php // roots_head();
-   // wp_head(); ?>
+    wp_head(); ?>
 
     <script type='text/javascript' src='/wp-includes/js/admin-bar.min.js?ver=3.8.4'></script>
     <script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.50.0-2014.02.05'></script>
@@ -139,7 +139,9 @@
     ?>
 
     <? if(!empty($town)) { makeLinks($town); } ?>
-
+    <style>
+    html,body { margin-top: 0 !important; }
+    </style>
 </head>
 <body class="no-js">
 
