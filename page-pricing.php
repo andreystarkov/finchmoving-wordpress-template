@@ -33,7 +33,7 @@
     <div class="comments clearfix img-blur-1 box-img" id="pricing-bonus">
         <div class="wrap">
 
-            <div class="tab">
+            <div class="tab waypoint">
                 <div class="box visible">
                     <h4><i class="li_star"></i> 5% Discount</h4>
                     <p>Military members, seniors, students.</p>

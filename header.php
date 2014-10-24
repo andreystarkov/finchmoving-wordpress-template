@@ -1,11 +1,11 @@
 <?
 
     $tnames = array(
-        1  => "<? echo get_template_directory_uri(); ?>/images/house.jpg",
-        2  => "<? echo get_template_directory_uri(); ?>/images/slides/3.jpg",
-        3  => "<? echo get_template_directory_uri(); ?>/images/beach1.jpg",
-        4  => "<? echo get_template_directory_uri(); ?>/images/slides/1.jpg",
-        5  => "<? echo get_template_directory_uri(); ?>/images/slides/4.jpg"
+        1  => "free_moving_estimate",
+        2  => "packing_services",
+        3  => "small_moves",
+        4  => "local_movers_moving_company",
+        5  => "long_distance_movers_moving_company"
     );
 
     $slides = array(
@@ -77,8 +77,8 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/lineicons/style.css" />
 
-    <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
-    <!-- <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
+    <!--<link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
+     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.easing.1.3.js"></script>
@@ -107,7 +107,7 @@
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/snap.svg-min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>
+   <!-- <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>-->
 
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

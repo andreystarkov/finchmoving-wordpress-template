@@ -4,7 +4,7 @@
         if($pagename != "california"){ ?>
         <div class="box-light anchor" id="estimate">
                 <div class="wrap box-estimate">
-                    <div class="box-light-content">
+                    <div class="box-light-content waypoint">
                         <h2>Free Estimate</h2>
                         <p>Get the seamless and stress-free move of your belongings. We'll contact you as soon as possible.</p>
                         <div class="phone">
