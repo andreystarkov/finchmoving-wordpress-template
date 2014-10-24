@@ -6,40 +6,43 @@
 
   <?php get_header(); ?>
 
-
   <div class="box-light clearfix anchor box-content" id="info">
       <div class="wrap">
           <div class="box-full clearfix">
-          <h2><? echo get_the_title(); ?> </h2>
           <?php roots_loop_before(); ?>
           <?php get_template_part('loop', 'page'); ?>
           <?php roots_loop_after(); ?>
-
          </div>
         </div>
   </div>
 
-  <?
-  $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$post->ID." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
-  if ( $child_pages ) { ?>
-      <div id="subpages" class="slide-1 clearfix img-blur-1 box-img waypoint">
-          <div class="wrap">
-              <div class="box-light-content clearfix">
-                  <h2>see also:</h2>
-                  <a title="Go back to '<? echo get_the_title($post->post_parent); ?>' page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>">
-                  <i class="fa fa-angle-left"></i></a>
-                  <? foreach ( $child_pages as $pageChild ) {
-                      setup_postdata( $pageChild ); ?>
-                           <a href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark">
-                              <?php echo $pageChild->post_title; ?>
-                           </a>
-                   <?
-                  }
-                    ?>
+          <div id="subpages" class="slide-1 clearfix img-blur-1 box-img waypoint">
+          <div class="wrap"><div class="box-light-content clearfix">
+            <?
+            $curl = $_SERVER['REQUEST_URI'];
+            $parent_id = $post->ID;
+            $parent_id = getTrueParentId($curl);
+
+            if ( !$pagename && $id > 0 ) {
+                $post = $wp_query->get_queried_object();
+                $pagename = $post->post_name;
+            }
+
+            if( $parent_id != -1 ) {
+                ?>            <h2><? echo get_the_title(); ?> </h2><?
+                if( (makeMenu($wpdb, $post, $parent_id)) == -1) makeMenu($wpdb, $post, $post->post_parent);
+            } else {
+            ?>
+
+                <h2><? echo get_the_title(); ?> </h2>
+                            <?
+                          wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
+                                           'menu_id' => 'footmenu', 'menu_class' => 'top-menu-list', 'fallback_cb' => 'prime_menu_fallback' ));
+                          ?>
+
+               <? } ?>
+              </div></div>
               </div>
-          </div>
-      </div>
-  <? } ?>
 
   <?php get_footer(); ?>
 
