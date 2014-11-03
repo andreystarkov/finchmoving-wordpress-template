@@ -48,6 +48,11 @@
                     <div class="box-footer wrap contacts">
 
                         <div class="floats">
+
+                        <a href="http://www.facebook.com/FinchMovingCompany" class="contact ico-fb"><i class="fa fa-facebook-square"></i></a>
+                        <a href="http://linkedin.com/pub/finch-moving/3a/114/125" class="contact ico-ld"><i class="fa fa-linkedin-square"></i></a>
+                        <a href="http://twitter.com/FinchMoving" class="contact ico-tw"><i class="fa fa-twitter-square"></i></a>
+
                         <div id="footer-phone" class="phone">
                             <i class="li_phone"></i><b>855 969 6683</b>
                             <span>free<br>call</span>

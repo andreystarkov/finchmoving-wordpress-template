@@ -51,7 +51,6 @@
             }
         }
         return $return;
-
     }
 
     function getSubMenus($wpdb,$parent_id){

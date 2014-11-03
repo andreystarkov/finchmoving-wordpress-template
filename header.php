@@ -135,8 +135,20 @@
     <!-- <script src="<? echo get_template_directory_uri(); ?>/js/menu.js"></script>  -->
     <script>
     $(function() {
-
-
+/*
+        $.ajax({
+          url: '<? echo $templatePath; ?>/helper.php',
+          type: 'GET',
+          data: 'town=<? echo $town; ?>&res=<? echo $res; ?>&rootPath=<? echo $templatePath; ?>&rootUri=<? echo $templateUri; ?>',
+          success: function(data) {
+            alert('nice'+data);
+     //       $('#ajaxphp-results').html(data);
+          },
+          error: function(e) {
+            alert('bad');
+          }
+        });
+*/
        $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+$('#footmenu').html());
 
         $('.header-wrapper h1').click(function(){
@@ -249,8 +261,13 @@
                         ?>
                       </ul>
 
-                      <div class="top-wrap">
+                    <div class="top-wrap">
 
+                     <!--   <div class="social-buttons">
+                        <a href="http://www.facebook.com/FinchMovingCompany" class="contact ico-fb"><i class="fa fa-facebook-square"></i></a>
+                        <a href="http://linkedin.com/pub/finch-moving/3a/114/125" class="contact ico-ld"><i class="fa fa-linkedin-square"></i></a>
+                        <a href="http://twitter.com/FinchMoving" class="contact ico-tw"><i class="fa fa-twitter-square"></i></a>
+                        </div> -->
                         <nav>
                             <a class="prev" href="#"><i class="fa fa-angle-left"></i></a>
                             <a class="next" href="#"><i class="fa fa-angle-right"></i></a>
@@ -277,7 +294,6 @@
                         </div></div>
 
                          <div class="flt">
-
                             <div class="header-wrapper">
                               <div class="header-logo">
                                  <div class="logo">
@@ -288,7 +304,7 @@
                             </div>
                          </div>
 
-                        </div>
+                    </div>
 
                     </div>
 
