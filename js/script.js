@@ -1,16 +1,17 @@
 
 $(document).ready(function(){
 
-    var docWidth = document.documentElement.offsetWidth;
+    if( $('.top-nav').html() != -1 ){
+        $('#btn-es-go').css({top: '100px'});
+    };
 
-    [].forEach.call(
-      document.querySelectorAll('*'),
-      function(el) {
-        if (el.offsetWidth > docWidth) {
-          console.log(el);
-        }
-      }
-    );
+    var i = 5;
+    $('.nice-slider-fullwidth li').each(function(){
+        i++;
+        $(this).addClass('caption-'+i);
+        $(this).attr('data-caption', 'caption-'+i);
+        if(i > 5) i = 0;
+    });
 
     // keys scroll
     $('.promo').waypoint(function(){
@@ -18,6 +19,7 @@ $(document).ready(function(){
         $('#btn-es-go').addClass('btn-inactive');
         $('#btn-es-go i').css({'margin-left': '0px', 'margin-top': '5px', 'margin-right': '5px'});
     },{offset: '20%'});
+
     KeyboardJS.on('left', function() {
         setTimeout(function() {
             $('.btn-nav').click();
@@ -84,18 +86,6 @@ $(document).ready(function(){
         });
     }
 
-    $('a[href*=#]:not([href=#])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          var offsetTop = target.position().top - target.closest('.st-content-inner').position().top;
-          if (target.length) {
-            $('.main').animate({scrollTop: offsetTop}, 1000, "easeInOutExpo");
-            return false;
-          }
-        }
-    });
-
     $('.button-submit').hover(function(){
          $(this).transition({scale:1});
         $('.ico', this).transition({scale: '1.3', x: '-30px', rotate: '80deg'}, 800, 'easeOutBack', function(){
@@ -105,6 +95,30 @@ $(document).ready(function(){
             });
 
         })
+    });
+
+
+    var docWidth = document.documentElement.offsetWidth;
+
+    [].forEach.call(
+      document.querySelectorAll('*'),
+      function(el) {
+        if (el.offsetWidth > docWidth) {
+          console.log(el);
+        }
+      }
+    );
+
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          var offsetTop = target.position().top - target.closest('.st-content').position().top;
+          if (target.length) {
+            $('.st-content').animate({scrollTop: offsetTop}, 700, 'easeInQuart');
+            return false;
+          }
+        }
     });
 
 });

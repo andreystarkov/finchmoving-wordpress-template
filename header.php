@@ -25,27 +25,12 @@
     $templatePath = get_template_directory();
     $templateUri = get_template_directory_uri();
 
-    function sliderImages($town, $res, $rootPath, $rootUri){
-        $dir .= $rootPath."/images/show/".$town."/".$res;
-        if ($handle = opendir($dir)) {
-            $i = 0;
-            while (false !== ($entry = readdir($handle))) {
-                if ($entry != "." && $entry != "..") {
-                    if($i == 0) { $cur = "current"; } else { $cur = ""; } $i++;
-                    $out .= "<li data-caption='caption-".$i."' class='caption-".$i." ".$cur."'><img src='".$rootUri."/images/show/".$town."/".$res."/".$entry."' /></li>";
-                }
-            }
-            closedir($handle);
-            return $out;
-        }
-    }
     $pagename = get_query_var('pagename');
     $rurl = "http://finchmovingservices.com/california/";
     $curl = $_SERVER['REQUEST_URI'];
     $town = getTown($curl);
 
      if( !empty($town) ){
-
         $_SESSION["town"] == $town;
      } else {
         if(empty($_SESSION["town"])){
@@ -151,6 +136,7 @@
     <script>
     $(function() {
 
+
        $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+$('#footmenu').html());
 
         $('.header-wrapper h1').click(function(){
@@ -246,7 +232,9 @@
                  <div id="nice-slider" class="nice-slider nice-slider-fullwidth" style="overflow:hidden">
 
                       <ul class="itemwrap">
-                        <? $clientWidth = $obj->{'browserWidth'};
+                        <?
+                        // $clientWidth = $obj->{'browserWidth'};
+                        $clientWidth = 1920;
                         if($clientWidth >= "1800") {
                             echo sliderImages($town, "1900", $templatePath, $templateUri);
                         }
@@ -309,7 +297,7 @@
               </div>
         </header>
 
-        <div class="spanning">
+        <div class="spanning" id="main-block">
 
             <div class="promo clearfix section-cars">
                 <div class="wrap">
