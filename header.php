@@ -16,12 +16,36 @@
         5  => get_template_directory_uri()."/images/slides/4.jpg"
     );
 
+    function test($res){
+        if($res == 1900){
+        ?><li class="current"><img src="<? echo get_template_directory_uri(); ?>/images/slides/3.jpg" alt="img08"/></li><li><img src="<? echo get_template_directory_uri(); ?>/images/house.jpg" alt="img08"/></li><li><img src="<? echo get_template_directory_uri(); ?>/images/slides/4.jpg" alt="img08"/></li><?
+        }
+    }
+
+    $templatePath = get_template_directory();
+    $templateUri = get_template_directory_uri();
+
+    function sliderImages($town, $res, $rootPath, $rootUri){
+        $dir .= $rootPath."/images/show/".$town."/".$res;
+        if ($handle = opendir($dir)) {
+            $i = 0;
+            while (false !== ($entry = readdir($handle))) {
+                if ($entry != "." && $entry != "..") {
+                    if($i == 0) { $cur = "current"; } else { $cur = ""; } $i++;
+                    $out .= "<li data-caption='caption-".$i."' class='caption-".$i." ".$cur."'><img src='".$rootUri."/images/show/".$town."/".$res."/".$entry."' /></li>";
+                }
+            }
+            closedir($handle);
+            return $out;
+        }
+    }
     $pagename = get_query_var('pagename');
     $rurl = "http://finchmovingservices.com/california/";
     $curl = $_SERVER['REQUEST_URI'];
     $town = getTown($curl);
 
      if( !empty($town) ){
+
         $_SESSION["town"] == $town;
      } else {
         if(empty($_SESSION["town"])){
@@ -30,10 +54,18 @@
         }
     }
 
+      $json = $_COOKIE['_clientInfo'];
+      $obj = json_decode(stripslashes($json));
+
     if( !empty($_SESSION["town"]) ){
       $town = $_SESSION["town"];
     }
 
+    if(strpos($curl, "free_moving_estimate") != FALSE) $car_curr = "#car-1";
+     if(strpos($curl, "packing_services") != FALSE) $car_curr = "#car-2";
+     if(strpos($curl, "small_moves") != FALSE) $car_curr = "#car-3";
+     if(strpos($curl, "local_movers") != FALSE) $car_curr = "#car-4";
+     if(strpos($curl, "long_distance") != FALSE) $car_curr = "#car-5";
      if(!empty($town)){
          $_SESSION["town"] = $town;
          $url_trucks[1] .= $rurl.$tnames[1]."/".$town."_moving_quote";
@@ -42,8 +74,6 @@
          $url_trucks[4] .= $rurl.$tnames[4]."/".$town;
          $url_trucks[5] .= $rurl.$tnames[5]."/".$town;
      }
-
-
 ?><!DOCTYPE HTML>
 <html>
 <head>
@@ -77,15 +107,18 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/lineicons/style.css" />
 
-    <!--<link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
-     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />
+    <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
+    <!-- <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.easing.1.3.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/waypoints.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.transit.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.tooltipster.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.cookie.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/library.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/keyboard.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/animation.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/script.js"></script>
 
     <?php // roots_head();
@@ -107,7 +140,7 @@
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/snap.svg-min.js"></script>
-   <!-- <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>-->
+   <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>
 
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -115,11 +148,40 @@
 
     <script src="<? echo get_template_directory_uri(); ?>/js/classie.js"></script>
     <!-- <script src="<? echo get_template_directory_uri(); ?>/js/menu.js"></script>  -->
-
     <script>
     $(function() {
-        $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+$('#footmenu').html());
-        $('.tip').tooltipster();
+
+       $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+$('#footmenu').html());
+
+        $('.header-wrapper h1').click(function(){
+            $.removeCookie('_clientInfo');
+        });
+
+       <? if(!empty($car_curr)) { ?> $('<? echo $car_curr; ?>').addClass('car-current'); <? } ?>
+
+        var clientInfo = {
+          browserWidth: $(window).width(),
+          browserHeight: $(window).height(),
+          flexboxSupport: Modernizr.flexbox,
+          SVGSupport: Modernizr.svg
+        };
+
+       <? if(!empty($_COOKIE['_clientInfo'])) { ?> var clientInfo = JSON.parse("<?php echo $_COOKIE['_clientInfo']; ?>"); <? } ?>
+
+        var cookieVal = JSON.stringify(clientInfo);
+
+        if (typeof $.cookie('_clientInfo') === 'undefined'){
+            $.cookie("_clientInfo", cookieVal, {
+              expires: 7
+            });
+            window.location.reload();
+        }
+
+      if(clientInfo.browserWidth != $(window).width()){
+            $.removeCookie('_clientInfo');
+         //   window.location.reload();
+        }
+
     });
     </script>
 
@@ -159,9 +221,10 @@
 
     <div id="st-trigger-effects">
         <button class="btn-nav" data-effect="st-effect-6">
-            <div class="svg-wrap">
+          <!--  <div class="svg-wrap">
                 <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
-            </div>
+            </div> -->
+            <i class="fa fa-bars"></i>
         </button>
     </div>
 
@@ -179,14 +242,23 @@
 
         <header>
               <div id="slider-wrapper">
-                 <div id="nice-slider" class="nice-slider nice-slider-fullwidth">
+                            <a href="#estimate" id="btn-es-go" class="button tip" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
+                 <div id="nice-slider" class="nice-slider nice-slider-fullwidth" style="overflow:hidden">
 
                       <ul class="itemwrap">
-                        <li class="current"><img src="<? echo get_template_directory_uri(); ?>/images/slides/3.jpg" alt="img08"/></li>
-                        <li><img src="<? echo get_template_directory_uri(); ?>/images/house.jpg" alt="img08"/></li>
-                        <li><img src="<? echo get_template_directory_uri(); ?>/images/slides/4.jpg" alt="img08"/></li>
-                        <li><img src="<? echo get_template_directory_uri(); ?>/images/beach1.jpg" alt="img07"/></li>
-                        <li><img src="<? echo get_template_directory_uri(); ?>/images/slides/1.jpg" alt="img08"/></li>
+                        <? $clientWidth = $obj->{'browserWidth'};
+                        if($clientWidth >= "1800") {
+                            echo sliderImages($town, "1900", $templatePath, $templateUri);
+                        }
+                        if(($clientWidth > "1300") && ($clientWidth < "1900")) {
+                            echo sliderImages("normal", "1600", $templatePath, $templateUri);
+                            ?><style>.nice-slider-fullwidth,.top-wrap { max-height: 680px; height: 680px;}</style><?
+                        }
+                        if($clientWidth <= "1300") {
+                            echo sliderImages("normal", "1000", $templatePath, $templateUri);
+                            ?><style>.nice-slider-fullwidth,.top-wrap { max-height: 512px; height: 512px;}</style><?
+                        }
+                        ?>
                       </ul>
 
                       <div class="top-wrap">
@@ -196,19 +268,40 @@
                             <a class="next" href="#"><i class="fa fa-angle-right"></i></a>
                         </nav>
 
-                        <div class="flt">
-                            <img src="<? echo get_template_directory_uri(); ?>/images/bird.png" class="header-img">
+                        <div class="slider-caption caption-current" id="caption-1"><div class="wrp">
+                            <p><i class="li_diamond"></i>We are a non-franchised, locally owned and operated moving company for the local and long distance moving.</p>
+                        </div></div>
+
+                        <div class="slider-caption" id="caption-2"><div class="wrp">
+                            <p><i class="li_star"></i>We have a very deep passion for serving our clients best interests.</p>
+                        </div></div>
+
+                        <div class="slider-caption" id="caption-3"><div class="wrp">
+                            <p><i class="li_truck"></i>Get the seamless and stress-free move of your belongings in a timely manner with being cost friendly with Finch Movers.</p>
+                        </div></div>
+
+                        <div class="slider-caption" id="caption-4"><div class="wrp">
+                            <p><i class="li_like"></i>We pride ourselves on prompt and exceptional service and cost effective pricing.</p>
+                        </div></div>
+
+                        <div class="slider-caption" id="caption-5"><div class="wrp">
+                            <p><i class="li_clock"></i>Our fast and careful movers are dedicated to provide professional moving services.</p>
+                        </div></div>
+
+                         <div class="flt">
+
                             <div class="header-wrapper">
-                                <h1>Finch Moving <span>Company</span></h1>
-                                <p>One out of every five Californians require moving services each year.
-                                Now that you have found yourself among this group, you can make your move a
-                                positive and exciting experience with Finch Movers.</p>
-                                <div class="buttons-wrapper">
-                                    <a href="#estimate" id="btn-es-go" class="button tip" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
+                              <div class="header-logo">
+                                 <div class="logo">
+                                     <img src="<? echo get_template_directory_uri(); ?>/images/logo1.png" class="header-img">
+                                     <div class="box"></div>
+                                 </div>
                                 </div>
                             </div>
-                            <!-- /.header-wrapper -->
+                         </div>
+
                         </div>
+
                     </div>
 
                 </div>

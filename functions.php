@@ -112,7 +112,7 @@
             if(strpos($curl, "poway") != FALSE) $town = "poway";
             if(strpos($curl, "mission_bay") != FALSE) $town = "mission_bay";
             if(strpos($curl, "la_mesa") != FALSE) $town = "la_mesa";
-            return $tuwn;
+            return $town;
     }
 
     function makeMenuParent($title){

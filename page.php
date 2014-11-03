@@ -16,7 +16,7 @@
         </div>
   </div>
 
-          <div id="subpages" class="slide-1 clearfix img-blur-1 box-img">
+          <div id="subpages" class="slide-1 clearfix img-truck-1 box-img">
           <div class="wrap"><div class="box-light-content clearfix waypoint">
             <?
             $curl = $_SERVER['REQUEST_URI'];
@@ -29,18 +29,18 @@
             }
 
             if( $parent_id != -1 ) {
-                ?>            <h2><? echo get_the_title(); ?> </h2><?
+
                 if( (makeMenu($wpdb, $post, $parent_id)) == -1) makeMenu($wpdb, $post, $post->post_parent);
-            } else {
+            } else {/*)
             ?>
 
-                <h2><? echo get_the_title(); ?> </h2>
+
                             <?
                           wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
                                            'menu_id' => 'footmenu', 'menu_class' => 'top-menu-list', 'fallback_cb' => 'prime_menu_fallback' ));
                           ?>
 
-               <? } ?>
+               <?*/ }?>
               </div></div>
               </div>
 
