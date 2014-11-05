@@ -28,7 +28,7 @@ $(function() {
         isAnimating = false;
 
         var effects = ["fxSoftScale", "fxSnapIn","fxLetMeIn","fxStickIt","fxArchiveMe","fxVGrowth", "fxSlideBehind","fxSoftPulse", "fxCliffDiving", "fxPressAway"];
-        var rotateInterval = setInterval(function(){autoInterval()},118000);
+        var rotateInterval = setInterval(function(){autoInterval()},4000);
 
         function init() {
             showNav();
@@ -127,6 +127,7 @@ $(function() {
                 currentItem.addEventListener( animEndEventName, onEndAnimationCurrentItem );
                 nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
             }
+
             else {
                 onEndAnimationCurrentItem();
                 onEndAnimationNextItem();

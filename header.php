@@ -1,5 +1,4 @@
 <?
-
     $tnames = array(
         1  => "free_moving_estimate",
         2  => "packing_services",
@@ -38,9 +37,6 @@
             $_SESSION["town"] = "san_diego";
         }
     }
-
-      $json = $_COOKIE['_clientInfo'];
-      $obj = json_decode(stripslashes($json));
 
     if( !empty($_SESSION["town"]) ){
       $town = $_SESSION["town"];
@@ -87,22 +83,29 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/fullwidth-slider.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/svg-icons.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/tooltipster.css" />
-
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/skel.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/bebasneue/bebasneue.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/lineicons/style.css" />
 
-    <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
-    <!-- <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
+    <!--<link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
+     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.easing.1.3.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel.min.js"></script>
+     <!--<script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel-layers.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel-panels.min.js"></script>-->
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/waypoints.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.transit.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.tooltipster.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.nicescroll.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.cookie.js"></script>
+
+    <script src="<? echo get_template_directory_uri(); ?>/js/skel-config.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/library.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/keyboard.js"></script>
+
     <script src="<? echo get_template_directory_uri(); ?>/js/animation.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/script.js"></script>
 
@@ -125,7 +128,7 @@
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/snap.svg-min.js"></script>
-   <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>
+  <!-- <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>-->
 
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -135,20 +138,7 @@
     <!-- <script src="<? echo get_template_directory_uri(); ?>/js/menu.js"></script>  -->
     <script>
     $(function() {
-/*
-        $.ajax({
-          url: '<? echo $templatePath; ?>/helper.php',
-          type: 'GET',
-          data: 'town=<? echo $town; ?>&res=<? echo $res; ?>&rootPath=<? echo $templatePath; ?>&rootUri=<? echo $templateUri; ?>',
-          success: function(data) {
-            alert('nice'+data);
-     //       $('#ajaxphp-results').html(data);
-          },
-          error: function(e) {
-            alert('bad');
-          }
-        });
-*/
+
        $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+$('#footmenu').html());
 
         $('.header-wrapper h1').click(function(){
@@ -156,29 +146,6 @@
         });
 
        <? if(!empty($car_curr)) { ?> $('<? echo $car_curr; ?>').addClass('car-current'); <? } ?>
-
-        var clientInfo = {
-          browserWidth: $(window).width(),
-          browserHeight: $(window).height(),
-          flexboxSupport: Modernizr.flexbox,
-          SVGSupport: Modernizr.svg
-        };
-
-       <? if(!empty($_COOKIE['_clientInfo'])) { ?> var clientInfo = JSON.parse("<?php echo $_COOKIE['_clientInfo']; ?>"); <? } ?>
-
-        var cookieVal = JSON.stringify(clientInfo);
-
-        if (typeof $.cookie('_clientInfo') === 'undefined'){
-            $.cookie("_clientInfo", cookieVal, {
-              expires: 7
-            });
-            window.location.reload();
-        }
-
-      if(clientInfo.browserWidth != $(window).width()){
-            $.removeCookie('_clientInfo');
-         //   window.location.reload();
-        }
 
     });
     </script>
@@ -196,6 +163,10 @@
         if( $parent_id != -1 ) {
             if( $submenu_text == -1) { $submenu_text = makeMenuToVar($wpdb, $post, $post->post_parent); }
         }
+        $topMenu = makeMenuList($wpdb, $post, $parent_id);
+        if( $parent_id != -1 ) {
+            if( $topMenu == -1) { $topMenu  = makeMenuList($wpdb, $post, $post->post_parent); }
+        }
     ?>
 
     <? if(!empty($town)) { makeLinks($town); } ?>
@@ -205,17 +176,19 @@
 </head>
 <body class="no-js">
 
-<div id="st-container" class="st-container container">
+<div id="st-container" class="st-container">
 
 <div class="st-pusher content">
 
-    <div class="top-nav"> <?php echo $submenu_text; ?> </div>
+    <div class="top-nav"></div>
 
     <script>
     $(function() {
          $('.st-menu .current-menu-item').append('<? echo getSubMenus($wpdb,$parent_id); ?>');
     });
     </script>
+
+
 
     <div id="st-trigger-effects">
         <button class="btn-nav" data-effect="st-effect-6">
@@ -225,6 +198,14 @@
             <i class="fa fa-bars"></i>
         </button>
     </div>
+
+    <div id="top-menu-wrap" class="top-menu-wrap skel-layers-fixed">
+        <ul class="fixed-menu" id="menu-fixed">
+            <?php if($topMenu != -1) echo $topMenu; ?>
+        </ul>
+    </div>
+
+    <div class="logo-small"></div>
 
     <nav class="st-menu st-effect-6" id="menu-6">
         <h2 class="icon icon-stack"></h2>
@@ -238,36 +219,18 @@
 
         <div class="st-content-inner">
 
-        <header>
-              <div id="slider-wrapper">
-                            <a href="#estimate" id="btn-es-go" class="button tip" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
+        <header style="overflow:hidden">
+
+              <div id="slider-wrapper" style="overflow:hidden">
+                      <a href="#estimate" id="btn-es-go" class="button tip" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
                  <div id="nice-slider" class="nice-slider nice-slider-fullwidth" style="overflow:hidden">
 
-                      <ul class="itemwrap">
-                        <?
-                        // $clientWidth = $obj->{'browserWidth'};
-                        $clientWidth = 1920;
-                        if($clientWidth >= "1800") {
-                            echo sliderImages($town, "1900", $templatePath, $templateUri);
-                        }
-                        if(($clientWidth > "1300") && ($clientWidth < "1900")) {
-                            echo sliderImages("normal", "1600", $templatePath, $templateUri);
-                            ?><style>.nice-slider-fullwidth,.top-wrap { max-height: 680px; height: 680px;}</style><?
-                        }
-                        if($clientWidth <= "1300") {
-                            echo sliderImages("normal", "1000", $templatePath, $templateUri);
-                            ?><style>.nice-slider-fullwidth,.top-wrap { max-height: 512px; height: 512px;}</style><?
-                        }
-                        ?>
+                      <ul class="itemwrap slider-content">
+                        <? echo sliderImages($town, "1600", $templatePath, $templateUri); ?>
                       </ul>
 
                     <div class="top-wrap">
 
-                     <!--   <div class="social-buttons">
-                        <a href="http://www.facebook.com/FinchMovingCompany" class="contact ico-fb"><i class="fa fa-facebook-square"></i></a>
-                        <a href="http://linkedin.com/pub/finch-moving/3a/114/125" class="contact ico-ld"><i class="fa fa-linkedin-square"></i></a>
-                        <a href="http://twitter.com/FinchMoving" class="contact ico-tw"><i class="fa fa-twitter-square"></i></a>
-                        </div> -->
                         <nav>
                             <a class="prev" href="#"><i class="fa fa-angle-left"></i></a>
                             <a class="next" href="#"><i class="fa fa-angle-right"></i></a>
@@ -305,11 +268,8 @@
                          </div>
 
                     </div>
-
                     </div>
-
                 </div>
-
               </div>
         </header>
 
@@ -319,29 +279,39 @@
                 <div class="wrap">
                     <div class="promo-wrapper clearfix">
                         <a id="car-1" href="<?echo $url_trucks[1]; ?>" class="promo-column car-item">
-                            <img src="<? echo get_template_directory_uri(); ?>/images/1.png" alt="">
-                            <h5>Free Estimate</h5>
+                            <div class="car-img">
+                                <img src="<? echo get_template_directory_uri(); ?>/images/1.png" alt="" \>
+                            </div>
+                            <h5><span>Free Estimate</span></h5>
                             <p>Accurate visual free moving estimate. Per your request our certified move consultant will meet with you in person to conduct free moving quote at no cost or obligation.</p>
                         </a>
                         <a id="car-2" href="<?echo $url_trucks[2]; ?>" class="promo-column car-item">
-                            <img src="<? echo get_template_directory_uri(); ?>/images/2.png"  alt="">
-                            <h5>Full Packing</h5>
+                            <div class="car-img">
+                                <img src="<? echo get_template_directory_uri(); ?>/images/2.png" alt="" \>
+                            </div>
+                            <h5><span>Full Packing</span></h5>
                             <p>High quality packing services California. Packing can be a very stressful task that requires a significant commitment of time and energy. </p>
                         </a>
                         <a id="car-3" href="<?echo $url_trucks[3]; ?>" class="promo-column car-item">
-                            <img src="<? echo get_template_directory_uri(); ?>/images/3.png"  alt="">
-                            <h5>Small Moves</h5>
+                            <div class="car-img">
+                                <img src="<? echo get_template_directory_uri(); ?>/images/3.png" alt="" \>
+                            </div>
+                            <h5><span>Small Moves</span></h5>
                             <p>Interactively procrastinate high-payoff content without backward-compatible data. </p>
                         </a>
                         <a id="car-4" href="<?echo $url_trucks[4]; ?>" class="promo-column car-item">
-                            <img src="<? echo get_template_directory_uri(); ?>/images/4.png"  alt="">
-                            <h5>Local Movers</h5>
+                            <div class="car-img">
+                                <img src="<? echo get_template_directory_uri(); ?>/images/4.png" alt="" \>
+                            </div>
+                            <h5><span>Local Movers</span></h5>
                             <p>Proudly servicing entire California. Local Movers California provide professional and efficient moving solutions.</p>
                         </a>
 
-                        <a id="car-5" href="<?echo $url_trucks[5]; ?>" class="promo-column car-item" id="long">
-                            <img src="<? echo get_template_directory_uri(); ?>/images/5.png" width="273" style="width:273px" alt="">
-                            <h5>Long Distance Movers</h5>
+                        <a id="car-5" href="<?echo $url_trucks[5]; ?>" class="promo-column car-item car-last">
+                            <div class="car-img">
+                                <img src="<? echo get_template_directory_uri(); ?>/images/5.png" alt="" \>
+                            </div>
+                            <h5><span>Long Distance Movers</span></h5>
                             <p>Credibly innovate granular internal or "organic" sources whereas high standards in web-readiness. </p>
                         </a>
                     </div>
@@ -358,16 +328,6 @@
                             <i class="li_phone"></i><b>855 969 6683</b>
                             <span>free<br>call</span>
                         </div>
-                   <!--     <div class="box-light-button clearfix">
-                            <a href="#" class="button button-download">
-                                <span class="button-download-title">Download for</span>
-                                <span class="button-download-subtitle">Apple iOS</span>
-                            </a>
-                            <a href="#" class="button button-download android">
-                                <span class="button-download-title">Download for</span>
-                                <span class="button-download-subtitle">Android</span>
-                            </a>
-                        </div> -->
                     </div>
                     <div class="box-form waypoint">
                         <div class="forms-form clearfix">

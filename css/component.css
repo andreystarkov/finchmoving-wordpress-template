@@ -32,7 +32,7 @@
 .st-pusher {
 	position: relative;
 	left: 0;
-	z-index: 99999999;
+	z-index: 999999999;
 	height: 100%;
 	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
@@ -40,6 +40,7 @@
 
 .st-pusher::after {
 	position: absolute;
+	z-index: 999999999;
 	top: 0;
 	right: 0;
 	width: 0;
@@ -200,7 +201,7 @@
 .st-effect-6 .st-pusher {
 
 	-webkit-transform-origin: 0% 50%;
-	transform-origin: 0% 50%; z-index: 9999999;
+	transform-origin: 0% 50%; z-index: 999999999;
 	-webkit-transform-style: preserve-3d;
 
 	transform-style: preserve-3d;

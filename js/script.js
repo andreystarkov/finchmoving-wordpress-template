@@ -1,11 +1,8 @@
 
 $(document).ready(function(){
 
-    if( $('.top-nav').html() != -1 ){
-        $('#btn-es-go').css({top: '100px'});
-    };
-
     var i = 5;
+
     $('.nice-slider-fullwidth li').each(function(){
         i++;
         $(this).addClass('caption-'+i);
@@ -13,12 +10,23 @@ $(document).ready(function(){
         if(i > 5) i = 0;
     });
 
-    // keys scroll
-    $('.promo').waypoint(function(){
-        $('#btn-es-go').html('<i class="ico li_paperplane"></i>');
-        $('#btn-es-go').addClass('btn-inactive');
-        $('#btn-es-go i').css({'margin-left': '0px', 'margin-top': '5px', 'margin-right': '5px'});
-    },{offset: '20%'});
+    $('#btn-es-go').click(function(){
+        $(this).transition({scale: 2, rotateX: '-20deg', perspective: '120px', rotateX: '45deg', opacity: 0, x: '-900px'}, 1500, function(){
+            $(this).css({display: 'none'});
+        })
+    })
+    $('.anal').removeClass('container');
+
+    $('.spanning').scroll(function(){
+        console.log($(this).offset().top+' '+$(this).position().top);
+        $('#menu-fixed').transition({opacity: 0.7});
+    });
+
+    $('#menu-fixed li a').hover(function(){
+        $(this).parent().parent().transition({opacity: 1});
+    });
+
+    $(".st-content").niceScroll({cursorcolor:"#333",cursorwidth: '11px', cursorborder: '#444',cursorborderradius: '3px', scrollspeed: '20'});
 
     KeyboardJS.on('left', function() {
         setTimeout(function() {
@@ -32,19 +40,8 @@ $(document).ready(function(){
         });
     });
 
-    KeyboardJS.on('up', function() {
-        setTimeout(function() {
-            $('.st-content').animate({scrollTop: $('.main').scrollTop()-$(window).height()}, 700, 'easeInQuart');
-        });
-    });
-
-    KeyboardJS.on('down', function() {
-        setTimeout(function() {
-            $('.st-content').animate({scrollTop: $('.main').scrollTop()+$(window).height()}, 700, 'easeInQuart');
-        });
-    });
-
     // init
+
     $('.tip').tooltipster();
 
     $("body").removeClass("no-js");
@@ -97,7 +94,6 @@ $(document).ready(function(){
         })
     });
 
-
     var docWidth = document.documentElement.offsetWidth;
 
     [].forEach.call(
@@ -115,7 +111,7 @@ $(document).ready(function(){
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
           var offsetTop = target.position().top - target.closest('.st-content').position().top;
           if (target.length) {
-            $('.st-content').animate({scrollTop: offsetTop}, 700, 'easeInQuart');
+            $('.st-content').animate({scrollTop: offsetTop}, 1200, 'easeInQuart');
             return false;
           }
         }

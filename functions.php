@@ -16,7 +16,7 @@
         $dir .= $rootPath."/images/show/".$town."/".$res;
         $dir_our .= $rootPath."/images/show/normal/".$res;
 
-        if ($handle_our = opendir($dir_our)) {
+        if ( $handle_our = opendir($dir_our) ) {
             $i = 0;
             while (false !== ($entry_our = readdir($handle_our))) {
 
@@ -29,7 +29,7 @@
             closedir($handle_our);
         }
 
-        if ($handle = opendir($dir)) {
+        if ( $handle = opendir($dir) ) {
             $i = 0;
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
@@ -113,6 +113,27 @@
                 $return .= " class='submenu-current' ";
                 $return .= "rel='bookmark' title='".$pageChild->post_title."'>".$pageChild->post_title."</a>";
             }
+        } else return -1;
+        } else return -1;
+
+        return $return;
+    }
+
+    function makeMenuList($wpdb, $post, $parent_id){
+        if ( ($parent_id != 7170) && ($parent_id != -1) ) {
+        $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
+
+        if ( !empty($child_pages) and (count($child_pages) < 6) ) {
+
+            foreach ( $child_pages as $pageChild ) {
+                setup_postdata( $pageChild );
+                $return .= "<li><a href='".get_permalink($pageChild->ID)."'";
+
+                if(get_the_title($post->ID) == $pageChild->post_title)
+                $return .= " class='submenu-current' ";
+                $return .= "rel='bookmark' title='".$pageChild->post_title."'>".$pageChild->post_title."</a></li>";
+            }
+
         } else return -1;
         } else return -1;
 
