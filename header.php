@@ -77,6 +77,10 @@
 
     <meta name="format-detection" content="telephone=8559696683">
 
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/bebasneue/bebasneue.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/lineicons/style.css" />
+
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/component.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/font-awesome.min.css" />
@@ -84,12 +88,11 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/svg-icons.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/tooltipster.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/skel.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/bebasneue/bebasneue.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/lineicons/style.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/parallax.css" />
 
-    <!--<link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
-     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />
+
+    <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
+   <!--   <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.easing.1.3.js"></script>
@@ -101,6 +104,11 @@
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.tooltipster.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.nicescroll.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.cookie.js"></script>
+ <!--
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/TweenMax.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/highlight.pack.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.scrollmagic.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.scrollmagic.debug.js"></script>-->
 
     <script src="<? echo get_template_directory_uri(); ?>/js/skel-config.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/library.js"></script>
@@ -128,7 +136,7 @@
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/snap.svg-min.js"></script>
-  <!-- <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>-->
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>
 
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -138,15 +146,8 @@
     <!-- <script src="<? echo get_template_directory_uri(); ?>/js/menu.js"></script>  -->
     <script>
     $(function() {
-
        $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+$('#footmenu').html());
-
-        $('.header-wrapper h1').click(function(){
-            $.removeCookie('_clientInfo');
-        });
-
        <? if(!empty($car_curr)) { ?> $('<? echo $car_curr; ?>').addClass('car-current'); <? } ?>
-
     });
     </script>
 
@@ -171,8 +172,14 @@
 
     <? if(!empty($town)) { makeLinks($town); } ?>
     <style>
-    html,body { margin-top: 0 !important; }
+        html,body { margin-top: 0 !important; overflow: hidden;}
     </style>
+   <!--  <script>
+        var controller;
+        $(document).ready(function($) {
+            controller = new ScrollMagic({vertical: true});
+        });
+    </script> -->
 </head>
 <body class="no-js">
 
@@ -187,8 +194,6 @@
          $('.st-menu .current-menu-item').append('<? echo getSubMenus($wpdb,$parent_id); ?>');
     });
     </script>
-
-
 
     <div id="st-trigger-effects">
         <button class="btn-nav" data-effect="st-effect-6">
@@ -205,10 +210,8 @@
         </ul>
     </div>
 
-    <div class="logo-small"></div>
-
     <nav class="st-menu st-effect-6" id="menu-6">
-        <h2 class="icon icon-stack"></h2>
+        <div class="icon icon-stack"></div>
         <?
         wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
                          'menu_id' => 'topmenu', 'menu_class' => 'top-menu-list', 'fallback_cb' => 'prime_menu_fallback' ));
@@ -222,15 +225,18 @@
         <header style="overflow:hidden">
 
               <div id="slider-wrapper" style="overflow:hidden">
-                      <a href="#estimate" id="btn-es-go" class="button tip" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
-                 <div id="nice-slider" class="nice-slider nice-slider-fullwidth" style="overflow:hidden">
+
+                <div class="logo-small"></div>
+                <a href="#estimate" id="btn-es-go" class="button tip" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
+
+
+                <div id="nice-slider" class="nice-slider nice-slider-fullwidth" style="overflow:hidden">
 
                       <ul class="itemwrap slider-content">
                         <? echo sliderImages($town, "1600", $templatePath, $templateUri); ?>
                       </ul>
 
                     <div class="top-wrap">
-
                         <nav>
                             <a class="prev" href="#"><i class="fa fa-angle-left"></i></a>
                             <a class="next" href="#"><i class="fa fa-angle-right"></i></a>
@@ -343,5 +349,6 @@
                 </div>
             </div>
             <? } ?>
+
 
 

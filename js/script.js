@@ -10,6 +10,10 @@ $(document).ready(function(){
         if(i > 5) i = 0;
     });
 
+    $('.box-full ul li').each(function(){
+        $(this).html('<i class="fa fa-angle-right"></i> '+$(this).html());
+    });
+
     $('#btn-es-go').click(function(){
         $(this).transition({scale: 2, rotateX: '-20deg', perspective: '120px', rotateX: '45deg', opacity: 0, x: '-900px'}, 1500, function(){
             $(this).css({display: 'none'});

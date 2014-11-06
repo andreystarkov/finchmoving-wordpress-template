@@ -4,6 +4,7 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,200,500,700);
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
+
 @import "http://webfonts.ru/import/alegreya.css";
 
 @link-color: @blue;
@@ -25,9 +26,11 @@
 @sans: 'Raleway';
 
 .wiget .container { width: auto !important; }
+
 .box-hidden {
     display: none !important; height: 0; width: 0; opacity: 0;
 }
+
 .btn-inactive {
     background: fade(@darkbrown, 50%);
     border-bottom: 0px;
@@ -39,9 +42,11 @@
     margin-right: 5px;
     }
 }
+
 #logo-small {z-index:9999999; }
+
 #btn-es-go {
-    position: fixed;
+    position: absolute;
     top: 10px;
     right: 10px;
     z-index:999999;
@@ -473,6 +478,7 @@ input:focus::-webkit-input-placeholder {
     @menu-bg: @green;
     position: absolute;
     top: 0;
+    padding-top:30px;
     left: 0;
     z-index: 99999;
     width: 300px;
@@ -543,11 +549,20 @@ input:focus::-webkit-input-placeholder {
 
         ul, ol {
             margin-bottom: 30px;
-             border-left: 6px dashed fade(darken(desaturate(@red, 20%), 20%), 20%);
+            list-style: none;
             li {
+                position: relative;
                 margin-top: 5px; margin-bottom:5px;
-                 font: 22px/32px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-                padding-left: 40px;
+                font: 22px/32px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                padding-left: 20px;
+                i {
+                    position: absolute;
+                    display: inline-block;
+                    color: rgba(71, 66, 61, 0.45);
+                    left:0px;
+                    top: 3px;
+                    font-size:28px;
+                }
                 span,h4 {
                     font: 22px/30px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
                     a { font: 22px/30px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
@@ -695,7 +710,6 @@ input:focus::-webkit-input-placeholder {
     }
 }
 
-
 #long {
     width: 280px;
     padding: 30px 0px 15px 0px;
@@ -705,12 +719,9 @@ input:focus::-webkit-input-placeholder {
     }
 }
 
-
 .promo-wrapper {
     text-align:center;
-
 }
-
 
 #footer-phone {
     background: transparent;
@@ -719,6 +730,9 @@ input:focus::-webkit-input-placeholder {
     i,span { color: fade(@light, 40%); }
 }
 
+#estimate { overflow: hidden; display:block; }
+
+.box-light-content { display: block; }
 .box-estimate, .contacts {
     .phone {
         position: relative;
@@ -852,7 +866,7 @@ input:focus::-webkit-input-placeholder {
     }
 }
 
-.wrap p, .comments .box p {
+.wrap p, .container p, .comments .box p {
     font-size: 24px;
     line-height: 36px;
     font: 24px/36px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1322,7 +1336,6 @@ a.button.button-stripe:active {
     margin: 0 -40px;
 }
 
-
 .btn-nav:hover {
     opacity: 1;
 }
@@ -1372,13 +1385,14 @@ header {
         display: inline-block;
     }
     .box-light-content {
-        border-right: 5px dashed fade(@brown, 20%);
+// border-right: 5px dashed fade(@brown, 20%);
     }
 }
 
 .box-light-content {
-    float: right;
-    width: 45%;
+    vertical-align:top;
+    display: inline-block;
+    width: 42%;
     padding: 20px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -1395,8 +1409,8 @@ header {
     .input-text {
         margin-bottom: 15px;
     }
-.box-form {
-    float: left;
+    .box-form {
+    display: inline-block;
     padding-top: 10px;
     margin-right: 8px;
     width: 45%;
@@ -1570,7 +1584,7 @@ header {
 
 .box-light {
     border-bottom: 15px solid fade(@brown, 13%);
-    border-top: 15px dashed fade(@brown, 24%);
+  //  border-top: 15px dashed fade(@brown, 24%);
 }
 
 .box-price {

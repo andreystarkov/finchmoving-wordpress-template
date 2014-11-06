@@ -28,7 +28,7 @@ $(function() {
         isAnimating = false;
 
         var effects = ["fxSoftScale", "fxSnapIn","fxLetMeIn","fxStickIt","fxArchiveMe","fxVGrowth", "fxSlideBehind","fxSoftPulse", "fxCliffDiving", "fxPressAway"];
-        var rotateInterval = setInterval(function(){autoInterval()},4000);
+        var rotateInterval = setInterval(function(){autoInterval()},8000);
 
         function init() {
             showNav();
