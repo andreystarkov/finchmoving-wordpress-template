@@ -12,8 +12,6 @@
         }
     }
 
-<<<<<<< HEAD
-=======
     function sliderImages($town, $res, $rootPath, $rootUri){
         $dir .= $rootPath."/images/show/".$town."/".$res;
         $dir_our .= $rootPath."/images/show/normal/".$res;
@@ -55,7 +53,6 @@
         return $return;
     }
 
->>>>>>> pre
     function getSubMenus($wpdb,$parent_id){
          $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
         if ( $child_pages ) {
@@ -122,8 +119,6 @@
         return $return;
     }
 
-<<<<<<< HEAD
-=======
     function makeMenuList($wpdb, $post, $parent_id){
         if ( ($parent_id != 7170) && ($parent_id != -1) ) {
         $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
@@ -145,7 +140,6 @@
         return $return;
     }
 
->>>>>>> pre
     function makeMenu($wpdb, $post, $parent_id){
         if ( ($parent_id != 7170) && ($parent_id != -1) ) {
         $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
@@ -180,11 +174,7 @@
             if(strpos($curl, "poway") != FALSE) $town = "poway";
             if(strpos($curl, "mission_bay") != FALSE) $town = "mission_bay";
             if(strpos($curl, "la_mesa") != FALSE) $town = "la_mesa";
-<<<<<<< HEAD
-            return $tuwn;
-=======
             return $town;
->>>>>>> pre
     }
 
     function makeMenuParent($title){

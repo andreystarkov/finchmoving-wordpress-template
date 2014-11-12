@@ -120,12 +120,12 @@
             },
             success: function( data, textStatus, jQxhr ){
                  $('#nice-slider .slider-content').html(data);
-                $('#nice-slider .slider-content li').each(function(){
+        /*        $('#nice-slider .slider-content li').each(function(){
                     i++;
                     $(this).addClass('caption-'+i);
                     $(this).attr('data-caption', 'caption-'+i);
                     if(i > 4) i = 0;
-                });
+                }); */
              },
             error: function( jqXhr, textStatus, errorThrown ){ }
         });
@@ -245,13 +245,14 @@
 
     <div id="top-menu-wrap" class="top-menu-wrap skel-layers-fixed">
         <ul class="fixed-menu" id="menu-fixed">
-            <?php if($topMenu != -1) echo $topMenu; ?>
+            <?php if($topMenu != -1) { echo $topMenu;
+                ?><style> .top-phone { top: 90px; left: 125px; }</style><?
+            } ?>
         </ul>
     </div>
 
     <nav class="st-menu st-effect-6" id="menu-6">
         <div class="icon icon-stack"></div>
-
         <?
         wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
                          'menu_id' => 'topmenu', 'menu_class' => 'top-menu-list', 'fallback_cb' => 'prime_menu_fallback' ));

@@ -1,11 +1,4 @@
 
-<<<<<<< HEAD
-
-       <?
-        if($pagename != "california"){ ?>
-        <div class="box-light anchor" id="estimate">
-                <div class="wrap box-estimate">
-=======
         <style>
         .box-estimate:after {
           content:"";
@@ -18,7 +11,6 @@
         if($pagename != "california"){ ?>
             <div class="box-light anchor" id="estimate">
                 <div class="container box-estimate">
->>>>>>> pre
                     <div class="box-light-content waypoint">
                         <h2>Free Estimate</h2>
                         <p>Get the seamless and stress-free move of your belongings. We'll contact you as soon as possible.</p>
@@ -90,27 +82,7 @@
 </div>
 </div>
 
-<<<<<<< HEAD
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/retina.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/fullwidth-slider.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/classie.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/sidebarEffects.js"></script>
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/svgicons-config.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/svgicons.js"></script>
-
-    <script>
-    $(function() {
-
-        [].slice.call( document.querySelectorAll( '.si-icon' ) ).forEach( function( el ) {
-            var svgicon = new svgIcon( el, svgIconConfig );
-        } );
-    });
-    </script>
-=======
-    <script src="<? echo get_template_directory_uri(); ?>/js/sidebarEffects.js"></script>
->>>>>>> pre
 
 </body>
 </html>
