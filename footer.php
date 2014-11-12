@@ -82,23 +82,7 @@
 </div>
 </div>
 
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/retina.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/fullwidth-slider.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/classie.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/sidebarEffects.js"></script>
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/svgicons-config.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/svgicons.js"></script>
-
-    <script>
-    $(function() {
-
-        [].slice.call( document.querySelectorAll( '.si-icon' ) ).forEach( function( el ) {
-            var svgicon = new svgIcon( el, svgIconConfig );
-        } );
-    });
-    </script>
 
 </body>
 </html>

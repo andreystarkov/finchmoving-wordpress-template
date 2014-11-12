@@ -1,15 +1,6 @@
 
 $(document).ready(function(){
 
-    var i = 5;
-
-    $('.nice-slider-fullwidth li').each(function(){
-        i++;
-        $(this).addClass('caption-'+i);
-        $(this).attr('data-caption', 'caption-'+i);
-        if(i > 5) i = 0;
-    });
-
     $('.box-full ul li').each(function(){
         $(this).html('<i class="fa fa-angle-right"></i> '+$(this).html());
     });

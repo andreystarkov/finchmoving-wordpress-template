@@ -90,15 +90,49 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/skel.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/parallax.css" />
 
-
     <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
-   <!--   <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.easing.1.3.js"></script>
+
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel.min.js"></script>
-     <!--<script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel-layers.min.js"></script>
+    <!--<script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel-layers.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel-panels.min.js"></script>-->
+
+    <script>
+    $(function() {
+        var i = 4;
+        var res = "1600";
+        var width = $(window).width();
+
+        if( width < 1800) { res = "1600"; }
+        if( width < 1400) { res = "1000"; }
+        if( width > 1800) { res = "1900"; }
+
+        $.ajax({
+            url: '<?echo $templateUri; ?>/getslider.php',
+            type: 'post',
+            data: {
+            town: '<? echo $town; ?>',
+            rootPath: '<? echo $templatePath; ?>',
+            rootUri: '<? echo $templateUri; ?>',
+            res: res
+            },
+            success: function( data, textStatus, jQxhr ){
+                 $('#nice-slider .slider-content').html(data);
+                $('#nice-slider .slider-content li').each(function(){
+                    i++;
+                    $(this).addClass('caption-'+i);
+                    $(this).attr('data-caption', 'caption-'+i);
+                    if(i > 4) i = 0;
+                });
+             },
+            error: function( jqXhr, textStatus, errorThrown ){ }
+        });
+
+    });
+    </script>
+
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/waypoints.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.transit.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.tooltipster.min.js"></script>
@@ -110,12 +144,16 @@
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.scrollmagic.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.scrollmagic.debug.js"></script>-->
 
+    <script src="<? echo get_template_directory_uri(); ?>/js/fullwidth-slider.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/classie.js"></script>
+
     <script src="<? echo get_template_directory_uri(); ?>/js/skel-config.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/library.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/keyboard.js"></script>
 
     <script src="<? echo get_template_directory_uri(); ?>/js/animation.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/script.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/retina.js"></script>
 
     <?php // roots_head();
     wp_head(); ?>
@@ -192,11 +230,12 @@
     <script>
     $(function() {
          $('.st-menu .current-menu-item').append('<? echo getSubMenus($wpdb,$parent_id); ?>');
+         $('[name="Reviews"]').addClass('current');
     });
     </script>
 
     <div id="st-trigger-effects">
-        <button class="btn-nav" data-effect="st-effect-6">
+        <button class="btn-nav" data-effect="st-effect-3">
           <!--  <div class="svg-wrap">
                 <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
             </div> -->
@@ -212,6 +251,7 @@
 
     <nav class="st-menu st-effect-6" id="menu-6">
         <div class="icon icon-stack"></div>
+
         <?
         wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
                          'menu_id' => 'topmenu', 'menu_class' => 'top-menu-list', 'fallback_cb' => 'prime_menu_fallback' ));
@@ -223,7 +263,10 @@
         <div class="st-content-inner">
 
         <header style="overflow:hidden">
-
+    <div class="top-phone">
+        <i class="li_phone"></i><b>855 969 6683</b>
+        <span>free<br>call</span>
+    </div>
               <div id="slider-wrapper" style="overflow:hidden">
 
                 <div class="logo-small"></div>
