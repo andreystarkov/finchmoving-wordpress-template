@@ -12,6 +12,50 @@
         }
     }
 
+<<<<<<< HEAD
+=======
+    function sliderImages($town, $res, $rootPath, $rootUri){
+        $dir .= $rootPath."/images/show/".$town."/".$res;
+        $dir_our .= $rootPath."/images/show/normal/".$res;
+
+        if ( $handle_our = opendir($dir_our) ) {
+            $i = 0;
+            while (false !== ($entry_our = readdir($handle_our))) {
+
+                if ($entry_our != "." && $entry_our != "..") {
+                    $i++;
+                    if( $i == 1){ $cur = "class='current' "; } else { $cur = ""; }
+                    $out_our[$i] .= "<li ".$cur."><img src='".$rootUri."/images/show/normal/".$res."/".$entry_our."' /></li>";
+                }
+            }
+            closedir($handle_our);
+        }
+
+        if ( $handle = opendir($dir) ) {
+            $i = 0;
+            while (false !== ($entry = readdir($handle))) {
+                if ($entry != "." && $entry != "..") {
+                    if($i == 0) { $cur = "current"; } else { $cur = ""; } $i++;
+                    $out_area[$i] .= "<li><img src='".$rootUri."/images/show/".$town."/".$res."/".$entry."' /></li>";
+                }
+            }
+            closedir($handle);
+        }
+
+        $summary = count($out_our)+count($out_area);
+
+        for($i = 0; $i <= $summary; $i++){
+            if(count($out_area) >= $i){
+                $return .= $out_area[$i];
+            }
+            if(count($out_our) >= $i){
+                $return .= $out_our[$i];
+            }
+        }
+        return $return;
+    }
+
+>>>>>>> pre
     function getSubMenus($wpdb,$parent_id){
          $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
         if ( $child_pages ) {
@@ -78,6 +122,30 @@
         return $return;
     }
 
+<<<<<<< HEAD
+=======
+    function makeMenuList($wpdb, $post, $parent_id){
+        if ( ($parent_id != 7170) && ($parent_id != -1) ) {
+        $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
+
+        if ( !empty($child_pages) and (count($child_pages) < 6) ) {
+
+            foreach ( $child_pages as $pageChild ) {
+                setup_postdata( $pageChild );
+                $return .= "<li><a href='".get_permalink($pageChild->ID)."'";
+
+                if(get_the_title($post->ID) == $pageChild->post_title)
+                $return .= " class='submenu-current' ";
+                $return .= "rel='bookmark' title='".$pageChild->post_title."'>".$pageChild->post_title."</a></li>";
+            }
+
+        } else return -1;
+        } else return -1;
+
+        return $return;
+    }
+
+>>>>>>> pre
     function makeMenu($wpdb, $post, $parent_id){
         if ( ($parent_id != 7170) && ($parent_id != -1) ) {
         $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
@@ -112,7 +180,11 @@
             if(strpos($curl, "poway") != FALSE) $town = "poway";
             if(strpos($curl, "mission_bay") != FALSE) $town = "mission_bay";
             if(strpos($curl, "la_mesa") != FALSE) $town = "la_mesa";
+<<<<<<< HEAD
             return $tuwn;
+=======
+            return $town;
+>>>>>>> pre
     }
 
     function makeMenuParent($title){

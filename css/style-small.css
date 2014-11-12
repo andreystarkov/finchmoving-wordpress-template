@@ -1,0 +1,8 @@
+#top-menu-wrap, #fixed-menu { display: none; }
+#btn-es-go { top:35px; }
+.box-full h2 { font-size: 50px;}
+  .logo-small {
+
+    top: 10px;
+    }
+   .top-phone {display: none !important;}

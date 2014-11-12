@@ -1,0 +1,22 @@
+$(document).ready(function($) {
+
+    var tween = new TimelineMax ()
+        .add([
+            TweenMax.to("#parallaxContainer .layer1", 1, {backgroundPosition: "-40% 0", ease: Linear.easeNone}),
+            TweenMax.to("#parallaxContainer .truck1", 1, {left: "170%", ease: Linear.easeNone}),
+            TweenMax.to("#parallaxContainer .car1", 1, {left: "140%", ease: Linear.easeNone}),
+            TweenMax.to("#parallaxContainer .bottom-tree1", 1, {right: "50%", ease: Linear.easeNone}),
+            TweenMax.to("#parallaxContainer .winner", 1, {left: "240%", ease: Linear.easeNone}),
+            TweenMax.to("#parallaxContainer .toppom-tree1", 1, {right: "70%", ease: Linear.easeNone}),
+            TweenMax.to("#parallaxContainer .bottom-tree2", 1, {right: "120%", ease: Linear.easeNone}),
+            TweenMax.to("#parallaxContainer .toppom-tree2", 1, {right: "150%", ease: Linear.easeNone})
+
+        ]);
+
+    var scene = new ScrollScene({triggerElement: "#parallaxContainer", duration: 8000, offset: 250})
+                    .setTween(tween)
+                    .setPin("#parallaxContainer")
+                    .addTo(controller);
+
+    scene.addIndicators();
+});

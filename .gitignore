@@ -3,7 +3,11 @@ archive.php
 archives.php
 comments.php
 editor-style.css
+<<<<<<< HEAD
 
+=======
+sftp-config-core.json
+>>>>>>> pre
 prime-option/
 prime/
 lang/
