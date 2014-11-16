@@ -147,6 +147,7 @@
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.tooltipster.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.nicescroll.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.cookie.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
  <!--
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/TweenMax.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/highlight.pack.js"></script>

@@ -64,6 +64,10 @@ $(document).ready(function(){
         });
     });
 
+            $('.wpcf7-validation-errors').mouseover(function() {
+                $(this).fadeOut(500);
+            });
+
     setInterval(function(){
      $('.tabs').addClass('active').siblings().removeClass('active').parents('.tab').find('.box').hide().eq($(this).index()).fadeIn(250);
     },8000);
