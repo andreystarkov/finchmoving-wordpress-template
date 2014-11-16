@@ -84,8 +84,8 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/skel.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/parallax.css" />
-   <!-- <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
-  <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
+   <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />
+  <!-- <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.easing.1.3.js"></script>
@@ -178,7 +178,7 @@
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/snap.svg-min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>
+   <!-- <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>-->
 
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
