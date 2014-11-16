@@ -16,11 +16,9 @@
         </div>
   </div>
 
-<<<<<<< HEAD
-          <div id="subpages" class="slide-1 clearfix img-blur-1 box-img">
-=======
-          <div id="subpages" class="slide-1 clearfix img-truck-1 box-img">
->>>>>>> pre
+
+          <div id="subpages" class="slide-1 clearfix img-truck-4 box-img">
+
           <div class="wrap"><div class="box-light-content clearfix waypoint">
             <?
             $curl = $_SERVER['REQUEST_URI'];

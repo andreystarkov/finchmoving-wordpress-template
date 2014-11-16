@@ -17,7 +17,9 @@
 
     function test($res){
         if($res == 1900){
-        ?><li class="current"><img src="<? echo get_template_directory_uri(); ?>/images/slides/3.jpg" alt="img08"/></li><li><img src="<? echo get_template_directory_uri(); ?>/images/house.jpg" alt="img08"/></li><li><img src="<? echo get_template_directory_uri(); ?>/images/slides/4.jpg" alt="img08"/></li><?
+        ?><li class="current"><img src="<? echo get_template_directory_uri(); ?>/images/slides/3.jpg" alt="img08"></li>
+        <li><img src="<? echo get_template_directory_uri(); ?>/images/house.jpg" alt="img08"></li>
+        <li><img src="<? echo get_template_directory_uri(); ?>/images/slides/4.jpg" alt="img08"></li><?
         }
     }
 
@@ -89,8 +91,8 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/tooltipster.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/skel.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/parallax.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />
- <!--   <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
+   <!-- <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
+  <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.easing.1.3.js"></script>
@@ -104,9 +106,16 @@
         var i = 4;
         var res = "1600";
         var width = $(window).width();
+         if( width < 1000) {
+            $('#subpages').css({backgroundImage: 'url(<? echo get_template_directory_uri(); ?>/images/truck-small.jpg)', 'background-attachment': 'scroll', 'background-size': 'cover'});
 
+         }
         if( width < 1800) { res = "1600"; }
-        if( width < 1400) { res = "1000"; }
+        if( width < 1400) { res = "1000";
+        $('.nice-slider-fullwidth').css({height: '600px'});
+        $('.nice-slider-fullwidth li img').css({bottom: '-100px'});
+
+        }
         if( width > 1800) { res = "1900"; }
 
         $.ajax({
@@ -235,7 +244,7 @@
     </script>
 
     <div id="st-trigger-effects">
-        <button class="btn-nav" data-effect="st-effect-3">
+        <button class="btn-nav" data-effect="st-effect-6">
           <!--  <div class="svg-wrap">
                 <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
             </div> -->
@@ -245,9 +254,7 @@
 
     <div id="top-menu-wrap" class="top-menu-wrap skel-layers-fixed">
         <ul class="fixed-menu" id="menu-fixed">
-            <?php if($topMenu != -1) { echo $topMenu;
-                ?><style> .top-phone { top: 90px; left: 125px; }</style><?
-            } ?>
+        <?php if($topMenu != -1) { echo $topMenu; } ?>
         </ul>
     </div>
 
@@ -264,15 +271,16 @@
         <div class="st-content-inner">
 
         <header style="overflow:hidden">
-    <div class="top-phone">
-        <i class="li_phone"></i><b>855 969 6683</b>
-        <span>free<br>call</span>
-    </div>
+
               <div id="slider-wrapper" style="overflow:hidden">
 
                 <div class="logo-small"></div>
                 <a href="#estimate" id="btn-es-go" class="button tip" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
 
+                <div class="top-phone header-phone">
+                    <i class="li_phone"></i><b>855 969 6683</b>
+                    <span>free<br>call</span>
+                </div>
 
                 <div id="nice-slider" class="nice-slider nice-slider-fullwidth" style="overflow:hidden">
 
@@ -310,7 +318,7 @@
                             <div class="header-wrapper">
                               <div class="header-logo">
                                  <div class="logo">
-                                     <img src="<? echo get_template_directory_uri(); ?>/images/logo1.png" class="header-img">
+                                     <img src="<? echo get_template_directory_uri(); ?>/images/logo1.png" class="header-img" alt="">
                                      <div class="box"></div>
                                  </div>
                                 </div>
@@ -320,7 +328,6 @@
                     </div>
                     </div>
                 </div>
-              </div>
         </header>
 
         <div class="spanning" id="main-block">
@@ -330,28 +337,28 @@
                     <div class="promo-wrapper clearfix">
                         <a id="car-1" href="<?echo $url_trucks[1]; ?>" class="promo-column car-item">
                             <div class="car-img">
-                                <img src="<? echo get_template_directory_uri(); ?>/images/1.png" alt="" \>
+                                <img src="<? echo get_template_directory_uri(); ?>/images/1.png" alt="">
                             </div>
                             <h5><span>Free Estimate</span></h5>
                             <p>Accurate visual free moving estimate. Per your request our certified move consultant will meet with you in person to conduct free moving quote at no cost or obligation.</p>
                         </a>
                         <a id="car-2" href="<?echo $url_trucks[2]; ?>" class="promo-column car-item">
                             <div class="car-img">
-                                <img src="<? echo get_template_directory_uri(); ?>/images/2.png" alt="" \>
+                                <img src="<? echo get_template_directory_uri(); ?>/images/2.png" alt="">
                             </div>
                             <h5><span>Full Packing</span></h5>
                             <p>High quality packing services California. Packing can be a very stressful task that requires a significant commitment of time and energy. </p>
                         </a>
                         <a id="car-3" href="<?echo $url_trucks[3]; ?>" class="promo-column car-item">
                             <div class="car-img">
-                                <img src="<? echo get_template_directory_uri(); ?>/images/3.png" alt="" \>
+                                <img src="<? echo get_template_directory_uri(); ?>/images/3.png" alt="">
                             </div>
                             <h5><span>Small Moves</span></h5>
                             <p>Interactively procrastinate high-payoff content without backward-compatible data. </p>
                         </a>
                         <a id="car-4" href="<?echo $url_trucks[4]; ?>" class="promo-column car-item">
                             <div class="car-img">
-                                <img src="<? echo get_template_directory_uri(); ?>/images/4.png" alt="" \>
+                                <img src="<? echo get_template_directory_uri(); ?>/images/4.png" alt="">
                             </div>
                             <h5><span>Local Movers</span></h5>
                             <p>Proudly servicing entire California. Local Movers California provide professional and efficient moving solutions.</p>
@@ -359,7 +366,7 @@
 
                         <a id="car-5" href="<?echo $url_trucks[5]; ?>" class="promo-column car-item car-last">
                             <div class="car-img">
-                                <img src="<? echo get_template_directory_uri(); ?>/images/5.png" alt="" \>
+                                <img src="<? echo get_template_directory_uri(); ?>/images/5.png" alt="">
                             </div>
                             <h5><span>Long Distance Movers</span></h5>
                             <p>Credibly innovate granular internal or "organic" sources whereas high standards in web-readiness. </p>

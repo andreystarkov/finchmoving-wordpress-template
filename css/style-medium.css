@@ -7,11 +7,31 @@
     max-width: 68%;
     width: 58%;
     left: 150px;
-   top: auto;
-   bottom: 25px;
+    top: auto;
+    bottom: 25px;
   }
 
-   .top-phone {display: none !important;}
+ .top-phone {
+    top: 180px;
+    right: 15px;
+    width: 276px;
+    left: auto;
+    bottom: auto;
+    padding: 9px 54px 5px 10px;
+    font-size: 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.54);
+ }
+
+ .top-phone span { top: 9px; font-size: 17px; line-height: 18px; }
+ .top-phone b { }
+ .top-phone i { font-size: 28px; margin-right: 8px; }
+
+  #estimate .top-phone {
+    padding: 12px 54px 8px 10px;
+    position: relative;
+    top: auto; left: auto; bottom:auto; right: auto;
+  }
+
 
 .img-truck-1 { background: url(../images/truck-small.jpg); }
 .slider-caption i {

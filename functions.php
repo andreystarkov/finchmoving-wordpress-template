@@ -23,7 +23,7 @@
                 if ($entry_our != "." && $entry_our != "..") {
                     $i++;
                     if( $i == 1){ $cur = "class='current' "; } else { $cur = ""; }
-                    $out_our[$i] .= "<li ".$cur."><img src='".$rootUri."/images/show/normal/".$res."/".$entry_our."' /></li>";
+                    $out_our[$i] .= "<li ".$cur."><img src='".$rootUri."/images/show/normal/".$res."/".$entry_our."' alt=''></li>";
                 }
             }
             closedir($handle_our);
@@ -34,7 +34,7 @@
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
                     if($i == 0) { $cur = "current"; } else { $cur = ""; } $i++;
-                    $out_area[$i] .= "<li><img src='".$rootUri."/images/show/".$town."/".$res."/".$entry."' /></li>";
+                    $out_area[$i] .= "<li><img src='".$rootUri."/images/show/".$town."/".$res."/".$entry."' alt=''></li>";
                 }
             }
             closedir($handle);

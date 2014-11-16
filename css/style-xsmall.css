@@ -1,27 +1,95 @@
+  /* mobile styles */
+
   .slider-wrapper, #nice-slider, .slider-content,.top-wrap {
     height: 500px; max-height: 500px;
+
   }
-   .top-phone {display: none !important;}
+
+  .wrap p, .container p, .comments .box p { font-size: 20px; line-height: 26px;}
+
+ .top-phone {
+    width: 276px;
+    padding: 9px 54px 5px 10px;
+    font-size: 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.54);
+ }
+
+ .top-phone span { top: 9px; font-size: 17px; line-height: 18px; }
+ .top-phone b { }
+ .top-phone i { font-size: 28px; margin-right: 8px; }
+
+  #estimate .top-phone {
+    padding: 12px 54px 8px 10px;
+    position: relative;
+    top: auto; left: auto; bottom:auto; right: auto;
+  }
+
+ .header-phone {
+    top: 105px;
+    right: 15px;
+    left: auto;
+  }
+
+  .forms-form .button-submit { width: 100%;}
+  .form-estimate p { font-style: italic; }
+  .contacts .contact { float: none; display: inline-block; }
+
+  #footer-nav { width: 100%; padding: 15px;}
+  .box-footer .floats { text-align: center; width: 100%;}
+
+ .input-text, .textarea {
+    padding: 8px 15px;
+    height: auto;
+    color: #333;
+    font: 500 18px/24px 'Raleway',"Helvetica Neue",Helvetica,Arial,sans-serif
+  }
+
+  input[placeholder], [placeholder], [placeholder] { color: #333 !important; }
+
   #btn-es-go {
-    top: 44%;
+    top: auto;
+    bottom: 20px;
     position: absolute;
-    right: 18%;
+    z-index:999999;
+    right: 17%;
     z-index: 666665;
-    font-size: 34px;
-    line-height: 42px;
+    font-size: 35px;
+    line-height: 36px;
     font-family: 'bebas_neuebook';
-    padding: 2px 6px;
-    padding-left: 12px;
+    padding: 6px 7px 4px 5px;
+    padding-left: 16px;
     height: auto;
     box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
     border-radius: 8px;
   }
 
-.box-light { padding-top: 15px; }
-.box-full {
-  padding-left: 5px; padding-right: 5px; padding-top:15px; padding-bottom: 15px;
-   margin: 0;
-}
+  .box-light { padding-top: 15px; }
+
+  .box-light .box-light-content, .box-form {
+     padding-left: 20px;
+     padding-right: 15px;
+     padding-top:15px;
+     padding-bottom: 15px;
+     margin: 0;
+     width: 100% !important;
+  }
+
+  .box-full, .container {
+     padding-left: 15px;
+     padding-right: 15px;
+     padding-top:15px;
+     padding-bottom: 15px;
+     margin: 0;
+     width: 100% !important;
+  }
+
+  .box-full h4, .box-full h4 a { font-size: 20px; text-align: left; }
+
+  .box-full ul li span a, .box-full ol li span a, .box-full ul li h4 a, .box-full ol li h4 a {
+    font-size:18px;
+    line-height: 24px;
+  }
+
   #btn-es-go i {
     margin-left:6px;
     font-size: 27px;
@@ -49,9 +117,7 @@
     max-width: 65%;
     width: 70%;
     left: 70px;
-
     top:auto;
-
     bottom: 15px;
   }
 
@@ -80,21 +146,24 @@
     font-style:italic;
     text-indent: 26px;
   }
+
   .top-nav {
     display: none;
   }
+
   .img-truck-1 {
     background-attachment: scroll;
     background-position: 50% 50%;
     background-image: url(../images/truck-small.jpg);
   }
+
   .img-blur-1 {
     background-attachment: scroll;
     background-position: 50% 50%;
-    background-image: url(../images/guy-small.jpg);
+
   }
+
   #estimate {
-  /*  min-height: 870px; */
   display: block;
   }
   .comments {
@@ -136,8 +205,9 @@
     float: none;
     display: block;
   }
+
   .box-light { padding-bottom: 20px;}
-  .wrap p, .comments .box p { font-size: 20px; line-height: 26px;}
+
   .promo .wrap { padding-left:0; padding-right:0; }
   .promo-column { padding: 15px 0px 15px 0px; margin:0;}
   .promo-column img { width: auto; height: auto; max-height: 84px; }
@@ -284,6 +354,4 @@
   .box-light-img-inside {
     display: none;
   }
-  .box-light .box-light-content {
-    width: auto !important;
-  }
+
