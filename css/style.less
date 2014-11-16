@@ -25,6 +25,7 @@
 @head-serif: 'Alegreya SC';
 @sans: 'Raleway';
 
+.wrap { width: 100%; position: relative; display: block; }
 .wiget .container { width: auto !important; }
 
 .box-hidden {
@@ -275,7 +276,7 @@ top: auto; left: auto; bottom:auto; right: auto;
 
 body { overflow-x: hidden; }
 
-header {
+#header {
     font: 24px/36px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
     h1 {
@@ -437,7 +438,7 @@ footer {
     margin-right: 14%;
 }
 
-header .buttons-wrapper .button.button-stripe {
+#header .buttons-wrapper .button.button-stripe {
     margin-left: 0
 }
 
@@ -623,6 +624,9 @@ input:focus::-webkit-input-placeholder {
 }
 
 .box-full {
+    position:relative;
+    overflow: hidden;
+    width:100%;
         h5 {
             font: bold 24px/30px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
             text-transform: uppercase;
@@ -1454,6 +1458,12 @@ a.button.button-stripe:active {
         text-shadow: 0px 4px 1px fade(@brown, 40%);
     }
 }
+.ani, .ani-up {
+    opacity:0;
+}
+.ani.animated, .ani-up.animated {
+    opacity: 1;
+}
 
 .box-light-img {
     float: left;
@@ -1479,7 +1489,7 @@ a.button.button-stripe:active {
     background-position: 0 100%;
 }
 
-header {
+#header {
  //   background: url(../images/beach1.jpg);
     background-attachment: fixed;
     background-position: 0 100%;

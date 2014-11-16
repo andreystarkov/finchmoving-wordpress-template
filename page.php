@@ -1,17 +1,11 @@
-  <?php
-  /*
-    Template Name: Content Page Without Sidebar
-  */
-  ?>
+<?php get_header(); ?>
 
-  <?php get_header(); ?>
-
-  <div class="box-light clearfix anchor box-content" id="info">
+  <div class="box-light clearfix box-content" id="info">
       <div class="wrap">
           <div class="box-full clearfix">
-          <?php roots_loop_before(); ?>
-          <?php get_template_part('loop', 'page'); ?>
-          <?php roots_loop_after(); ?>
+          <?php roots_loop_before();
+          get_template_part('loop', 'page');
+          roots_loop_after(); ?>
          </div>
         </div>
   </div>
@@ -19,7 +13,7 @@
 
           <div id="subpages" class="slide-1 clearfix img-truck-4 box-img">
 
-          <div class="wrap"><div class="box-light-content clearfix waypoint">
+          <div class="wrap"><div class="box-light-content clearfix">
             <?
             $curl = $_SERVER['REQUEST_URI'];
             $parent_id = $post->ID;

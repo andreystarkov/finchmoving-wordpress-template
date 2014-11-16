@@ -7,19 +7,19 @@
 
     <div class="box-light clearfix anchor" id="pricing">
         <div class="wrap">
-            <div class="box-full box-col clearfix contacts">
+            <div class="box-full box-col clearfix contacts ">
                 <h2>Best pricing</h2>
-                <div class="col-3 box-price" id="price-1">
+                <div class="col-3 box-price ani" id="price-1">
                     <img src="<? echo get_template_directory_uri(); ?>/images/price-1.png">
                     <h5><span>2</span> MOVERS & TRUCK</h5>
                     <p>$75 PER HOUR</p>
                 </div>
-                <div class="col-3 box-price" id="price-2">
+                <div class="col-3 box-price ani" id="price-2">
                     <img src="<? echo get_template_directory_uri(); ?>/images/price-2.png">
                     <h5><span>3</span>  MOVERS & TRUCK</h5>
                     <p>$100 PER HOUR</p>
                 </div>
-                <div class="col-3 box-price" id="price-3">
+                <div class="col-3 box-price ani" id="price-3">
                     <img src="<? echo get_template_directory_uri(); ?>/images/price-3.png">
                     <h5><span>4</span> MOVERS & TRUCK</h5>
                     <p>$125 PER HOUR</p>
@@ -32,7 +32,7 @@
     <div class="comments clearfix img-blur-1 box-img" id="pricing-bonus">
         <div class="wrap">
 
-            <div class="tab waypoint">
+            <div class="tab ani">
                 <div class="box visible">
                     <h4><i class="li_star"></i> 5% Discount</h4>
                     <p>Military members, seniors, students.</p>
@@ -56,8 +56,8 @@
                     <li></li>
                     <li></li>
                 </ul>
-                <a href="#" class="tab-prev"><i class="fa fa-angle-left"></i></a>
-                <a href="#" class="tab-next"><i class="fa fa-angle-right"></i></a>
+                <a href="#" class="tab-prev ani"><i class="fa fa-angle-left"></i></a>
+                <a href="#" class="tab-next ani"><i class="fa fa-angle-right"></i></a>
             </div>
         </div>
     </div>

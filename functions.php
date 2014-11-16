@@ -1,5 +1,30 @@
 <?php
 
+    function theme_enqueue_scripts(){
+        wp_enqueue_style( 'animate-stylesheet', get_template_directory_uri() . '/css/animate.min.css', array(), '', 'all' );
+    }
+
+    add_action('wp_enqueue_scripts', 'theme_enqueue_scripts' );
+
+    function wpa_135542(){ ?>
+        <script>
+         var ani = new WOW({
+            animateClass: 'animated',
+            offset: 0,
+            mobile: false,
+            boxClass: 'ani'
+         });
+         ani.init();
+
+        var wow = new WOW({
+            animateClass: 'animated',
+            offset: 100,
+            mobile: false
+         });
+         wow.init();
+        </script>
+    <? }
+
     if (!function_exists('_log')) {
         function _log($message)
         {
@@ -54,10 +79,11 @@
     }
 
     function getSubMenus($wpdb,$parent_id){
+        $effect = "fadeInDown";
          $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
         if ( $child_pages ) {
             foreach ( $child_pages as $pageChild ) {
-                setup_postdata( $pageChild ); ?><a class="submenu-item" href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>"><?php echo $pageChild->post_title; ?></a><?php
+                setup_postdata( $pageChild ); ?><a class="submenu-item wow <? echo $effect; ?>" href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>"><?php echo $pageChild->post_title; ?></a><?php
             }
         }
     }
@@ -101,17 +127,18 @@
     }
 
     function makeMenuToVar($wpdb, $post, $parent_id){
+        $effect = "fadeInDown";
         if ( ($parent_id != 7170) && ($parent_id != -1) ) {
         $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
 
         if ( !empty($child_pages) and (count($child_pages) < 6) ) {
+            $i++;
             foreach ( $child_pages as $pageChild ) {
                 setup_postdata( $pageChild );
                 $return .= "<a href='".get_permalink($pageChild->ID)."'";
 
-                if(get_the_title($post->ID) == $pageChild->post_title)
-                $return .= " class='submenu-current' ";
-                $return .= "rel='bookmark' title='".$pageChild->post_title."'>".$pageChild->post_title."</a>";
+                if(get_the_title($post->ID) == $pageChild->post_title){ $return .= " class='submenu-current wow ".$effect."' "; } else { $return .= " class='wow ".$effect."' "; }
+                $return .= " rel='bookmark' data-wow-delay='0.".$i."s' title='".$pageChild->post_title."'>".$pageChild->post_title."</a>";
             }
         } else return -1;
         } else return -1;
@@ -120,18 +147,19 @@
     }
 
     function makeMenuList($wpdb, $post, $parent_id){
+        $effect = "fadeInDown";
         if ( ($parent_id != 7170) && ($parent_id != -1) ) {
         $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
 
         if ( !empty($child_pages) and (count($child_pages) < 6) ) {
 
             foreach ( $child_pages as $pageChild ) {
+                $i = $i + 2;
                 setup_postdata( $pageChild );
                 $return .= "<li><a href='".get_permalink($pageChild->ID)."'";
 
-                if(get_the_title($post->ID) == $pageChild->post_title)
-                $return .= " class='submenu-current' ";
-                $return .= "rel='bookmark' title='".$pageChild->post_title."'>".$pageChild->post_title."</a></li>";
+                if(get_the_title($post->ID) == $pageChild->post_title){ $return .= " class='submenu-current wow flipInX' "; } else { $return .= " class='wow flipInX' ";}
+                $return .= " rel='bookmark' data-wow-delay='0.".$i."s' title='".$pageChild->post_title."'>".$pageChild->post_title."</a></li>";
             }
 
         } else return -1;
@@ -141,6 +169,7 @@
     }
 
     function makeMenu($wpdb, $post, $parent_id){
+        $effect = "fadeInDown";
         if ( ($parent_id != 7170) && ($parent_id != -1) ) {
         $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
 
@@ -148,15 +177,9 @@
             foreach ( $child_pages as $pageChild ) {
                 setup_postdata( $pageChild ); ?>
                   <?php // echo get_the_post_thumbnail($pageChild->ID, 'thumbnail'); ?>
-                     <a href="<?php echo  get_permalink($pageChild->ID); ?>"
-                        <?
-                             if(get_the_title($post->ID) == $pageChild->post_title){
-                              ?> class="submenu-current" <?
-                             }
-                        ?>
-                        rel="bookmark" title="<?php echo $pageChild->post_title; ?>">
-                        <?php echo $pageChild->post_title; ?>
-                     </a>
+                     <a href="<?php echo  get_permalink($pageChild->ID); ?>" <?
+                             if(get_the_title($post->ID) == $pageChild->post_title){ echo " class='submenu-current' "; }
+                        ?> rel="bookmark" title="<?php echo $pageChild->post_title; ?>"><?php echo $pageChild->post_title; ?></a>
             <?
             }
         } else return -1;

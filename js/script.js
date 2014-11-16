@@ -1,6 +1,38 @@
 
 $(document).ready(function(){
 
+    function rand(min, max){
+        return Math.floor((Math.random()*max)+min);
+    }
+
+     $.fn.waypoint.defaults = {
+      context: '.st-content',
+      continuous: true,
+      enabled: true,
+      horizontal: false,
+      offset: 0,
+      triggerOnce: false
+    }
+
+    $('.wrap p, .wrap span, .wrap h2, .wrap h2, .wrap h3, #subpages .box-light-content a').each(function(){
+        $(this).addClass('ani-up');
+    });
+
+    $('.ani-up').waypoint(function(){
+      var effects = ["bounceInUp","fadeInUp", "zoomInUp","bounceInLeft","bounceInRight","fadeInLeft", "fadeInRight"];
+
+        var effect = effects[rand(0,effects.length-1)];
+        $(this).addClass('animated '+effect);
+    }, {offset: '95%', triggerOnce: true});
+
+    $('.ani').waypoint(function(){
+        var effects = ["bounceIn", "bounceInDown","bounceInLeft","bounceInRight","bounceInUp","fadeInDown", "fadeInLeft","fadeInUp", "fadeInRight", "flipInX",
+        "fadeInUpBig","rotateIn", "flipInX","flipInY", "rotateInDownLeft", "rotateInDownRight", "rollIn",
+         "zoomIn","zoomInDown", "zoomInLeft", "zoomInRight"];
+        var effect = effects[rand(0,effects.length-1)];
+        $(this).addClass('animated '+effect);
+    }, {offset: '85%', triggerOnce: true});
+
     $('.box-full ul li').each(function(){
         $(this).html('<i class="fa fa-angle-right"></i> '+$(this).html());
     });
@@ -8,13 +40,14 @@ $(document).ready(function(){
     $('#btn-es-go').click(function(){
         $(this).transition({scale: 2, rotateX: '-20deg', perspective: '120px', rotateX: '45deg', opacity: 0, x: '-900px'}, 1500, function(){
             $(this).css({display: 'none'});
-        })
-    })
+        });
+    });
+
     $('.anal').removeClass('container');
 
-    $('.spanning').scroll(function(){
+    $('.st-content').scroll(function(){
         console.log($(this).offset().top+' '+$(this).position().top);
-        $('#menu-fixed').transition({opacity: 0.7});
+       // $('#menu-fixed').transition({opacity: 0.7});
     });
 
     $('#menu-fixed li a').hover(function(){

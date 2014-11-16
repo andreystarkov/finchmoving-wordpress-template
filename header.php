@@ -1,5 +1,4 @@
-<?
-    $tnames = array(
+<?  $tnames = array(
         1  => "free_moving_estimate",
         2  => "packing_services",
         3  => "small_moves",
@@ -14,14 +13,6 @@
         4  => get_template_directory_uri()."/images/slides/1.jpg",
         5  => get_template_directory_uri()."/images/slides/4.jpg"
     );
-
-    function test($res){
-        if($res == 1900){
-        ?><li class="current"><img src="<? echo get_template_directory_uri(); ?>/images/slides/3.jpg" alt="img08"></li>
-        <li><img src="<? echo get_template_directory_uri(); ?>/images/house.jpg" alt="img08"></li>
-        <li><img src="<? echo get_template_directory_uri(); ?>/images/slides/4.jpg" alt="img08"></li><?
-        }
-    }
 
     $templatePath = get_template_directory();
     $templateUri = get_template_directory_uri();
@@ -58,8 +49,9 @@
          $url_trucks[5] .= $rurl.$tnames[5]."/".$town;
      }
 ?><!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="<? echo get_template_directory_uri(); ?>/images/fav.png" />
@@ -89,6 +81,7 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/fullwidth-slider.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/svg-icons.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/tooltipster.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/skel.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/parallax.css" />
    <!-- <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
@@ -103,6 +96,7 @@
 
     <script>
     $(function() {
+
         var i = 4;
         var res = "1600";
         var width = $(window).width();
@@ -142,7 +136,7 @@
     });
     </script>
 
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/waypoints.min.js"></script>
+
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.transit.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.tooltipster.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.nicescroll.min.js"></script>
@@ -160,8 +154,8 @@
     <script src="<? echo get_template_directory_uri(); ?>/js/skel-config.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/library.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/keyboard.js"></script>
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/animation.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/wow.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/waypoints.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/script.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/retina.js"></script>
 
@@ -220,14 +214,19 @@
 
     <? if(!empty($town)) { makeLinks($town); } ?>
     <style>
-        html,body { margin-top: 0 !important; overflow: hidden;}
+        html,body { margin-top: 0 !important; overflow: hidden !important;}
+        .wow:first-child {
+          visibility: hidden;
+        }
     </style>
-   <!--  <script>
-        var controller;
-        $(document).ready(function($) {
-            controller = new ScrollMagic({vertical: true});
-        });
-    </script> -->
+    <?php if($topMenu != -1){ ?>
+    <style>
+    .header-phone {
+        top: 90px;
+        left: 125px;
+    }
+    </style>
+    <? } ?>
 </head>
 <body class="no-js">
 
@@ -245,7 +244,7 @@
     </script>
 
     <div id="st-trigger-effects">
-        <button class="btn-nav" data-effect="st-effect-6">
+        <button class="btn-nav wow bounceInLeft" data-wow-delay="0.3s" data-effect="st-effect-6">
           <!--  <div class="svg-wrap">
                 <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
             </div> -->
@@ -271,23 +270,23 @@
 
         <div class="st-content-inner">
 
-        <header style="overflow:hidden">
+        <div id="header" style="overflow:hidden">
 
-              <div id="slider-wrapper" style="overflow:hidden">
+          <div id="slider-wrapper" style="overflow:hidden">
 
-                <div class="logo-small"></div>
-                <a href="#estimate" id="btn-es-go" class="button tip" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
+            <div class="logo-small"></div>
+            <a href="#estimate" id="btn-es-go" data-wow-delay="0.8s" class="button tip wow bounceInRight" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
 
-                <div class="top-phone header-phone">
-                    <i class="li_phone"></i><b>855 969 6683</b>
-                    <span>free<br>call</span>
-                </div>
+            <div class="top-phone header-phone wow bounceIn" data-wow-delay="0.4s">
+                <i class="li_phone"></i><b>855 969 6683</b>
+                <span>free<br>call</span>
+            </div>
 
-                <div id="nice-slider" class="nice-slider nice-slider-fullwidth" style="overflow:hidden">
+            <div id="nice-slider" class="nice-slider nice-slider-fullwidth" style="overflow:hidden">
 
-                      <ul class="itemwrap slider-content">
-                        <? echo sliderImages($town, "1600", $templatePath, $templateUri); ?>
-                      </ul>
+                  <ul class="itemwrap slider-content">
+                    <? echo sliderImages($town, "1600", $templatePath, $templateUri); ?>
+                  </ul>
 
                     <div class="top-wrap">
                         <nav>
@@ -317,7 +316,7 @@
 
                          <div class="flt">
                             <div class="header-wrapper">
-                              <div class="header-logo">
+                              <div class="header-logo wow rotateInUpLeft">
                                  <div class="logo">
                                      <img src="<? echo get_template_directory_uri(); ?>/images/logo1.png" class="header-img" alt="">
                                      <div class="box"></div>
@@ -327,37 +326,37 @@
                          </div>
 
                     </div>
-                    </div>
                 </div>
-        </header>
+            </div>
+        </div>
 
         <div class="spanning" id="main-block">
 
             <div class="promo clearfix section-cars">
                 <div class="wrap">
                     <div class="promo-wrapper clearfix">
-                        <a id="car-1" href="<?echo $url_trucks[1]; ?>" class="promo-column car-item">
+                        <a id="car-1" href="<?echo $url_trucks[1]; ?>" data-wow-delay="0.8s" class="promo-column car-item wow zoomInLeft">
                             <div class="car-img">
                                 <img src="<? echo get_template_directory_uri(); ?>/images/1.png" alt="">
                             </div>
                             <h5><span>Free Estimate</span></h5>
                             <p>Accurate visual free moving estimate. Per your request our certified move consultant will meet with you in person to conduct free moving quote at no cost or obligation.</p>
                         </a>
-                        <a id="car-2" href="<?echo $url_trucks[2]; ?>" class="promo-column car-item">
+                        <a id="car-2" href="<?echo $url_trucks[2]; ?>" data-wow-delay="0.4s" class="promo-column car-item wow zoomInLeft">
                             <div class="car-img">
                                 <img src="<? echo get_template_directory_uri(); ?>/images/2.png" alt="">
                             </div>
                             <h5><span>Full Packing</span></h5>
                             <p>High quality packing services California. Packing can be a very stressful task that requires a significant commitment of time and energy. </p>
                         </a>
-                        <a id="car-3" href="<?echo $url_trucks[3]; ?>" class="promo-column car-item">
+                        <a id="car-3" href="<?echo $url_trucks[3]; ?>" data-wow-delay="0.1s" class="promo-column car-item wow zoomInUp">
                             <div class="car-img">
                                 <img src="<? echo get_template_directory_uri(); ?>/images/3.png" alt="">
                             </div>
                             <h5><span>Small Moves</span></h5>
                             <p>Interactively procrastinate high-payoff content without backward-compatible data. </p>
                         </a>
-                        <a id="car-4" href="<?echo $url_trucks[4]; ?>" class="promo-column car-item">
+                        <a id="car-4" href="<?echo $url_trucks[4]; ?>" data-wow-delay="0.4s" class="promo-column car-item wow zoomInRight">
                             <div class="car-img">
                                 <img src="<? echo get_template_directory_uri(); ?>/images/4.png" alt="">
                             </div>
@@ -365,7 +364,7 @@
                             <p>Proudly servicing entire California. Local Movers California provide professional and efficient moving solutions.</p>
                         </a>
 
-                        <a id="car-5" href="<?echo $url_trucks[5]; ?>" class="promo-column car-item car-last">
+                        <a id="car-5" href="<?echo $url_trucks[5]; ?>" data-wow-delay="0.8s" class="promo-column car-item car-last wow zoomInRight">
                             <div class="car-img">
                                 <img src="<? echo get_template_directory_uri(); ?>/images/5.png" alt="">
                             </div>
