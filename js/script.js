@@ -5,6 +5,8 @@ $(document).ready(function(){
         return Math.floor((Math.random()*max)+min);
     }
 
+    $(".st-content").niceScroll({cursorcolor:"#333",cursorwidth: '11px', cursorborder: '#444',cursorborderradius: '3px', scrollspeed: '60'});
+
      $.fn.waypoint.defaults = {
       context: '.st-content',
       continuous: true,
@@ -16,7 +18,7 @@ $(document).ready(function(){
 
     if( $(window).width() > 1000 ) {
 
-        $('.wrap p, .wrap span, .wrap h2, .wrap h2, .wrap h3, #subpages .box-light-content a').each(function(){
+        $('.wrap p, .wrap span, .wrap h2, .wrap h2, .wrap h3, #subpages .box-light-content a, .box-full ul, .box-full ol').each(function(){
             $(this).addClass('ani-up');
         });
 
@@ -54,8 +56,6 @@ $(document).ready(function(){
     $('#menu-fixed li a').hover(function(){
         $(this).parent().parent().transition({opacity: 1});
     });
-
-    $(".st-content").niceScroll({cursorcolor:"#333",cursorwidth: '11px', cursorborder: '#444',cursorborderradius: '3px', scrollspeed: '20'});
 
     KeyboardJS.on('left', function() {
         setTimeout(function() {

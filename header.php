@@ -214,7 +214,7 @@
 
     <? if(!empty($town)) { makeLinks($town); } ?>
     <style>
-        html,body { margin-top: 0 !important; overflow: hidden !important;}
+        html,body { margin-top: 0 !important;}
         .wow:first-child {
           visibility: hidden;
         }
