@@ -42,6 +42,9 @@ $(document).ready(function(){
 
     } else {
         $('.ani, .ani-up').css({opacity: 1});
+        $('.wow').each(function(){
+            $(this).removeClass('wow');
+        });
     }
 
 
