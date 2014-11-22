@@ -36,10 +36,13 @@
     }
 
     if(strpos($curl, "free_moving_estimate") != FALSE) $car_curr = "#car-1";
-     if(strpos($curl, "packing_services") != FALSE) $car_curr = "#car-2";
+     if( (strpos($curl, "packing_services") != FALSE) && (strpos($curl, "_packers") != FALSE) ) $car_curr = "#car-2";
      if(strpos($curl, "small_moves") != FALSE) $car_curr = "#car-3";
      if(strpos($curl, "local_movers") != FALSE) $car_curr = "#car-4";
      if(strpos($curl, "long_distance") != FALSE) $car_curr = "#car-5";
+
+
+
      if(!empty($town)){
          $_SESSION["town"] = $town;
          $url_trucks[1] .= $rurl.$tnames[1]."/".$town."_moving_quote";
@@ -84,8 +87,9 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/skel.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/parallax.css" />
-   <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />
-  <!-- <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
+   <!--  <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
+ <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
+
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.easing.1.3.js"></script>
@@ -95,15 +99,16 @@
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel-panels.min.js"></script>-->
 
     <script>
-    $(function() {
+    $( function(){
 
         var i = 4;
         var res = "1600";
         var width = $(window).width();
+
          if( width < 1000) {
             $('#subpages').css({backgroundImage: 'url(<? echo get_template_directory_uri(); ?>/images/truck-small.jpg)', 'background-attachment': 'scroll', 'background-size': 'cover'});
-
          }
+
         if( width < 1800) { res = "1600"; }
         if( width < 1400) { res = "1000";
         $('.nice-slider-fullwidth').css({height: '600px'});
@@ -123,7 +128,7 @@
             },
             success: function( data, textStatus, jQxhr ){
                  $('#nice-slider .slider-content').html(data);
-        /*        $('#nice-slider .slider-content li').each(function(){
+                /*  $('#nice-slider .slider-content li').each(function(){
                     i++;
                     $(this).addClass('caption-'+i);
                     $(this).attr('data-caption', 'caption-'+i);
@@ -178,7 +183,7 @@
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/snap.svg-min.js"></script>
-   <!-- <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>-->
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>
 
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -210,6 +215,25 @@
         if( $parent_id != -1 ) {
             if( $topMenu == -1) { $topMenu  = makeMenuList($wpdb, $post, $post->post_parent); }
         }
+
+         if(strpos($curl, "_moving_services")){
+        $topMenu ="<ul class='fixed-menu' id='menu-fixed' style='opacity: 1;'>".
+        "<li><a href='http://finchmovingservices.com/california/".$town."_moving_and_packing_services/' class='wow flipInX animated' data-wow-delay='0.2s' title='Moving and Packing'>Moving and Packing</a></li>".
+        "<li><a href='http://finchmovingservices.com/california/".$town."_office_movers_relocation/' class='wow flipInX animated' data-wow-delay='0.2s' title='Office Relocation'>Office Relocation</a></li>".
+        "</ul>";
+         }
+         if(strpos($curl, "_and_packing_services")){
+        $topMenu ="<ul class='fixed-menu' id='menu-fixed' style='opacity: 1;'>".
+        "<li><a href='http://finchmovingservices.com/california/".$town."_moving_and_packing_services/' class='wow flipInX animated submenu-current' data-wow-delay='0.2s' title='Moving and Packing'>Moving and Packing</a></li>".
+        "<li><a href='http://finchmovingservices.com/california/".$town."_office_movers_relocation/' class='wow flipInX animated' data-wow-delay='0.2s' title='Office Relocation'>Office Relocation</a></li>".
+        "</ul>";
+         }
+         if(strpos($curl, "_office_movers_relocation/")){
+        $topMenu ="<ul class='fixed-menu' id='menu-fixed' style='opacity: 1;'>".
+        "<li><a href='http://finchmovingservices.com/california/".$town."_moving_and_packing_services/' class='wow flipInX animated' data-wow-delay='0.2s' title='Moving and Packing'>Moving and Packing</a></li>".
+        "<li><a href='http://finchmovingservices.com/california/".$town."_office_movers_relocation/' class='wow flipInX animated submenu-current' data-wow-delay='0.2s' title='Office Relocation'>Office Relocation</a></li>".
+        "</ul>";
+         }
     ?>
 
     <? if(!empty($town)) { makeLinks($town); } ?>
@@ -241,11 +265,14 @@
     $(function() {
          $('.st-menu .current-menu-item').append('<? echo getSubMenus($wpdb,$parent_id); ?>');
          $('[name="Reviews"]').addClass('current');
+    <? if(strpos($curl, "_moving_services")){ ?>
+         $('.st-menu ul .current-menu-item').append("<a href='http://finchmovingservices.com/california/<?echo $town; ?>_moving_and_packing_services/' title='Moving and Packing'>Moving and Packing</a><a href='http://finchmovingservices.com/california/<?echo $town; ?>_office_movers_relocation/' title='Office Relocation'>Office Relocation</a>");
+    <? } ?>
     });
     </script>
 
     <div id="st-trigger-effects">
-        <button class="btn-nav wow bounceInLeft" data-wow-delay="0.3s" data-effect="st-effect-6">
+        <button class="btn-nav wow bounceInLeft" data-wow-delay="0.7s" data-effect="st-effect-6">
           <!--  <div class="svg-wrap">
                 <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
             </div> -->
@@ -255,7 +282,9 @@
 
     <div id="top-menu-wrap" class="top-menu-wrap skel-layers-fixed">
         <ul class="fixed-menu" id="menu-fixed">
-        <?php if($topMenu != -1) { echo $topMenu; } ?>
+        <?php if($topMenu != -1) { echo $topMenu; }
+
+        ?>
         </ul>
     </div>
 
@@ -275,10 +304,9 @@
 
           <div id="slider-wrapper" style="overflow:hidden">
 
-            <div class="logo-small"></div>
-            <a href="#estimate" id="btn-es-go" data-wow-delay="0.8s" class="button tip wow bounceInRight" title="Order us right now!" >Free Estimate <i class="ico li_paperplane"></i></a>
+            <div class="truck-logo wow bounceInRight" data-wow-delay="0.1s"><img src="<? echo get_template_directory_uri(); ?>/images/truck-logo4.png" alt="Finch Moving Services"></div>
 
-            <div class="top-phone header-phone wow bounceIn" data-wow-delay="0.4s">
+            <div class="top-phone header-phone wow wow bounceInLeft" data-wow-delay="0.2s">
                 <i class="li_phone"></i><b>855 969 6683</b>
                 <span>free<br>call</span>
             </div>
@@ -290,9 +318,13 @@
                   </ul>
 
                     <div class="top-wrap">
+
                         <nav>
-                            <a class="prev" href="#"><i class="fa fa-angle-left"></i></a>
-                            <a class="next" href="#"><i class="fa fa-angle-right"></i></a>
+                            <div class="mobile-phone"><i class="li_phone"></i><b>855 969 6683</b></div>
+                            <a href="#box-estimate" id="btn-es-go" data-wow-delay="0.8s" class="button-estimate wow bounceInRight" >Free Estimate <i class="ico li_paperplane"></i></a>
+                            <a class="slider-control prev" href="#"><i class="fa fa-angle-left"></i></a>
+                            <a class="slider-control next" href="#"><i class="fa fa-angle-right"></i></a>
+
                         </nav>
 
                         <div class="slider-caption caption-current" id="caption-1"><div class="wrp">
@@ -317,12 +349,7 @@
 
                          <div class="flt">
                             <div class="header-wrapper">
-                              <div class="header-logo wow rotateInUpLeft">
-                                 <div class="logo">
-                                     <img src="<? echo get_template_directory_uri(); ?>/images/logo1.png" class="header-img" alt="">
-                                     <div class="box"></div>
-                                 </div>
-                                </div>
+
                             </div>
                          </div>
 
@@ -336,28 +363,28 @@
             <div class="promo clearfix section-cars">
                 <div class="wrap">
                     <div class="promo-wrapper clearfix">
-                        <a id="car-1" href="<?echo $url_trucks[1]; ?>" data-wow-delay="0.8s" class="promo-column car-item wow zoomInLeft">
+                        <a id="car-1" href="<?echo $url_trucks[1]; ?>" class="truck-hover promo-column car-item">
                             <div class="car-img">
                                 <img src="<? echo get_template_directory_uri(); ?>/images/1.png" alt="">
                             </div>
                             <h5><span>Free Estimate</span></h5>
                             <p>Accurate visual free moving estimate. Per your request our certified move consultant will meet with you in person to conduct free moving quote at no cost or obligation.</p>
                         </a>
-                        <a id="car-2" href="<?echo $url_trucks[2]; ?>" data-wow-delay="0.4s" class="promo-column car-item wow zoomInLeft">
+                        <a id="car-2" href="<?echo $url_trucks[2]; ?>" class="truck-hover promo-column car-item">
                             <div class="car-img">
                                 <img src="<? echo get_template_directory_uri(); ?>/images/2.png" alt="">
                             </div>
                             <h5><span>Full Packing</span></h5>
                             <p>High quality packing services California. Packing can be a very stressful task that requires a significant commitment of time and energy. </p>
                         </a>
-                        <a id="car-3" href="<?echo $url_trucks[3]; ?>" data-wow-delay="0.1s" class="promo-column car-item wow zoomInUp">
+                        <a id="car-3" href="<?echo $url_trucks[3]; ?>" class="truck-hover promo-column car-item">
                             <div class="car-img">
                                 <img src="<? echo get_template_directory_uri(); ?>/images/3.png" alt="">
                             </div>
                             <h5><span>Small Moves</span></h5>
                             <p>Interactively procrastinate high-payoff content without backward-compatible data. </p>
                         </a>
-                        <a id="car-4" href="<?echo $url_trucks[4]; ?>" data-wow-delay="0.4s" class="promo-column car-item wow zoomInRight">
+                        <a id="car-4" href="<?echo $url_trucks[4]; ?>" class="truck-hover promo-column car-item">
                             <div class="car-img">
                                 <img src="<? echo get_template_directory_uri(); ?>/images/4.png" alt="">
                             </div>
@@ -365,7 +392,7 @@
                             <p>Proudly servicing entire California. Local Movers California provide professional and efficient moving solutions.</p>
                         </a>
 
-                        <a id="car-5" href="<?echo $url_trucks[5]; ?>" data-wow-delay="0.8s" class="promo-column car-item car-last wow zoomInRight">
+                        <a id="car-5" href="<?echo $url_trucks[5]; ?>" class="truck-hover promo-column car-item car-last">
                             <div class="car-img">
                                 <img src="<? echo get_template_directory_uri(); ?>/images/5.png" alt="">
                             </div>

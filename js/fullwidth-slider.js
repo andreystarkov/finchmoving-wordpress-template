@@ -54,7 +54,7 @@ $(function() {
         }
 
        function captionChange(){
-            var captionEffects = [
+        /*    var captionEffects = [
 
                 {rotate: '100deg', scale: 0.6, opacity: 0, y: '-500px'},
                 {rotate: '360deg', scale: 0.2, opacity: 0, x: '-50px'},
@@ -72,10 +72,10 @@ $(function() {
                 {y: '-500px', scale: 1.2, opacity:0, rotateX: '180deg', perspective: '100px'},
             ];
             var rnd = rand(0, captionEffects.length);
-        /*    $('.logo img').transition({scale: 1.1, rotateX: '5deg', perspective: '100px', rotateY: '5deg', x: '5px', rotate: '-8deg'}, function(){
+            $('.logo img').transition({scale: 1.1, rotateX: '5deg', perspective: '100px', rotateY: '5deg', x: '5px', rotate: '-8deg'}, function(){
                 $(this).transition({ rotate: '0deg', rotateY: '0deg', rotateX: '0deg', scale: 1, opacity: 1, y: '0px', x: '0px'}, 700);
-            }); */
-            $('.slider-caption').transition(captionEffects[rnd], 700);
+            });
+            $('.slider-caption').transition(captionEffects[rnd], 700);*/
         }
 
         function navigate( dir ) {
@@ -92,7 +92,7 @@ $(function() {
                 current = current > 0 ? current - 1 : itemsCount - 1;
             }
 
-            captionChange();
+        //    captionChange();
 
             var nextItem = items[ current ];
 
@@ -110,9 +110,9 @@ $(function() {
             }
 
             var onEndAnimationNextItem = function() {
-                var caption = $('#'+$(this).attr('data-caption'));
+             /*   var caption = $('#'+$(this).attr('data-caption'));
                 $(caption).css({display: 'block'});
-                $(caption).transition({ rotate: '0deg', rotateY: '0deg', rotateX: '0deg', scale: 1, opacity: 1, y: '0px', x: '0px'}, 700);
+                $(caption).transition({ rotate: '0deg', rotateY: '0deg', rotateX: '0deg', scale: 1, opacity: 1, y: '0px', x: '0px'}, 700); */
                 this.removeEventListener( animEndEventName, onEndAnimationNextItem );
                 classie.addClass( this, 'current' );
                 classie.removeClass( this, dir === 'next' ? 'navInNext' : 'navInPrev' );

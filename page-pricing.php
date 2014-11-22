@@ -43,7 +43,7 @@
                     Reassembly, Stairs, Elevators Mileage, Overtime.</p>
                 </div>
                 <div class="box">
-                    <h4><i class="fa fa-home"></i> Buy or Sell your home with Finch Reality</h4>
+                    <h4><i class="fa fa-home"></i> Buy or Sell your home with Finch Realty</h4>
                     <p>And we'll move you<br><b>FOR FREE</b>.</p>
                 </div>
                 <div class="box">

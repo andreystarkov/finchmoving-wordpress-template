@@ -12,7 +12,7 @@
                             <span>free<br>call</span>
                         </div>
                     </div>
-                    <div class="box-form ani">
+                    <div class="box-form ani" id="box-estimate">
                         <div class="forms-form clearfix">
                           <?php get_sidebar(); ?>
                         </div>

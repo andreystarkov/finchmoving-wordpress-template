@@ -83,7 +83,8 @@
          $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent = ".$parent_id." AND post_type = 'page' ORDER BY menu_order", 'OBJECT');
         if ( $child_pages ) {
             foreach ( $child_pages as $pageChild ) {
-                setup_postdata( $pageChild ); ?><a class="submenu-item wow <? echo $effect; ?>" href="<?php echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>"><?php echo $pageChild->post_title; ?></a><?php
+                if( !(strpos(get_permalink($pageChild->ID), "serving-areas")) ) { setup_postdata( $pageChild ); ?><a class="submenu-item wow <? echo $effect; ?>" href="<?php echo get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php echo $pageChild->post_title; ?>"><?php echo $pageChild->post_title; ?></a><?php
+            }
             }
         }
     }

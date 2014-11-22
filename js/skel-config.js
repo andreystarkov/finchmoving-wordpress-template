@@ -18,7 +18,7 @@
 				},
 
 				xlarge: {
-					media: '(min-width: 1350px)',
+					media: '(min-width: 1300px) and (max-width:1600px)',
 					href: '/wp-content/themes/nexus/css/style-xlarge.css',
 					containers: 1200
 				},
@@ -38,7 +38,7 @@
 				},
 
 				medium: {
-					media: '(min-width: 480px) and (max-width: 1350px)',
+					media: '(min-width: 480px) and (max-width: 1000px)',
 					href: '/wp-content/themes/nexus/css/style-medium.css',
 					containers: '90%',
 					grid: {

@@ -5,7 +5,7 @@ $(document).ready(function(){
         return Math.floor((Math.random()*max)+min);
     }
 
-    $(".st-content").niceScroll({cursorcolor:"#333",cursorwidth: '11px', cursorborder: '#444',cursorborderradius: '3px', scrollspeed: '60'});
+    $(".st-content").niceScroll({cursorcolor:"#333",cursorwidth: '11px', cursorborder: '#444',cursorborderradius: '3px', scrollspeed: '5'});
 
      $.fn.waypoint.defaults = {
       context: '.st-content',
@@ -26,7 +26,7 @@ $(document).ready(function(){
           var effects = ["bounceInUp","fadeInUp", "zoomInUp","bounceInLeft","bounceInRight","fadeInLeft", "fadeInRight"];
             var effect = effects[rand(0,effects.length-1)];
             $(this).addClass('animated '+effect);
-        }, {offset: '95%', triggerOnce: true});
+        }, {offset: '115%', triggerOnce: true});
 
         $('.ani').waypoint(function(){
             var effects = ["bounceIn", "bounceInDown","bounceInLeft","bounceInRight","bounceInUp","fadeInDown", "fadeInLeft","fadeInUp", "fadeInRight", "flipInX",
@@ -34,19 +34,21 @@ $(document).ready(function(){
              "zoomIn","zoomInDown", "zoomInLeft", "zoomInRight"];
             var effect = effects[rand(0,effects.length-1)];
             $(this).addClass('animated '+effect);
-        }, {offset: '85%', triggerOnce: true});
+        }, {offset: '95%', triggerOnce: true});
 
         $('.box-full ul li').each(function(){
             $(this).html('<i class="fa fa-angle-right"></i> '+$(this).html());
         });
 
     } else {
+        $('.truck-hover').each(function(){
+            $(this).removeClass('truck-hover');
+        });
         $('.ani, .ani-up').css({opacity: 1});
         $('.wow').each(function(){
             $(this).removeClass('wow');
         });
     }
-
 
     $('#btn-es-go').click(function(){
         $(this).transition({scale: 2, rotateX: '-20deg', perspective: '120px', rotateX: '45deg', opacity: 0, x: '-900px'}, 1500, function(){
@@ -81,7 +83,8 @@ $(document).ready(function(){
     $('a[href="#"]').on('click',function(e){e.preventDefault();});
 
     $('input[placeholder], textarea[placeholder]').placeholder();
-
+    $('[title="Serving Areas"]').hide();
+    $('[href="http://finchmovingservices.com/about/serving-areas/"]').hide();
     $('.wpcf7-submit').addClass('button button-submit');
 
     $('.wpcf7-text').addClass('input-text').removeClass('wpcf7-form-control');
@@ -104,11 +107,11 @@ $(document).ready(function(){
             $('.wpcf7-validation-errors').mouseover(function() {
                 $(this).fadeOut(500);
             });
-
+/*
     setInterval(function(){
      $('.tabs').addClass('active').siblings().removeClass('active').parents('.tab').find('.box').hide().eq($(this).index()).fadeIn(250);
     },8000);
-
+*/
     if ( $(".tab").has(".tab-prev").length || $(".tab").has(".tab-next").length ) {
         $('.tab-prev, .tab-next').click(function(){
             var $active = $(this).parents(".tab").find(".tabs .active");
