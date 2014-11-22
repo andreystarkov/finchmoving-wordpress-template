@@ -1,3 +1,5 @@
+/* jQuery scripts for Finch Moving Wordpress Template
+   im@andreystarkov.ru */
 
 $(document).ready(function(){
 
@@ -27,11 +29,19 @@ $(document).ready(function(){
       triggerOnce: false
     }
 
+    $('.promo').waypoint(function(direction){
+      if(direction == 'down') {
+        $('.button-up').removeClass('hidden animated bounceOutRight').addClass('animated bounceInRight visible');
+      } else {
+        $('.button-up').removeClass('animated bounceInRight visible').addClass('animated bounceOutRight').addClass('hidden');
+      }
+    });
+
     if( !(isMobile()) && !(isiPad) ){
 
         if( $(window).width() > 1000 ) {
 
-            $('.wrap p, .wrap span, .wrap h2, .wrap h2, .wrap h3, #subpages .box-light-content a, .box-full ul, .box-full ol').each(function(){
+            $('.wrap p, .wrap h2, .wrap h2, .wrap h3, #subpages .box-light-content a, .box-full ul, .box-full ol').each(function(){
                 $(this).addClass('ani-up');
             });
 
@@ -62,7 +72,6 @@ $(document).ready(function(){
                 $(this).removeClass('wow');
             });
         }
-
     } else {
         clearClass($('.ani'), 'ani');
     }
@@ -148,13 +157,14 @@ $(document).ready(function(){
 
     $('a[href*=#]:not([href=#])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          var offsetTop = target.position().top - target.closest('.st-content').position().top;
-          if (target.length) {
-            $('.st-content').animate({scrollTop: offsetTop}, 1200, 'easeInQuart');
-            return false;
-          }
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            var offsetTop = target.position().top - target.closest('.st-content').position().top;
+            if (target.length) {
+              $('.st-content').animate({scrollTop: offsetTop}, 1200, 'easeInQuart');
+              return false;
+            }
+
         }
     });
 

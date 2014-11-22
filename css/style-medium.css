@@ -5,7 +5,9 @@
   }
 
   .mobile-phone {display: block;}
-  .nice-slider nav a.button-estimate, #btn-es-go { margin: 15px auto;}
+
+  .nice-slider nav a.prev, .nice-slider nav a.next { padding: 60px 20px; }
+  .nice-slider nav a.button-estimate, #btn-es-go { margin: 25px auto;}
 
   .img-truck-1 { background: url(../images/truck-small.jpg); }
 

@@ -35,8 +35,11 @@
      width: 100% !important;
   }
 
-  .mobile-phone {display: block;}
-  .nice-slider nav a.button-estimate, #btn-es-go { margin: 15px auto;}
+  .mobile-phone {display: block; padding:12px 6px 10px 6px;}
+  .nice-slider nav a.button-estimate, #btn-es-go { margin: 45px auto;}
+
+  .nice-slider nav a.prev, .nice-slider nav a.next { padding: 60px 10px; }
+
 
   .box-full, .container {
      padding-left: 15px;

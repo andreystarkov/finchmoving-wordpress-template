@@ -29,6 +29,9 @@
 
 body { overflow-x: hidden; }
 
+.visible { visibility: visible; }
+.hidden { visibility: hidden; }
+
 // head section
 
 #header {
@@ -341,18 +344,20 @@ body { overflow-x: hidden; }
 }
 
 .mobile-phone {
-    position: relative;
+    position: absolute;
+    bottom: 0px;
+    padding: 12px 6px 6px 6px;
+    width: 100%;
     display: none;
-    margin: 10px auto;
+    margin: 0px auto;
     z-index: 99999;
     border-radius: 8px;
-
-    i { color: fade(#fff, 70%); font-size: 30px; display: inline-block; margin-right: 15px; }
-    b { color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.55)}
+    background: fade(@darkbrown,30%);
+    i { color: fade(#fff, 80%); font-size: 35px; display: inline-block; margin-right: 15px; }
+    b { color: @light;  text-shadow: 0 1px 4px rgba(0,0,0,0.55)}
     font-weight: 700;
     font-family: @caps-narrow;
     font-size: 45px;
-    color: #fff;
 }
 
 // free estimate button
@@ -398,6 +403,36 @@ body { overflow-x: hidden; }
     }
 }
 
+.button-up {
+    position: fixed;
+    right: 20px;
+    top: 15px;
+    z-index: 9999999999;
+    border-radius: 86px;
+    opacity: 1;
+    border:0;
+    transition: 0.4s ease-in all;
+    z-index: 9999777;
+    padding: 10px 16px;
+    padding-bottom: 10px;
+    border-radius: 80px;
+    background: fade(@darkbrown, 10%);
+    perspective: 100px;
+    -webkit-perspective: 100px;
+    i {
+        color: fade(@darkbrown, 70%);
+        line-height: 45px;
+        font-size: 65px;
+    }
+    &:hover {
+        background: lighten(@bg-button-estimate, 8%);
+        border-bottom: 3px solid darken(lighten(@bg-button-estimate, 8%), 12%);
+        box-shadow: 0px 2px 6px rgba(0,0,0,0.45);
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        transform: rotateX(8deg);
+        i { color: #fff; }
+    }
+}
 #top-menu-wrap {
     z-index:99999;
     position: fixed;
@@ -643,6 +678,7 @@ footer {
         clear: both;
     }
 }
+
 .forms-title {
     font: bold 48px/60px @sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 1px;
@@ -674,14 +710,19 @@ footer {
 
 .st-content-inner, .st-content { overflow-x: hidden !important; }
 
-.wpcf7-captchac { margin-left: 15px; width: auto; }
+.wpcf7-captchac { margin-left: 15px; width: auto !important; }
 .wpcf7-captchar { max-width: 350px; }
 .wpcf7-submit { width: auto; }
 .wpcf7 label { display: block; font-family: 'Raleway'; font-size: 22px; font-style: italic; }
-.wpcf7 li { overflow: hidden; }
 
-.wpcf7 li { position: relative; }
-.wpcf7-form-control-wrap { display: block !important; width: 100%; }
+
+.wpcf7 li {
+    position: relative;
+    overflow: hidden;
+}
+
+.wpcf7 .fa { display: none; }
+.wpcf7-form-control-wrap { display: block !important; }
 
 .wpcf7-mail-sent-ok {
     i {
@@ -747,12 +788,11 @@ span.wpcf7-not-valid-tip {
 
 .input-text,.textarea,.wpcf7-form-control {
     margin-bottom: 15px;
-    width: 100%;
     float: left;
     border: 2px solid lighten(@brown, 35%);
     background: white;
     height: 58px;
-
+    width:100%;
     padding: 10px 21px;
     font: 500 17px/34px @sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
     -moz-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;

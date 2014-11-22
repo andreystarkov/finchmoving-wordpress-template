@@ -297,6 +297,8 @@
 
     <div class="st-content main">
 
+        <a href="#header" class="button-up hidden"><i class="fa fa-angle-up"></i></a>
+
         <div class="st-content-inner">
 
         <div id="header" style="overflow:hidden">
@@ -403,39 +405,43 @@
             </div>
 
     <? if($pagename == "california"){ ?>
-    <div class="box-light anchor" id="estimate">
-        <div class="wrap box-estimate">
-            <div class="box-light-content">
-                <h2>Free Estimate</h2>
-                <p>Get the seamless and stress-free move of your belongings. We'll contact you as soon as possible.</p>
-                <div class="phone">
-                    <i class="li_phone"></i><b>855 969 6683</b>
-                    <span>free<br>call</span>
+        <div class="box-light anchor" id="estimate">
+            <div class="wrap box-estimate">
+                <div class="box-light-content">
+                    <h2 class="ani">Free Estimate</h2>
+                    <p class="ani">Get the seamless and stress-free move of your belongings. We'll contact you as soon as possible.</p>
+                    <div class="top-phone ani">
+                        <i class="li_phone"></i><b>855 969 6683</b>
+                        <span>free<br>call</span>
+                    </div>
                 </div>
-            </div>
-            <div class="form-estimate">
-            <p>We'll contact you as soon as possible</p>
-                <div class="wpcf7" id="wpcf7-f6390-o1">
-                    <form action="/california/licensed_and_insured_movers_moving_company_san_diego/#wpcf7-f6390-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+                <div class="box-form ani" id="box-estimate">
+                    <div class="forms-form clearfix">
+                      <div class="anal widget-1 widget-first container sidebar-widget">          <div class="textwidget"><div class="form-estimate">
+                        <p>We'll contact you as soon as possible</p>
+                        <div class="wpcf7" id="wpcf7-f6390-o1"><form action="/california/moving_companies_rates/san_diego_movers_prices/#wpcf7-f6390-o1" method="post" class="wpcf7-form" novalidate="novalidate">
                         <div style="display: none;">
-                            <input type="hidden" name="_wpcf7" value="6390">
-                            <input type="hidden" name="_wpcf7_version" value="3.7.2">
-                            <input type="hidden" name="_wpcf7_locale" value="">
-                            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f6390-o1">
-                            <input type="hidden" name="_wpnonce" value="82ef54ae81">
+                        <input type="hidden" name="_wpcf7" value="6390" />
+                        <input type="hidden" name="_wpcf7_version" value="3.7.2" />
+                        <input type="hidden" name="_wpcf7_locale" value="" />
+                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f6390-o1" />
+                        <input type="hidden" name="_wpnonce" value="82ef54ae81" />
                         </div>
                         <ul>
-                        <li class="side-by-side"><span class="wpcf7-form-control-wrap first-name"><input type="text" name="first-name" value="" size="40" class="wpcf7-text wpcf7-validates-as-required input-text" aria-required="true" aria-invalid="false" placeholder="First name"></span><span class="wpcf7-form-control-wrap last-name"><input type="text" name="last-name" value="" size="40" class="wpcf7-text wpcf7-validates-as-required input-text" aria-required="true" aria-invalid="false" placeholder="Last name"></span></li>
-                        <li><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email input-text" aria-required="true" aria-invalid="false" placeholder="Email address"></span></li>
-                        <li><span class="wpcf7-form-control-wrap PhoneNumber"><input type="text" name="PhoneNumber" value="" size="40" class="wpcf7-text wpcf7-validates-as-required input-text" aria-required="true" aria-invalid="false" placeholder="Phone Number"></span></li>
-                        <li class="stretch-submit"><input type="submit" value="Get a Free Quote!" class="wpcf7-form-control wpcf7-submit button button-submit"></li>
+                        <li class="side-by-side"><span class="wpcf7-form-control-wrap first-name"><input type="text" name="first-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="First name" /></span><span class="wpcf7-form-control-wrap last-name"><input type="text" name="last-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Last name" /></span></li>
+                        <li><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email address" /></span></li>
+                        <li><span class="wpcf7-form-control-wrap PhoneNumber"><input type="text" name="PhoneNumber" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Phone Number" /></span></li>
+                        <li class="stretch-submit"><input type="submit" value="Get a Free Quote!" class="wpcf7-form-control wpcf7-submit" /></li>
                         </ul>
-                        <div class="wpcf7-response-output wpcf7-display-none"></div>
-                    </form>
+                        <div class="wpcf7-response-output wpcf7-display-none"></div></form></div>
+                        <div class="divider shortcode-divider thick"></div>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
     <? } ?>
 
 
