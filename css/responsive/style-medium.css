@@ -1,0 +1,134 @@
+  /* 350-1000 */
+
+  .slider-wrapper, #nice-slider, .slider-content,.top-wrap, header {
+    height: 500px; max-height: 500px;
+  }
+
+  #st-trigger-effects { left: 15px; top: 10px; }
+  .button-up i { font-size:50px; }
+  .button-up { padding: 5px 11px; top: 10px; right: 10px;}
+  #st-trigger-effects .btn-nav { padding: 8px 10px !important; font-size: 50px !important;}
+  #st-trigger-effects .btn-nav i { font-size: 50px !important; }
+  #box-estimate  { width:90%;
+  display: block;
+  }
+
+  .footer-menu, #footer-nav, #menu-item { visibility: visible !important; opacity: 1 !important; }
+  #box-estimate .forms-form { padding-left: 15px; padding-right: 15px; width: 100%;}
+  .button-submit { color: white !important; }
+  .mobile-phone {display: block;}
+
+  .nice-slider nav a.prev, .nice-slider nav a.next { padding: 60px 20px; }
+  .nice-slider nav a.button-estimate, #btn-es-go { margin: 25px auto;}
+
+  .img-truck-1 { background: url(../images/truck-small.jpg); }
+
+  #estimate { height: 900px; min-height: 900px; }
+
+  #box-estimate { display: block; width: 100%; margin: 0 auto;}
+
+  .box-light-content,.box-form { float: none; width: 90%; margin: 0 auto;}
+
+  #top-menu-wrap { padding-left: 0px;}
+
+  .logo-small {
+    z-index: 99999999;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    width: 232px;
+    height: 117px;
+    background: url(../images/logo-small.png) center center no-repeat;
+  }
+
+  #menu-fixed li a, .fixed-menu li a {
+    font-size: 26px; padding: 6px 12px;
+    border-right: 2px dotted rgba(255,255,255,0.1);
+  }
+
+  #top-menu-wrap { top: 10px; right: 10px; text-align:right; }
+
+  #pricing-bonus p {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .slide-1 .box-light-content h2 {
+    font-size: 47px;
+    line-height: 54px;
+  }
+
+  .box-light-content h2 {
+    font-size: 56px;
+  }
+
+  .wrap p, .comments .box p {
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  .comments .box {
+    padding: 0 15% 15px;
+  }
+
+  .box p {
+    font-size: 27px;
+    line-height: 32px;
+  }
+
+  .box-price h5, .box-price h5 span {
+    font-size: 28px;
+  }
+
+  .box-price p {
+    font-size: 28px;
+  }
+
+  .comments .box h4 i {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    max-width: 70px;
+  }
+
+  .box-footer .phone {
+    display: inline-block;
+    width: auto;
+  }
+
+  .box-footer .floats { padding: 20px; }
+
+  .box-estimate .phone { font-size: 50px; 10px 55px 10px 15px }
+
+  .top-nav { margin-top: 0px; }
+
+  #st-trigger-effects { top: 10px; left: 15px; }
+
+  #st-trigger-effects .btn-nav { border-top-left-radius: 6px; border-top-right-radius: 6px; padding: 12px 18px;}
+  #st-trigger-effects .btn-nav i { font-size: 65px; }
+
+  .nice-slider-fullwidth nav a { padding-top:23px; padding-bottom: 42px; background-color: rgba(0,0,0,0); }
+
+  .header-logo { display: none; }
+
+  .promo-wrapper { padding: 0; margin: 0; max-height: 200px;}
+  .promo-column img { width: 100%; height: 100%; max-height: 84px; }
+  .promo-columt .car-img { width: 100%; height: 100%; }
+  .promo-column h5 { padding-left:0; padding-right:0; }
+  .promo-column h5 span { font-size: 16px; line-height:20px;}
+  .promo-column { float: left; width: 17%; }
+
+  #car-4 { width: 20%; }
+  #car-5 { width: 28%; }
+
+  .img-truck-1 {
+    background-attachment: scroll;
+    background-position: 50% 50%;
+    background-image: url(../images/truck-small.jpg);
+  }
+
+  .img-blur-1 {
+    background-attachment: scroll;
+    background-position: 50% 50%;
+    /* background-image: url(../images/guy-small.jpg); */
+  }

@@ -70,7 +70,7 @@
     <link rel="apple-touch-icon" sizes="114x114" href="<? echo get_template_directory_uri(); ?>images/touch/apple-touch-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="144x144" href="<? echo get_template_directory_uri(); ?>images/touch/apple-touch-icon-144x144.png">
 
-    <meta name="format-detection" content="telephone=8559696683">
+    <meta content="telephone=no" name="format-detection">
 
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/bebasneue/bebasneue.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
@@ -79,7 +79,7 @@
     <!--  <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
 
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/all.css" />
-    <script src="<? echo get_template_directory_uri(); ?>/js/dist/all.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/all.js"></script>
 
     <script>
     $( function(){
@@ -299,10 +299,9 @@
 
                         <nav>
                             <div class="mobile-phone"><i class="li_phone"></i><b>855 969 6683</b></div>
-                            <a href="#box-estimate" id="btn-es-go" data-wow-delay="0.8s" class="button-estimate wow bounceInRight" >Free Estimate <i class="ico li_paperplane"></i></a>
+                            <a href="#estimate" id="btn-es-go" data-wow-delay="0.8s" class="button-estimate wow bounceInRight" >Free Estimate <i class="ico li_paperplane"></i></a>
                             <a class="slider-control prev" href="#"><i class="fa fa-angle-left"></i></a>
                             <a class="slider-control next" href="#"><i class="fa fa-angle-right"></i></a>
-
                         </nav>
 
                         <div class="slider-caption caption-current" id="caption-1"><div class="wrp">

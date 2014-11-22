@@ -45,7 +45,7 @@
 				},
 
 				xsmall: {
-					media: '(max-width: 480px)',
+					media: '(min-width: 300px) and (max-width: 480px)',
 					href: '/wp-content/themes/nexus/css/style-xsmall.css',
 					grid: {
 						collapse: 2

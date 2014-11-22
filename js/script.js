@@ -37,6 +37,10 @@ $(document).ready(function(){
       }
     });
 
+    if( $(window).width() < 1000 ) {
+        $('.header-phone').css({display: 'none'});
+    }
+
     if( !(isMobile()) && !(isiPad) ){
 
         if( $(window).width() > 1000 ) {
