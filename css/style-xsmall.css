@@ -59,6 +59,7 @@
     font-s
     ize: 27px;
   }
+
   .header-logo { display: none !important; }
 
   .logo-small {
@@ -131,26 +132,32 @@
   #estimate {
   display: block;
   }
+
   .comments {
     padding: 25px 15px;
   }
+
   .comments .box h4 {
     line-height: 52px;
   }
+
   .comments .box h4 i {
     display: block;
     max-width: 70px;
     margin: 0 auto;
     margin-bottom: 10px;
   }
+
   .comments .wrap {
     padding: 0;
   }
+
   .box-full h2,
   .box-full h3 {
     font-size: 40px;
     line-height: 48px;
   }
+
   .box-full ul li {
     font-size: 18px;
     line-height: 26px;
@@ -178,7 +185,6 @@
   .promo-column img { width: auto; height: auto; max-height: 84px; }
   .promo-columt .car-img { width: 100%; height: 100%; }
   .promo-column h5 { padding-left:0; padding-right:0; font-size: 16px;}
-
 
   .box-col .col-3 {
     display: block;

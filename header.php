@@ -41,8 +41,6 @@
      if(strpos($curl, "local_movers") != FALSE) $car_curr = "#car-4";
      if(strpos($curl, "long_distance") != FALSE) $car_curr = "#car-5";
 
-
-
      if(!empty($town)){
          $_SESSION["town"] = $town;
          $url_trucks[1] .= $rurl.$tnames[1]."/".$town."_moving_quote";
@@ -87,9 +85,8 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/skel.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/parallax.css" />
-   <!--  <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
- <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
-
+    <!--  <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
+    <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.1.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.easing.1.3.js"></script>
@@ -105,17 +102,20 @@
         var res = "1600";
         var width = $(window).width();
 
-         if( width < 1000) {
-            $('#subpages').css({backgroundImage: 'url(<? echo get_template_directory_uri(); ?>/images/truck-small.jpg)', 'background-attachment': 'scroll', 'background-size': 'cover'});
-         }
-
-        if( width < 1800) { res = "1600"; }
-        if( width < 1400) { res = "1000";
-        $('.nice-slider-fullwidth').css({height: '600px'});
-        $('.nice-slider-fullwidth li img').css({bottom: '-100px'});
-
+        if( width < 1000) {
+            $('#subpages').css({
+                backgroundImage: 'url(<? echo get_template_directory_uri(); ?>/images/truck-small.jpg)',
+                'background-attachment': 'scroll',
+                'background-size': 'cover'
+            });
         }
-        if( width > 1800) { res = "1900"; }
+        if( width < 1800){ res = "1600"; }
+        if( width < 1400){
+            res = "1000";
+            $('.nice-slider-fullwidth').css({height: '600px'});
+            $('.nice-slider-fullwidth li img').css({bottom: '-100px'});
+        }
+        if( width > 1800){ res = "1900"; }
 
         $.ajax({
             url: '<?echo $templateUri; ?>/getslider.php',
@@ -145,8 +145,10 @@
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.transit.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.tooltipster.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.nicescroll.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/wow.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/waypoints.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.cookie.js"></script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
  <!--
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/TweenMax.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/highlight.pack.js"></script>
@@ -158,9 +160,6 @@
 
     <script src="<? echo get_template_directory_uri(); ?>/js/skel-config.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/library.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/keyboard.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/wow.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/waypoints.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/script.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/retina.js"></script>
 
@@ -272,7 +271,7 @@
     </script>
 
     <div id="st-trigger-effects">
-        <button class="btn-nav wow bounceInLeft" data-wow-delay="0.7s" data-effect="st-effect-6">
+        <button class="btn-nav wow bounceInLeft" data-wow-delay="0.7s" data-effect="st-effect-2">
           <!--  <div class="svg-wrap">
                 <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
             </div> -->
@@ -403,31 +402,41 @@
                 </div>
             </div>
 
-        <? if($pagename == "california"){ ?>
-        <div class="box-light anchor" id="estimate">
-                <div class="wrap box-estimate">
-                    <div class="box-light-content">
-                        <h2>Free Estimate</h2>
-                        <p>Get the seamless and stress-free move of your belongings. We'll contact you as soon as possible.</p>
-                        <div class="phone">
-                            <i class="li_phone"></i><b>855 969 6683</b>
-                            <span>free<br>call</span>
-                        </div>
-                    </div>
-                    <div class="box-form waypoint">
-                        <div class="forms-form clearfix">
-                            <form action="">
-                                <input type="email" placeholder="First Name" class="input-text">
-                                <input type="email" placeholder="Last Name" class="input-text">
-                                <input type="email" placeholder="E-Mail Address" class="input-text">
-                                <input type="email" placeholder="Phone Number" class="input-text">
-                                <button class="button button-submit" style="width: 100%"><i class='ico li_paperplane'></i> Get a Free Quote!</button>
-                            </form>
-                        </div>
-                    </div>
+    <? if($pagename == "california"){ ?>
+    <div class="box-light anchor" id="estimate">
+        <div class="wrap box-estimate">
+            <div class="box-light-content">
+                <h2>Free Estimate</h2>
+                <p>Get the seamless and stress-free move of your belongings. We'll contact you as soon as possible.</p>
+                <div class="phone">
+                    <i class="li_phone"></i><b>855 969 6683</b>
+                    <span>free<br>call</span>
                 </div>
             </div>
-            <? } ?>
+            <div class="form-estimate">
+            <p>We'll contact you as soon as possible</p>
+                <div class="wpcf7" id="wpcf7-f6390-o1">
+                    <form action="/california/licensed_and_insured_movers_moving_company_san_diego/#wpcf7-f6390-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+                        <div style="display: none;">
+                            <input type="hidden" name="_wpcf7" value="6390">
+                            <input type="hidden" name="_wpcf7_version" value="3.7.2">
+                            <input type="hidden" name="_wpcf7_locale" value="">
+                            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f6390-o1">
+                            <input type="hidden" name="_wpnonce" value="82ef54ae81">
+                        </div>
+                        <ul>
+                        <li class="side-by-side"><span class="wpcf7-form-control-wrap first-name"><input type="text" name="first-name" value="" size="40" class="wpcf7-text wpcf7-validates-as-required input-text" aria-required="true" aria-invalid="false" placeholder="First name"></span><span class="wpcf7-form-control-wrap last-name"><input type="text" name="last-name" value="" size="40" class="wpcf7-text wpcf7-validates-as-required input-text" aria-required="true" aria-invalid="false" placeholder="Last name"></span></li>
+                        <li><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email input-text" aria-required="true" aria-invalid="false" placeholder="Email address"></span></li>
+                        <li><span class="wpcf7-form-control-wrap PhoneNumber"><input type="text" name="PhoneNumber" value="" size="40" class="wpcf7-text wpcf7-validates-as-required input-text" aria-required="true" aria-invalid="false" placeholder="Phone Number"></span></li>
+                        <li class="stretch-submit"><input type="submit" value="Get a Free Quote!" class="wpcf7-form-control wpcf7-submit button button-submit"></li>
+                        </ul>
+                        <div class="wpcf7-response-output wpcf7-display-none"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <? } ?>
 
 
 

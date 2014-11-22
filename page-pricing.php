@@ -1,9 +1,4 @@
-<?php
-/*
-    Template Name: Pricing
-*/
-?>
-    <?php get_header(); ?>
+<?php get_header(); ?>
 
     <div class="box-light clearfix anchor" id="pricing">
         <div class="wrap">

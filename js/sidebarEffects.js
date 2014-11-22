@@ -1,3 +1,4 @@
+// off-canvas menu by codrops
 
  var SidebarMenuEffects = (function() {
 
@@ -38,7 +39,7 @@
 			el.addEventListener( eventtype, function( ev ) {
 				ev.stopPropagation();
 				ev.preventDefault();
-				if (document.getElementById('st-container').classList.contains('st-menu-open')){  
+				if (document.getElementById('st-container').classList.contains('st-menu-open')){
 					resetMenu();
 					document.removeEventListener( eventtype, bodyClickFn );
 				} else {
