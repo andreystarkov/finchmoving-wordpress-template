@@ -76,27 +76,25 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/lineicons/style.css" />
 
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/component.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/fullwidth-slider.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/svg-icons.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/tooltipster.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/animate.min.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/skel.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/parallax.css" />
-    <!--  <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
-    <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
+    <!--  <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
 
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery-2.1.1.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.easing.1.3.js"></script>
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel.min.js"></script>
-    <!--<script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel-layers.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel-panels.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/all.css" />
+    <script src="<? echo get_template_directory_uri(); ?>/js/dist/all.js"></script>
 
     <script>
     $( function(){
+
+        skel.init({
+            reset: 'full',
+            containers: '95%',
+            breakpoints: {
+                xlarge: { media: '(min-width: 1300px) and (max-width:1600px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-xlarge.css', },
+                large: { media: '(min-width:1000) and (max-width: 1480px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-large.css'},
+                medium: { media: '(min-width: 480px) and (max-width: 1000px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-medium.css' },
+                small: { media: '(max-width: 1000px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-small.css' },
+                xsmall: { media: '(max-width: 480px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-xsmall.css' }
+            }
+        });
 
         var i = 4;
         var res = "1600";
@@ -137,31 +135,14 @@
              },
             error: function( jqXhr, textStatus, errorThrown ){ }
         });
-
     });
     </script>
-
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.transit.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.tooltipster.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.nicescroll.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/wow.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/waypoints.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.cookie.js"></script>
-
- <!--
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/TweenMax.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/highlight.pack.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.scrollmagic.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.scrollmagic.debug.js"></script>-->
 
     <script src="<? echo get_template_directory_uri(); ?>/js/fullwidth-slider.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/classie.js"></script>
 
-    <script src="<? echo get_template_directory_uri(); ?>/js/skel-config.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/library.js"></script>
+
     <script src="<? echo get_template_directory_uri(); ?>/js/script.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/retina.js"></script>
 
     <?php // roots_head();
     wp_head(); ?>
@@ -176,20 +157,16 @@
     <script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.7.2'></script>
 
     <!--[if lt IE 9]>
-        <script src="<? echo get_template_directory_uri(); ?>/js/html5.js"></script>
-        <script src="<? echo get_template_directory_uri(); ?>/js/respond.js"></script>
+        <script src="<? echo get_template_directory_uri(); ?>/js/ie/html5.js"></script>
+        <script src="<? echo get_template_directory_uri(); ?>/js/ie/respond.js"></script>
     <![endif]-->
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/snap.svg-min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>
 
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/classie.js"></script>
-    <!-- <script src="<? echo get_template_directory_uri(); ?>/js/menu.js"></script>  -->
     <script>
     $(function() {
        $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+$('#footmenu').html());

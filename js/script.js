@@ -98,7 +98,7 @@ $(document).ready(function(){
 
     $('a[href="#"]').on('click',function(e){e.preventDefault();});
 
-    $('input[placeholder], textarea[placeholder]').placeholder();
+ //   $('input[placeholder], textarea[placeholder]').placeholder();
     $('[title="Serving Areas"]').hide();
     $('[href="http://finchmovingservices.com/about/serving-areas/"]').hide();
     $('.wpcf7-submit').addClass('button button-submit');
