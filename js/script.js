@@ -8,16 +8,20 @@ $(document).ready(function(){
     function rand(min, max){
         return Math.floor((Math.random()*max)+min);
     }
-
+        clearClass($('.box-price', 'price-hover'));
     function clearClass(obj, className){
         obj.each(function(){
             $(this).removeClass(className);
         });
     }
-
+        clearClass($('.ani'), 'ani');
     function isMobile() {
       try{ document.createEvent("TouchEvent"); return true; }
       catch(e){ return false; }
+    }
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+
     }
 
      $.fn.waypoint.defaults = {
@@ -27,7 +31,7 @@ $(document).ready(function(){
       horizontal: false,
       offset: 0,
       triggerOnce: false
-    }
+    };
 
     $('.promo').waypoint(function(direction){
       if(direction == 'down') {
@@ -39,12 +43,14 @@ $(document).ready(function(){
 
     if( $(window).width() < 1000 ) {
         $('.header-phone').css({display: 'none'});
+        $('#nice-slider').remove();
+        $('#mobile-top').css({display: 'block'});
     }
 
     if( !(isMobile()) && !(isiPad) ){
 
         if( $(window).width() > 1000 ) {
-
+    /*
             $('.wrap p, .wrap h2, .wrap h2, .wrap h3, #subpages .box-light-content a, .box-full ul, .box-full ol').each(function(){
                 $(this).addClass('ani-up');
             });
@@ -66,7 +72,7 @@ $(document).ready(function(){
             $('.box-full ul li').each(function(){
                 $(this).html('<i class="fa fa-angle-right"></i> '+$(this).html());
             });
-
+*/
         } else {
             $('.truck-hover').each(function(){
                 $(this).removeClass('truck-hover');
@@ -77,17 +83,23 @@ $(document).ready(function(){
             });
         }
     } else {
+      //  $(".st-content").niceScroll({dblclickzoom: false, gesturezoom: false, cursorcolor:"#333",
+        //cursorwidth: '11px', cursorborder: '#444',cursorborderradius: '3px', scrollspeed: '10'});
+
+        $('.truck-hover').each(function(){
+            $(this).removeClass('truck-hover');
+        });
         clearClass($('.ani'), 'ani');
+        clearClass($('.box-price', 'price-hover'));
     }
 
-    $(".st-content").niceScroll({cursorcolor:"#333",cursorwidth: '11px', cursorborder: '#444',cursorborderradius: '3px', scrollspeed: '5'});
-
+/*
     $('#btn-es-go').click(function(){
         $(this).transition({scale: 2, rotateX: '-20deg', perspective: '120px', rotateX: '45deg', opacity: 0, x: '-900px'}, 1500, function(){
             $(this).css({display: 'none'});
         });
     });
-
+*/
     $('.anal').removeClass('container');
 
     $('#menu-fixed li a').hover(function(){
@@ -145,7 +157,7 @@ $(document).ready(function(){
              //   $('.box-estimate h2').transition({backgroundColor: '#dc8c2b'});
             });
 
-        })
+        });
     });
 
     var docWidth = document.documentElement.offsetWidth;

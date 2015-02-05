@@ -39,7 +39,7 @@
 
         $curl = $_SERVER['REQUEST_URI'];
         $parent_id = $post->ID;
-        $parent_id = getTrueParentId($curl);
+        $parent_id = getTrueParentIdNoJs($curl);
 
         if ( !$pagename && $id > 0 ) {
             $post = $wp_query->get_queried_object();

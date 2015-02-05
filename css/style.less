@@ -33,6 +33,13 @@ body { overflow-x: hidden; }
 .hidden { visibility: hidden; }
 
 // head section
+.toggle i {
+    background: fade(@darkbrown, 30%);
+    border-bottom-right-radius: 6px;
+    padding: 10px 20px;
+    font-size: 60px;
+    color: white;
+}
 
 #header {
     font: 24px/36px @sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -115,7 +122,7 @@ body { overflow-x: hidden; }
 }
 
 .st-content {
-    overflow-y: scroll;
+  //  overflow-y: scroll;
     -webkit-overflow-scrolling:touch;
 }
 
@@ -217,18 +224,11 @@ body { overflow-x: hidden; }
 
 // off-canvas main menu
 
-.st-menu {
+#navPanel {
     @menu-bg: @green;
     position: absolute;
-    top: 0;
     padding-top:30px;
-    left: 0;
-    z-index: 99999;
-    width: 300px;
-    height: 100%;
     background: darken(desaturate(@menu-bg, 2%), 10%);
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
 
     ul {
         margin: 0;
@@ -364,7 +364,7 @@ body { overflow-x: hidden; }
 
 @bg-button-estimate: darken(#70b54d, 12%);
 
-.nice-slider nav a.button-estimate, #btn-es-go {
+.nice-slider nav a.button-estimate, #btn-es-go, .btn-es-go {
     position: relative;
     display: inline-block;
     margin: 70px auto;
@@ -462,7 +462,6 @@ body { overflow-x: hidden; }
     i { display: inline-block;
         margin-right: 10px;  }
     a {
-
         border-radius: 6px;
         padding: 12px 15px;
         background: fade(@brown, 50%);
@@ -477,10 +476,10 @@ body { overflow-x: hidden; }
         transform: 0.5s;
         transition: 0.6 ease-in-out all;
         &:hover {
-        transform: perspective(100px) rotateX(3deg);
-        border-bottom: 3px solid fade(darken(desaturate(@brown, 10%),15%),70%);
-        background: fade(desaturate(@brown, 5%), 70%);
-        box-shadow: 0 2px 8px fade(@brown, 25%);
+            transform: perspective(100px) rotateX(3deg);
+            border-bottom: 3px solid fade(darken(desaturate(@brown, 10%),15%),70%);
+            background: fade(desaturate(@brown, 5%), 70%);
+            box-shadow: 0 2px 8px fade(@brown, 25%);
         }
     }
 }
@@ -995,6 +994,11 @@ input:focus::-webkit-input-placeholder {
         }
 }
 
+.mobile-top {
+ background: url(../images/truck-small.jpg) center center no-repeat;
+ height: 500px;
+ display:none;
+}
 .ajax-loader {
     position: absolute;
     z-index: 9999;
@@ -1007,7 +1011,7 @@ input:focus::-webkit-input-placeholder {
 @car-hover-color: @darkbrown;
 
 .truck-hover {
-    &:hover {
+   /* &:hover {
         transform: perspective(100px) rotateX(5deg);
         background: @car-hover-color;
         box-shadow: 0 6px 33px rgba(0,0,0,0.75), inset 0 -5px 29px fade(@light, 10%);
@@ -1019,7 +1023,7 @@ input:focus::-webkit-input-placeholder {
         p {
             transform: perspective(100px) rotateX(-8deg);
         }
-    }
+    } */
 }
 
 .promo-column {
@@ -1684,8 +1688,9 @@ a.button.button-stripe:active {
         box-shadow: 0 1px 6px rgba(0,0,0,0.4);
     }
 }
-#price-1:hover, #price-2:hover, #price-3:hover {
-    background:  @brown;
+
+.price-hover:hover {
+   background:  @brown;
     border-bottom: 15px solid mix(@brown, #ddd, 85%);
 
     p {
@@ -1693,6 +1698,9 @@ a.button.button-stripe:active {
         border-bottom: 6px solid darken(@yellow, 10%);
     }
     h5 span { background: @red; border-bottom: 6px solid darken(@red, 15%); }
+}
+#price-1:hover, #price-2:hover, #price-3:hover {
+
 }
 
 .box-light {

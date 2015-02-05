@@ -4,17 +4,17 @@
         <div class="wrap">
             <div class="box-full box-col clearfix contacts ">
                 <h2>Best pricing</h2>
-                <div class="col-3 box-price ani" id="price-1">
+                <div class="col-3 box-price ani price-hover" id="price-1">
                     <img src="<? echo get_template_directory_uri(); ?>/images/price-1.png">
                     <h5><span>2</span> MOVERS & TRUCK</h5>
                     <p>$75 PER HOUR</p>
                 </div>
-                <div class="col-3 box-price ani" id="price-2">
+                <div class="col-3 box-price ani price-hover" id="price-2">
                     <img src="<? echo get_template_directory_uri(); ?>/images/price-2.png">
                     <h5><span>3</span>  MOVERS & TRUCK</h5>
                     <p>$100 PER HOUR</p>
                 </div>
-                <div class="col-3 box-price ani" id="price-3">
+                <div class="col-3 box-price ani price-hover" id="price-3">
                     <img src="<? echo get_template_directory_uri(); ?>/images/price-3.png">
                     <h5><span>4</span> MOVERS & TRUCK</h5>
                     <p>$125 PER HOUR</p>

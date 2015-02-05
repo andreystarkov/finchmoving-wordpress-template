@@ -14,6 +14,8 @@
         5  => get_template_directory_uri()."/images/slides/4.jpg"
     );
 
+    global $town, $rurl, $curl;
+
     $templatePath = get_template_directory();
     $templateUri = get_template_directory_uri();
 
@@ -49,12 +51,17 @@
          $url_trucks[4] .= $rurl.$tnames[4]."/".$town;
          $url_trucks[5] .= $rurl.$tnames[5]."/".$town;
      }
+
+     $GLOBALS['town'] = $town; $GLOBALS['templateUri'] = $templateUri;  $GLOBALS['templatePath'] = $templatePath;
+     $GLOBALS['curl'] = $curl; $GLOBALS['car_curr'] = $car_curr;
 ?><!DOCTYPE HTML>
 <html lang="en">
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="icon" type="image/png" href="<? echo get_template_directory_uri(); ?>/images/fav.png" />
 
     <title><?php
@@ -66,95 +73,25 @@
         wp_title('');
     }?></title>
 
-    <link rel="apple-touch-icon" sizes="72x72" href="<? echo get_template_directory_uri(); ?>images/touch/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="<? echo get_template_directory_uri(); ?>images/touch/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="<? echo get_template_directory_uri(); ?>images/touch/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<? echo get_template_directory_uri(); ?>/images/touch/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<? echo get_template_directory_uri(); ?>/images/touch/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<? echo get_template_directory_uri(); ?>/images/touch/apple-touch-icon-144x144.png">
 
-    <meta content="telephone=no" name="format-detection">
-
+    <meta content="telephone" name="8559696683">
+<!--<meta content="telephone=no" name="format-detection">-->
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/bebasneue/bebasneue.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/lineicons/style.css" />
 
-    <!--  <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
+   <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
 
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/all.css" />
-    <script src="<? echo get_template_directory_uri(); ?>/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/fullwidth-slider.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/tooltipster.css" />
 
-    <script>
-    $( function(){
-
-        skel.init({
-            reset: 'full',
-            containers: '95%',
-            breakpoints: {
-                xlarge: { media: '(min-width: 1300px) and (max-width:1600px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-xlarge.css', },
-                large: { media: '(min-width:1000) and (max-width: 1480px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-large.css'},
-                medium: { media: '(min-width: 480px) and (max-width: 1000px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-medium.css' },
-                small: { media: '(max-width: 1000px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-small.css' },
-                xsmall: { media: '(max-width: 480px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-xsmall.css' }
-            }
-        });
-
-        var i = 4;
-        var res = "1600";
-        var width = $(window).width();
-
-        if( width < 1000) {
-            $('#subpages').css({
-                backgroundImage: 'url(<? echo get_template_directory_uri(); ?>/images/truck-small.jpg)',
-                'background-attachment': 'scroll',
-                'background-size': 'cover'
-            });
-        }
-        if( width < 1800){ res = "1600"; }
-        if( width < 1400){
-            res = "1000";
-            $('.nice-slider-fullwidth').css({height: '600px'});
-            $('.nice-slider-fullwidth li img').css({bottom: '-100px'});
-        }
-        if( width > 1800){ res = "1900"; }
-
-        $.ajax({
-            url: '<?echo $templateUri; ?>/getslider.php',
-            type: 'post',
-            data: {
-            town: '<? echo $town; ?>',
-            rootPath: '<? echo $templatePath; ?>',
-            rootUri: '<? echo $templateUri; ?>',
-            res: res
-            },
-            success: function( data, textStatus, jQxhr ){
-                 $('#nice-slider .slider-content').html(data);
-                /*  $('#nice-slider .slider-content li').each(function(){
-                    i++;
-                    $(this).addClass('caption-'+i);
-                    $(this).attr('data-caption', 'caption-'+i);
-                    if(i > 4) i = 0;
-                }); */
-             },
-            error: function( jqXhr, textStatus, errorThrown ){ }
-        });
-    });
-    </script>
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/fullwidth-slider.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/classie.js"></script>
-
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/script.js"></script>
-
-    <?php // roots_head();
-    wp_head(); ?>
-
-    <script type='text/javascript' src='/wp-includes/js/admin-bar.min.js?ver=3.8.4'></script>
-    <script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.50.0-2014.02.05'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var _wpcf7 = {"loaderUrl":"http:\/\/finchmovingservices.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.7.2'></script>
+   <!-- <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
 
     <!--[if lt IE 9]>
         <script src="<? echo get_template_directory_uri(); ?>/js/ie/html5.js"></script>
@@ -167,16 +104,10 @@
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script>
-    $(function() {
-       $('#footmenu').html('<li><a title="Go back to <? echo get_the_title($post->post_parent);?> page." class="btn-back tip" href="<? echo get_permalink($post->post_parent); ?>"><i class="fa fa-angle-left"></i></a></li>'+$('#footmenu').html());
-       <? if(!empty($car_curr)) { ?> $('<? echo $car_curr; ?>').addClass('car-current'); <? } ?>
-    });
-    </script>
 
     <?php
         $parent_id = $post->ID;
-        $parent_id = getTrueParentId($curl);
+        $parent_id = getTrueParentIdNoJs($curl);
 
         if ( !$pagename && $id > 0 ) {
             $post = $wp_query->get_queried_object();
@@ -210,11 +141,11 @@
         "<li><a href='http://finchmovingservices.com/california/".$town."_office_movers_relocation/' class='wow flipInX animated submenu-current' data-wow-delay='0.2s' title='Office Relocation'>Office Relocation</a></li>".
         "</ul>";
          }
+
     ?>
 
-    <? if(!empty($town)) { makeLinks($town); } ?>
     <style>
-        html,body { margin-top: 0 !important;}
+        html,body { margin-top: 0 !important; -webkit-text-size-adjust: none; }
         .spanning { overflow: hidden;}
         .wow:first-child {
           visibility: hidden;
@@ -226,35 +157,17 @@
         top: 90px;
         left: 125px;
     }
+
+    #mobile-top {
+        position: relative;
+    }
+
     </style>
     <? } ?>
 </head>
 <body class="no-js">
 
-<div id="st-container" class="st-container">
-
-<div class="st-pusher content">
-
     <div class="top-nav"></div>
-
-    <script>
-    $(function() {
-         $('.st-menu .current-menu-item').append('<? echo getSubMenus($wpdb,$parent_id); ?>');
-         $('[name="Reviews"]').addClass('current');
-    <? if(strpos($curl, "_moving_services")){ ?>
-         $('.st-menu ul .current-menu-item').append("<a href='http://finchmovingservices.com/california/<?echo $town; ?>_moving_and_packing_services/' title='Moving and Packing'>Moving and Packing</a><a href='http://finchmovingservices.com/california/<?echo $town; ?>_office_movers_relocation/' title='Office Relocation'>Office Relocation</a>");
-    <? } ?>
-    });
-    </script>
-
-    <div id="st-trigger-effects">
-        <button class="btn-nav wow bounceInLeft" data-wow-delay="0.7s" data-effect="st-effect-2">
-          <!--  <div class="svg-wrap">
-                <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
-            </div> -->
-            <i class="fa fa-bars"></i>
-        </button>
-    </div>
 
     <div id="top-menu-wrap" class="top-menu-wrap skel-layers-fixed">
         <ul class="fixed-menu" id="menu-fixed">
@@ -264,8 +177,8 @@
         </ul>
     </div>
 
-    <nav class="st-menu st-effect-6" id="menu-6">
-        <div class="icon icon-stack"></div>
+    <nav class="menu-boxy" id="menuContainer" style="display:none">
+
         <?
         wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
                          'menu_id' => 'topmenu', 'menu_class' => 'top-menu-list', 'fallback_cb' => 'prime_menu_fallback' ));
@@ -288,7 +201,10 @@
                 <i class="li_phone"></i><b>855 969 6683</b>
                 <span>free<br>call</span>
             </div>
-
+            <div id="mobile-top" class="mobile-top">
+                <div class="mobile-phone"><i class="li_phone"></i><b>855 969 6683</b></div>
+                <a href="#estimate" id="btn-es-go-small" style="margin-top: 80%; margin-left: 10%" data-wow-delay="0.8s" class="btn-es-go wow bounceInRight" >Free Estimate <i class="ico li_paperplane"></i></a>
+            </div>
             <div id="nice-slider" class="nice-slider nice-slider-fullwidth" style="overflow:hidden">
 
                   <ul class="itemwrap slider-content">
@@ -298,7 +214,6 @@
                     <div class="top-wrap">
 
                         <nav>
-                            <div class="mobile-phone"><i class="li_phone"></i><b>855 969 6683</b></div>
                             <a href="#estimate" id="btn-es-go" data-wow-delay="0.8s" class="button-estimate wow bounceInRight" >Free Estimate <i class="ico li_paperplane"></i></a>
                             <a class="slider-control prev" href="#"><i class="fa fa-angle-left"></i></a>
                             <a class="slider-control next" href="#"><i class="fa fa-angle-right"></i></a>

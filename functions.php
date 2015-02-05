@@ -210,6 +210,16 @@
         </script>
       <?
     }
+    function getTrueParentIdNoJs($curl){
+        if(isUrlHas($curl, "professional_movers")) { $parent_id = 6964;}
+        if(isUrlHas($curl, "moving_services")) { $parent_id = -1;   }
+        if(isUrlHas($curl, "online_moving_quote")) { $parent_id = 6327; }
+        if(isUrlHas($curl, "movers_prices")) { $parent_id = -1;  }
+        if(isUrlHas($curl, "online_moving_quote_")) { $parent_id = -1; }
+        if(isUrlHas($curl, "movers_moving_companies")) { $parent_id = -1; }
+        if(strpos($curl, "licensed_and_insured_movers_moving_company") != FALSE) { $parent_id = 6782;  }
+        return $parent_id;
+    }
 
     function getTrueParentId($curl){
         if(isUrlHas($curl, "professional_movers")) { $parent_id = 6964; makeMenuParent("tips"); }

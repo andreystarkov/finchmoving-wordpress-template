@@ -102,11 +102,6 @@
 
   .top-nav { margin-top: 0px; }
 
-  #st-trigger-effects { top: 10px; left: 15px; }
-
-  #st-trigger-effects .btn-nav { border-top-left-radius: 6px; border-top-right-radius: 6px; padding: 12px 18px;}
-  #st-trigger-effects .btn-nav i { font-size: 65px; }
-
   .nice-slider-fullwidth nav a { padding-top:23px; padding-bottom: 42px; background-color: rgba(0,0,0,0); }
 
   .header-logo { display: none; }

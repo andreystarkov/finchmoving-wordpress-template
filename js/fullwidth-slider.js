@@ -7,6 +7,7 @@ $(function() {
         return Math.floor((Math.random()*max)+min);
 //          return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
 
     var support = { animations : Modernizr.cssanimations },
         animEndEventNames = {
@@ -147,5 +148,7 @@ $(function() {
         clearInterval(rotateInterval);
         }
         init();
-        changeEffect()
+        changeEffect();
+
+        }
 });
