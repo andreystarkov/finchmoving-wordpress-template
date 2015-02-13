@@ -81,10 +81,12 @@
 <!--<meta content="telephone=no" name="format-detection">-->
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/bebasneue/bebasneue.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/serif/styles.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/lineicons/style.css" />
 
    <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
-
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/fullwidth-slider.css" />
@@ -177,6 +179,14 @@
         </ul>
     </div>
 
+    <div id="titleContainer" style="display:none">
+        <div class="toggle left-panel" id="topPanel" data-action="toggleLayer" data-args="navPanel"><i class="fa fa-bars"></i></div>
+        <div class="top-phone header-phone wow wow boun3ceInLeft" data-wow-delay="0.2s">
+            <i class="li_phone"></i><b>855 969 6683</b>
+            <span>free<br>call</span>
+        </div>
+    </div>
+
     <nav class="menu-boxy" id="menuContainer" style="display:none">
 
         <?
@@ -195,12 +205,52 @@
 
           <div id="slider-wrapper" style="overflow:hidden">
 
+            <div class="the-company">
+                <div class="birdy"><img src="<? echo get_template_directory_uri(); ?>/images/bird-shadow.png" /></div>
+                <h1>Finch Moving</h1>
+            </div>
             <div class="truck-logo wow bounceInRight" data-wow-delay="0.1s"><img src="<? echo get_template_directory_uri(); ?>/images/truck-logo4.png" alt="Finch Moving Services"></div>
 
-            <div class="top-phone header-phone wow wow bounceInLeft" data-wow-delay="0.2s">
-                <i class="li_phone"></i><b>855 969 6683</b>
-                <span>free<br>call</span>
+            <div id="header-slider" class="bootstrap-carousel carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#header-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#header-slider" data-slide-to="1"></li>
+                <li data-target="#header-slider" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="<? echo get_template_directory_uri(); ?>/images/show/normal/1600/1600.jpg" alt="...">
+                  <div class="carousel-caption">
+
+                  </div>
+                </div>
+                <div class="item">
+                  <img src="<? echo get_template_directory_uri(); ?>/images/show/normal/1600/2-1600.jpg" alt="...">
+                  <div class="carousel-caption">
+
+                  </div>
+                </div>
+                <div class="item">
+                  <img src="<? echo get_template_directory_uri(); ?>/images/show/normal/1600/3-1600.jpg" alt="...">
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <a class="left carousel-left carousel-control" href="#header-slider">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-right carousel-control" href="#header-slider">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
+           <!--
             <div id="mobile-top" class="mobile-top">
                 <div class="mobile-phone"><i class="li_phone"></i><b>855 969 6683</b></div>
                 <a href="#estimate" id="btn-es-go-small" style="margin-top: 80%; margin-left: 10%" data-wow-delay="0.8s" class="btn-es-go wow bounceInRight" >Free Estimate <i class="ico li_paperplane"></i></a>
@@ -246,7 +296,7 @@
                          </div>
 
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

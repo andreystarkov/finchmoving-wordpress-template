@@ -3,6 +3,7 @@
   <div class="box-light clearfix box-content" id="info">
     <div class="wrap">
         <div class="box-full clearfix">
+
         <?php roots_loop_before();
         get_template_part('loop', 'page');
         roots_loop_after(); ?>
@@ -10,8 +11,7 @@
     </div>
   </div>
 
-
-  <div id="subpages" class="slide-1 clearfix img-truck-4 box-img">
+  <div id="subpages" class="img-truck bg-parallax" data-parallax="scroll" data-image-src="<? echo get_template_directory_uri(); ?>/images/truck/truck-1600.jpg">
     <div class="wrap">
       <div class="box-light-content clearfix">
 

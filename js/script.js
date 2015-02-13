@@ -20,10 +20,22 @@ $(document).ready(function(){
       catch(e){ return false; }
     }
 
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    $('body').flowtype({
+     minFont   : 12,
+     maxFont   : 18,
+     fontRatio : 30
+    });
+    $('.bootstrap-carousel').carousel();
+ /*   $('#slider-wrapper').css({height: $(window).height()}); */
 
-    }
+    $('.carousel-left').click(function(){
+        $('.bootstrap-carousel').carousel('prev');
+    });
+    $('.carousel-right').click(function(){
+        $('.bootstrap-carousel').carousel('next');
+    });
 
+    $('.bg-parallax').parallax({positionY: 0,speed: 0.1});
      $.fn.waypoint.defaults = {
       context: '.st-content',
       continuous: true,
@@ -40,12 +52,6 @@ $(document).ready(function(){
         $('.button-up').removeClass('animated bounceInRight visible').addClass('animated bounceOutRight').addClass('hidden');
       }
     });
-
-    if( $(window).width() < 1000 ) {
-        $('.header-phone').css({display: 'none'});
-        $('#nice-slider').remove();
-        $('#mobile-top').css({display: 'block'});
-    }
 
     if( !(isMobile()) && !(isiPad) ){
 

@@ -27,7 +27,7 @@
 
     <? if($pagename == "pricing"){ ?>
 
-        <div id="subpages" class="slide-1 clearfix img-truck-2 box-img " style="box-shadow: inset 0px -6px 18px rgba(0,0,0,0.5)">
+        <div id="subpages" class="img-truck bg-parallax" data-parallax="scroll" data-image-src="<? echo get_template_directory_uri(); ?>/images/truck/truck-1600.jpg">
             <div class="wrap">
                 <div class="box-light-content clearfix">
                     <h2>see also:</h2>
@@ -77,7 +77,10 @@
 </div>
 
 
-    <script src="<? echo get_template_directory_uri(); ?>/js/libs/_jquery-2.1.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script src="<? echo get_template_directory_uri(); ?>/js/libs/bootstrap.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/jquery.easing.1.3.js"></script>
 
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/skel.min.js"></script>
@@ -89,6 +92,8 @@
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/jquery.transit.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/jquery.tooltipster.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/jquery.nicescroll.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/libs/parallax.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/libs/flowtype.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/jquery.cookie.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/library.js"></script>
  <!--
@@ -118,17 +123,17 @@ $( function(){
                 position: 'top-left',
                 width: '100%',
                 height: 50,
-                html: '<div class="toggle left-panel" id="topPanel" data-action="toggleLayer" data-args="navPanel"><i class="fa fa-bars"></i>' +
-                '<span class="title"></span></div><a class="button-home tip" style="display:none" title="На главную страницу" href="/"><i class="fa fa-home"></i></a>'
+                html: $('#titleContainer').html()
               },
               navPanel: {
                 position: 'top-left',
                 width: 295,
                 height: '100%',
+                speed: 200,
                 orientation: 'vertical',
                 side: 'left',
                 hidden: true,
-                animation: 'pushX',
+                animation: 'revealX',
                 clickToHide: true,
                 html: $('#menuContainer').html()
               }
@@ -199,8 +204,8 @@ $( function(){
         $parent_id = getTrueParentId($curl);
 
 ?>
-<script src="<? echo get_template_directory_uri(); ?>/js/libs/fullwidth-slider.js"></script>
-<script src="<? echo get_template_directory_uri(); ?>/js/classie.js"></script>
+  <!--<script src="<? echo get_template_directory_uri(); ?>/js/libs/fullwidth-slider.js"></script>
+<script src="<? echo get_template_directory_uri(); ?>/js/classie.js"></script> -->
 <script src="<? echo get_template_directory_uri(); ?>/js/script.js"></script>
 
 <?php // roots_head();

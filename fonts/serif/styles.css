@@ -1,0 +1,8 @@
+
+@font-face {
+  font-family: 'FMSerif_';
+  src: url('serif.eot?#iefix') format('embedded-opentype'),  url('serif.otf')  format('opentype'),
+	     url('serif.woff') format('woff'), url('serif.ttf')  format('truetype'), url('serif.svg#serif') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

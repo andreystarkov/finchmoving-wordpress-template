@@ -5,13 +5,13 @@
   }
 
   #st-trigger-effects { left: 15px; top: 10px; }
-  .button-up i { font-size:50px; }
+/*  .button-up i { font-size:50px; }*/
   .button-up { padding: 5px 11px; top: 10px; right: 10px;}
   #st-trigger-effects .btn-nav { padding: 10px 15px; }
-  #st-trigger-effects .btn-nav i { font-size: 50px; }
+/*  #st-trigger-effects .btn-nav i { font-size: 50px; }*/
 
-  .wrap p, .container p, .comments .box p { font-size: 20px; line-height: 26px;}
-
+/*  .wrap p, .container p, .comments .box p { font-size: 20px; line-height: 26px;}
+*/
   .truck-logo { width: 230px; right: 10px;}
 
   .forms-form .button-submit { width: 100%;}
@@ -57,22 +57,28 @@
      width: 100% !important;
   }
 
-  .box-full h4, .box-full h4 a { font-size: 20px; text-align: left; }
+  .box-full h4, .box-full h4 a { /*font-size: 20px; */text-align: left; }
 
-  .box-full ul li span a, .box-full ol li span a, .box-full ul li h4 a, .box-full ol li h4 a {
+/*  .box-full ul li span a, .box-full ol li span a, .box-full ul li h4 a, .box-full ol li h4 a {
     font-size:18px;
     line-height: 24px;
-  }
-  #estimate .top-phone { padding-right: 15px; padding-bottom: 2px; }
-  #estimate .top-phone b { font-size: 40px; }
-  #estimate .top-phone i { font-size: 30px; }
-  #estimate .top-phone span { display:none; }
-  .nice-slider nav a.button-estimate, #btn-es-go { font-size: 34px; padding-right: 7px; }
-  .nice-slider nav a.button-estimate i, #btn-es-go i { font-size: 27px !important; margin-left: 4px !important; }
+  }*/
+
+  .truck-logo { display: none; }
+  #header .the-company h1 { background: transparent; box-shadow: none; font-size: 2em; margin-top: -30px;}
+  #header .the-company .birdy { width: 35%; height: auto;}
+
+  #estimate .top-phone { margin: 0 auto; padding-right: 55px; border-radius: 8px;  border-bottom: 0px; box-shadow: none; }
+  .box-light-content h2 { margin-bottom: 10px; }
+/*  #estimate .top-phone b { font-size: 40px; }
+  #estimate .top-phone i { font-size: 30px; }*/
+
+  .nice-slider nav a.button-estimate, #btn-es-go { /*font-size: 34px*/; padding-right: 7px; }
+  .nice-slider nav a.button-estimate i, #btn-es-go i { /*font-size: 27px !important;*/ margin-left: 4px !important; }
   #btn-es-go { padding-top: 12px !important; }
   #btn-es-go i {
     margin-left:4px;
-    font-size: 27px;
+   /* font-size: 27px;*/
   }
 
   .header-logo { display: none !important; }
@@ -109,7 +115,7 @@
     top: -30px;
     border-bottom: 4px solid #b59716;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-    font-size: 35px;
+   /* font-size: 35px;*/
     border-radius: 35px;
     padding: 8px;
     background-color: #e4c024;
@@ -118,12 +124,12 @@
     text-indent: 0px;
   }
 
-  #estimate { height: 900px; min-height: 900px; }
-
+  /*#estimate { height: 900px; min-height: 900px; }
+*/
   .slider-caption p {
     padding: 6px 16px;
-    font-size: 18px;
-    line-height: 23px;
+/*    font-size: 18px;
+    line-height: 23px;*/
     font-style:italic;
     text-indent: 26px;
   }
@@ -169,14 +175,14 @@
 
   .box-full h2,
   .box-full h3 {
-    font-size: 40px;
-    line-height: 48px;
+/*    font-size: 40px;
+    line-height: 48px;*/
   }
 
-  .box-full ul li {
+/*  .box-full ul li {
     font-size: 18px;
     line-height: 26px;
-  }
+  }*/
   .top-nav {
     margin-top: 0px;
     padding-top: 8px;
@@ -200,7 +206,7 @@
   .promo-column:last-child { max-width: 200px !important; }
   .promo-column img { width: auto; height: auto; max-height: 84px; }
   .promo-columt .car-img { width: 100%; height: 100%; }
-  .promo-column h5 { padding-left:0; padding-right:0; font-size: 16px;}
+  .promo-column h5 { padding-left:0; padding-right:0; /*font-size: 16px;*/}
   .footer-menu, #footer-nav, #menu-item { visibility: visible !important; opacity: 1 !important; }
   .box-col .col-3 {
     display: block;
@@ -214,10 +220,10 @@
   }
   .box-price h5 {
     margin-top: 10px;
-    font-size: 32px;
+  /*  font-size: 32px;*/
   }
   .box-price p {
-    font-size: 30px !important;
+    /*font-size: 30px !important;*/
     margin-top: 20px;
   }
   #st-trigger-effects {
@@ -225,42 +231,42 @@
     top: 5px;
   }
   .nice-slider nav a i {
-    font-size: 70px;
+    /*font-size: 70px;*/
   }
   .nice-slider nav a {
     padding: 5px;
   }
   .forms-form .button-submit {
     font-family: 'bebas_neuebook';
-    font-size: 33px;
+   /* font-size: 33px;*/
   }
   .box-light-content {
     padding: 0;
   }
-  .button {
+  /*.button {
     font-size: 33px;
-  }
+  }*/
   .header-wrapper {
     padding-top: 15px !important;
   }
-  .box-light-content h2 {
+/*  .box-light-content h2 {
     font-size: 53px;
     line-height: 59px;
-  }
+  }*/
   .comments {
     padding: 45px 35px;
   }
   .comments .box {
     padding: 0;
   }
-  .comments .box p {
+ /* .comments .box p {
     font-size: 20px;
     line-height: 26px;
   }
   .comments .box h4 {
     font-size: 28px;
     line-height: 36px;
-  }
+  }*/
   .comments .tabs {
     margin-top: 30px;
   }
@@ -283,16 +289,15 @@
   }
   .box-estimate .phone span,
   .box-footer .phone span {
-    widh: 80%;
     display: none;
   }
   .box-estimate .phone b,
   .box-footer .phone b {
-    font-size: 38px;
+   /* font-size: 38px;*/
   }
   .box-estimate .phone i,
   .box-footer .phone i {
-    font-size: 30px;
+    /*font-size: 30px;*/
     margin-right: 5px;
   }
   .box-estimate .box-light-content {
@@ -310,29 +315,29 @@
     padding-left: 25px;
   }
   .wrap p {
-    font-size: 18px;
-    line-height: 26px;
+  /*  font-size: 18px;
+    line-height: 26px;*/
   }
   #subpages .box-light-content h2 {
-    font-size: 50px;
+    /*font-size: 50px;*/
   }
   .buttons-wrapper {
     margin-top: 20px;
     padding-top: 0 !important;
   }
   #subpages .box-light-content a {
-    font-size: 25px;
+/*    font-size: 25px;*/
     padding: 10px 15px;
   }
   #subpages .box-light-content i {
-    font-size: 25px;
+    /*font-size: 25px;*/
   }
   .box-img .box-light-content {
     width: auto;
   }
   #pricing-bonus h4 {
-    font-size: 38px;
-    line-height: 44px;
+ /*   font-size: 38px;
+    line-height: 44px;*/
     margin-top: 25px;
   }
   .box-light-img-inside {
