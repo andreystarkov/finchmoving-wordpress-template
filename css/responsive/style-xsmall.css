@@ -14,17 +14,18 @@
     }
     .page-carousel .item h4 i  {
         display:block;
-        margin: 0px auto;
+        margin: -10px auto;
         width: 70px;
+        margin-bottom: 15px;
     }
     .page-carousel .item p {
       line-height:1;
 
     }
     .carousel-indicators li {
-              border-bottom-left-radius: 0;
+        border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-          margin-left:5px; margin-right: 5px;
+        margin-left:5px; margin-right: 5px;
         border-top-right-radius: 20px;
         border-top-left-radius: 20px;
     }
@@ -114,10 +115,10 @@
     background:url(../images/logo-small.png) center center no-repeat;
 
   }
-
+  .box-estimate h2 { font-size: 3.5em;}
   .wrap {
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .slider-caption {
@@ -262,7 +263,9 @@
     font-size: 33px;
     color: #fff !important;
   }
-  .top-phone b { color: #fff !important; }
+  #estimate .top-phone { width: 100%;}
+  .top-phone b {  color: #fff !important; }
+  .top-phone i { margin-right: 9px; }
   .box-light-content {
     padding: 0;
   }

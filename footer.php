@@ -79,16 +79,11 @@
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-    <script src="<? echo get_template_directory_uri(); ?>/js/libs/bootstrap.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/dist/all.js"></script>
+ <!--   <script src="<? echo get_template_directory_uri(); ?>/js/libs/bootstrap.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/jquery.easing.1.3.js"></script>
-
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/skel.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/skel-layers.min.js"></script>
-<!--  <script src="<? echo get_template_directory_uri(); ?>/js/skel-config.js"></script>-->
-
-  <!--  <script src="<? echo get_template_directory_uri(); ?>/js/vendor/skel-panels.min.js"></script>-->
-
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/jquery.transit.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/jquery.tooltipster.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/jquery.nicescroll.min.js"></script>
@@ -96,15 +91,9 @@
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/flowtype.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/jquery.cookie.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/library.js"></script>
- <!--
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/TweenMax.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/highlight.pack.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.scrollmagic.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/jquery.scrollmagic.debug.js"></script>-->
-
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/wow.min.js"></script>
     <script src="<? echo get_template_directory_uri(); ?>/js/libs/waypoints.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/libs/queryloader2.min.js" type="text/javascript"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/libs/queryloader2.min.js" type="text/javascript"></script> -->
     <script type="text/javascript">
     window.addEventListener('DOMContentLoaded', function() {
         new QueryLoader2(document.querySelector("body"), {

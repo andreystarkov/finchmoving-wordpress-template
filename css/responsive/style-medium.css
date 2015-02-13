@@ -3,7 +3,36 @@
   .slider-wrapper, #nice-slider, .slider-content,.top-wrap, header {
     height: 500px; max-height: 500px;
   }
+    #header-carousel .carousel-indicators, #pricing-slider .carousel-indicators {
+      bottom: 0;
+      height: 30px;
+    }
+    .page-carousel .item h4  {
+        line-height: 1;
+        margin-bottom:15px;
+    }
+    .page-carousel .item h4 i  {
+        display:block;
+        margin: -10px auto;
+        width: 70px;
+        margin-bottom: 15px;
+    }
+    .page-carousel .item p {
+      line-height:1;
 
+    }
+    .carousel-indicators li {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-left:5px; margin-right: 5px;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+    .carousel-indicators li.active {
+      background-color: #c1beb6 !important;
+      box-shadow: 0 -5px 7px rgba(0,0,0,0.5);
+    }
+    #titleBar .fa-bars { rgba(85, 147, 71, 0.3) }
   #st-trigger-effects { left: 15px; top: 10px; }
   .button-up i { font-size:50px; }
   .button-up { padding: 5px 11px; top: 10px; right: 10px;}

@@ -9,12 +9,11 @@ $(document).ready(function(){
         for(var i = 0; i < count; i++){
             $('.carousel-indicators', box).append('<li data-target="'+obj+'" data-slide-to="'+i+'"></li>');
         }
-        $(box).append('<a class="left carousel-control carousel-left" href="'+obj+'" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control carousel-right" href="'+obj+'" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>');
+        $(box).append('<div class="left carousel-control carousel-left" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></div><div class="right carousel-control carousel-right" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></div>');
     }
 
     createSliderNavigation('#pricing-slider');
     createSliderNavigation('#header-slider');
-
 
     function rand(min, max){
         return Math.floor((Math.random()*max)+min);

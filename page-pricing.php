@@ -2,7 +2,8 @@
 
     <div class="box-light clearfix anchor" id="pricing">
         <div class="wrap">
-            <div class="box-full box-col clearfix contacts ">
+            <div class="box-full box-col clearfix contacts " style="margin-bottom: 25px">
+
                 <h2>Best pricing</h2>
                 <div class="col-3 box-price ani price-hover" id="price-1">
                     <img src="<? echo get_template_directory_uri(); ?>/images/price-1.png">
@@ -21,6 +22,9 @@
                 </div>
             </div>
 
+            <?php roots_loop_before();
+            get_template_part('loop', 'page');
+            roots_loop_after(); ?>
         </div>
     </div>
     <div id="pricing-slider" class="bootstrap-carousel page-carousel bg-parallax carousel slide" data-ride="carousel" data-image-src="<? echo get_template_directory_uri(); ?>/images/show/blur/guys-blur-2.jpg">
