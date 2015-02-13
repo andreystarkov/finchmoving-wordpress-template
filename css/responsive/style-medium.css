@@ -19,7 +19,7 @@
   .mobile-phone {display: block;}
 
   .nice-slider nav a.prev, .nice-slider nav a.next { padding: 60px 20px; }
-  .nice-slider nav a.button-estimate, #btn-es-go { margin: 25px auto;}
+  .nice-slider nav a.button-estimate, #btn-es-go { margin: 0px auto;}
 
   .img-truck-1 { background: url(../images/truck-small.jpg); }
 
@@ -110,7 +110,7 @@
   .promo-wrapper { padding: 0; margin: 0; max-height: 200px;}
   .promo-column img { width: 100%; height: 100%; max-height: 84px; }
   .promo-columt .car-img { width: 100%; height: 100%; }
-  .promo-column h5 { padding-left:0; padding-right:0; }
+  .promo-column h5 { padding-left:0; padding-right:0; font-size: 0.8em;}
   .promo-column h5 span { /*font-size: 16px; */line-height:20px;}
   .promo-column { float: left; width: 17%; }
 

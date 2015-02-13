@@ -23,41 +23,33 @@
 
         </div>
     </div>
+    <div id="pricing-slider" class="bootstrap-carousel page-carousel bg-parallax carousel slide" data-ride="carousel" data-image-src="<? echo get_template_directory_uri(); ?>/images/show/blur/guys-blur-2.jpg">
 
-    <div class="comments clearfix img-blur-1 box-img" id="pricing-bonus">
-        <div class="wrap">
+        <ol class="carousel-indicators"></ol>
 
-            <div class="tab ani">
-                <div class="box visible">
-                    <h4><i class="li_star"></i> 5% Discount</h4>
-                    <p>Military members, seniors, students.</p>
-                </div>
-                <div class="box">
-                    <h4><i class="fa fa-gift"></i> No Extra Charge For</h4>
-                    <p>Last minute, Holidays, Weekends, Assembly,
-                    Reassembly, Stairs, Elevators Mileage, Overtime.</p>
-                </div>
-                <div class="box">
-                    <h4><i class="fa fa-home"></i> Buy or Sell your home with Finch Realty</h4>
-                    <p>And we'll move you<br><b>FOR FREE</b>.</p>
-                </div>
-                <div class="box">
-                    <h4><i class="li_key"></i> Licensed & Insured</h4>
-                    <p>CALT - 0190910, CA #425182</p>
-                </div>
-                <ul class="tabs">
-                    <li class="active"></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                <a href="#" class="tab-prev ani"><i class="fa fa-angle-left"></i></a>
-                <a href="#" class="tab-next ani"><i class="fa fa-angle-right"></i></a>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <h4><i class="li_star"></i> 5% Discount</h4>
+                <p>Military members, seniors, students.</p>
+            </div>
+            <div class="item">
+                <h4><i class="fa fa-gift"></i> No Extra Charge For</h4>
+                <p>Last minute, Holidays, Weekends, Assembly,
+                Reassembly, Stairs, Elevators Mileage, Overtime.</p>
+            </div>
+            <div class="item">
+                <h4><i class="fa fa-home"></i> Buy or Sell your home with Finch Realty</h4>
+                <p>And we'll move you<br><b>FOR FREE</b>.</p>
+            </div>
+            <div class="item">
+                <h4><i class="li_key"></i> Licensed & Insured</h4>
+                <p>CALT - 0190910, CA #425182</p>
             </div>
         </div>
+
     </div>
 
- <div class="box-light clearfix anchor box-content" id="info">
+<!--  <div class="box-light clearfix anchor box-content" id="info">
       <div class="wrap">
           <div class="box-full clearfix">
           <?php roots_loop_before(); ?>
@@ -92,7 +84,7 @@
 
                <?  */ }?>
               </div></div>
-              </div>
+              </div> -->
     <?php get_footer(); ?>
 
 

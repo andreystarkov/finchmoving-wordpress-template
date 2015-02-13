@@ -4,16 +4,43 @@
     height: 500px; max-height: 500px;
   }
 
-  #st-trigger-effects { left: 15px; top: 10px; }
+    #header-carousel .carousel-indicators, #pricing-slider .carousel-indicators {
+      bottom: 0;
+      height: 30px;
+    }
+    .page-carousel .item h4  {
+        line-height: 1;
+        margin-bottom:15px;
+    }
+    .page-carousel .item h4 i  {
+        display:block;
+        margin: 0px auto;
+        width: 70px;
+    }
+    .page-carousel .item p {
+      line-height:1;
+
+    }
+    .carousel-indicators li {
+              border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+          margin-left:5px; margin-right: 5px;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+
+  .toggle i { font-size: 40px; padding: 5px 10px; }
+
+
 /*  .button-up i { font-size:50px; }*/
   .button-up { padding: 5px 11px; top: 10px; right: 10px;}
-  #st-trigger-effects .btn-nav { padding: 10px 15px; }
+
 /*  #st-trigger-effects .btn-nav i { font-size: 50px; }*/
 
 /*  .wrap p, .container p, .comments .box p { font-size: 20px; line-height: 26px;}
 */
   .truck-logo { width: 230px; right: 10px;}
-
+  .forms-form { width: 100%; }
   .forms-form .button-submit { width: 100%;}
   .form-estimate p { font-style: italic; }
   .contacts .contact { float: none; display: inline-block; }
@@ -28,6 +55,7 @@
     font: 500 18px/24px 'Raleway',"Helvetica Neue",Helvetica,Arial,sans-serif;
   }
 
+  #header-slider  .carousel-indicators,#price-slider  .carousel-indicators  { bottom: -10px; }
   input[placeholder], [placeholder], [placeholder] { color: #333 !important; }
 
   .box-light { padding-top: 15px; }
@@ -42,7 +70,6 @@
   }
 
   .mobile-phone {display: block; padding:12px 6px 10px 6px;}
-  .nice-slider nav a.button-estimate, #btn-es-go { margin: 45px auto;}
 
   .nice-slider nav a.prev, .nice-slider nav a.next { padding: 60px 10px; }
 
@@ -73,13 +100,7 @@
 /*  #estimate .top-phone b { font-size: 40px; }
   #estimate .top-phone i { font-size: 30px; }*/
 
-  .nice-slider nav a.button-estimate, #btn-es-go { /*font-size: 34px*/; padding-right: 7px; }
-  .nice-slider nav a.button-estimate i, #btn-es-go i { /*font-size: 27px !important;*/ margin-left: 4px !important; }
-  #btn-es-go { padding-top: 12px !important; }
-  #btn-es-go i {
-    margin-left:4px;
-   /* font-size: 27px;*/
-  }
+
 
   .header-logo { display: none !important; }
 
@@ -238,8 +259,10 @@
   }
   .forms-form .button-submit {
     font-family: 'bebas_neuebook';
-   /* font-size: 33px;*/
+    font-size: 33px;
+    color: #fff !important;
   }
+  .top-phone b { color: #fff !important; }
   .box-light-content {
     padding: 0;
   }

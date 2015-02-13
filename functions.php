@@ -37,6 +37,47 @@
         }
     }
 
+    function sliderImagesCarousel($town, $res, $rootPath, $rootUri){
+        $dir .= $rootPath."/images/show/".$town."/".$res;
+        $dir_our .= $rootPath."/images/show/normal/".$res;
+
+        if ( $handle_our = opendir($dir_our) ) {
+            $i = 0;
+            while (false !== ($entry_our = readdir($handle_our))) {
+
+                if ($entry_our != "." && $entry_our != "..") {
+                    $i++;
+                    if( $i == 1){ $cur = "active"; } else { $cur = ""; }
+                    $out_our[$i] .= "<div class='item ".$cur."'><img src='".$rootUri."/images/show/normal/".$res."/".$entry_our."' alt=''></div>";
+                }
+            }
+            closedir($handle_our);
+        }
+
+        if ( $handle = opendir($dir) ) {
+            $i = 0;
+            while (false !== ($entry = readdir($handle))) {
+                if ($entry != "." && $entry != "..") {
+                    if($i == 0) { $cur = "active"; } else { $cur = ""; } $i++;
+                    $out_area[$i] .= "<div class='item'><img src='".$rootUri."/images/show/".$town."/".$res."/".$entry."' alt=''></div>";
+                }
+            }
+            closedir($handle);
+        }
+
+        $summary = count($out_our)+count($out_area);
+
+        for($i = 0; $i <= 2; $i++){
+            if(count($out_area) >= $i){
+                $return .= $out_area[$i];
+            }
+            if(count($out_our) >= $i){
+                $return .= $out_our[$i];
+            }
+        }
+        return $return;
+    }
+
     function sliderImages($town, $res, $rootPath, $rootUri){
         $dir .= $rootPath."/images/show/".$town."/".$res;
         $dir_our .= $rootPath."/images/show/normal/".$res;
@@ -98,27 +139,27 @@
         <script>
 
         $(function () {
-            $(".top-menu-list a[title=services]")
+            $("#menuContainer a[title=services]")
             .attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_moving_services/")
             .append('<i class="li_truck"></i>');
 
-            $(".top-menu-list a[title=tips]")
+            $("#menuContainer a[title=tips]")
             .attr("href", "http://finchmovingservices.com/california/professional_movers_<? echo $town; ?>/")
             .append('<i class="li_bulb"></i>');
 
-            $(".top-menu-list a[title=about]")
+            $("#menuContainer a[title=about]")
             .attr("href", "http://finchmovingservices.com/california/licensed_and_insured_movers_moving_company_<? echo $town; ?>")
             .append('<i class="li_study"></i>');
 
-            $(".top-menu-list a[title=home]")
+            $("#menuContainer a[title=home]")
             .attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_movers_moving_companies/")
             .append('<i class="li_shop"></i>');
 
-            $(".top-menu-list a[title=contact]")
+            $("#menuContainer a[title=contact]")
             .attr("href", "http://finchmovingservices.com/california/online_moving_quote_<? echo $town; ?>/")
             .append('<i class="li_paperplane"></i>');
 
-            $(".top-menu-list a[title=pricing]").
+            $("#menuContainer a[title=pricing]").
             attr("href", "http://finchmovingservices.com/california/moving_companies_rates/<? echo $town; ?>_movers_prices/")
             .append('<i class="li_banknote"></i>');
           // $(".logo a").attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_movers_moving_companies/");
@@ -205,7 +246,7 @@
     ?>
         <script>
         $(function() {
-            $(".top-menu-list a[title=<? echo $title; ?>]").parent().addClass('current-menu-item');
+            $("#menuContainer a[title=<? echo $title; ?>]").parent().addClass('current-menu-item');
         });
         </script>
       <?

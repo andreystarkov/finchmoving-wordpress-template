@@ -59,7 +59,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="icon" type="image/png" href="<? echo get_template_directory_uri(); ?>/images/fav.png" />
@@ -78,13 +78,13 @@
     <link rel="apple-touch-icon" sizes="144x144" href="<? echo get_template_directory_uri(); ?>/images/touch/apple-touch-icon-144x144.png">
 
     <meta content="telephone" name="8559696683">
-<!--<meta content="telephone=no" name="format-detection">-->
+    <meta content="telephone=no" name="format-detection">
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/bebasneue/bebasneue.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/serif/styles.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/lineicons/style.css" />
 
-   <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
+    <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/animate.min.css" />
@@ -93,7 +93,7 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/tooltipster.css" />
 
-   <!-- <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
+   <!--<link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />-->
 
     <!--[if lt IE 9]>
         <script src="<? echo get_template_directory_uri(); ?>/js/ie/html5.js"></script>
@@ -164,12 +164,23 @@
         position: relative;
     }
 
+    #qLoverlay {
+    background-color: #111;
+    position: fixed;
+    z-index: 111666999787756;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
     </style>
     <? } ?>
 </head>
 <body class="no-js">
-
+    <div id="qLoverlay"></div>
     <div class="top-nav"></div>
+
+        <a href="#header" class="button-up hidden"><i class="fa fa-angle-up"></i></a>
 
     <div id="top-menu-wrap" class="top-menu-wrap skel-layers-fixed">
         <ul class="fixed-menu" id="menu-fixed">
@@ -178,17 +189,18 @@
         ?>
         </ul>
     </div>
+    <div id="titleContainerBig" style="display:none">
+        <div class="toggle left-panel" data-action="toggleLayer" data-args="navPanelBig"><i class="fa fa-bars"></i></div>
+    </div>
 
     <div id="titleContainer" style="display:none">
-        <div class="toggle left-panel" id="topPanel" data-action="toggleLayer" data-args="navPanel"><i class="fa fa-bars"></i></div>
-        <div class="top-phone header-phone wow wow boun3ceInLeft" data-wow-delay="0.2s">
-            <i class="li_phone"></i><b>855 969 6683</b>
-            <span>free<br>call</span>
+        <div class="toggle left-panel" data-action="toggleLayer" data-args="navPanel"><i class="fa fa-bars"></i></div>
+        <div class="title-phone">
+           <a href="tel://8559696683">855 969 6683</a> <i class="li_phone"></i>
         </div>
     </div>
 
     <nav class="menu-boxy" id="menuContainer" style="display:none">
-
         <?
         wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
                          'menu_id' => 'topmenu', 'menu_class' => 'top-menu-list', 'fallback_cb' => 'prime_menu_fallback' ));
@@ -197,8 +209,6 @@
 
     <div class="st-content main">
 
-        <a href="#header" class="button-up hidden"><i class="fa fa-angle-up"></i></a>
-
         <div class="st-content-inner">
 
         <div id="header" style="overflow:hidden">
@@ -206,97 +216,24 @@
           <div id="slider-wrapper" style="overflow:hidden">
 
             <div class="the-company">
-                <div class="birdy"><img src="<? echo get_template_directory_uri(); ?>/images/bird-shadow.png" /></div>
+                <div class="birdy"><img src="<? echo get_template_directory_uri(); ?>/images/bird-shadow.png"></div>
                 <h1>Finch Moving</h1>
+            <a href="#estimate" id="btn-es-go" data-wow-delay="0.8s" class="button-estimate wow bounceInRight" >Free Estimate <i class="ico li_paperplane"></i></a>
+
             </div>
-            <div class="truck-logo wow bounceInRight" data-wow-delay="0.1s"><img src="<? echo get_template_directory_uri(); ?>/images/truck-logo4.png" alt="Finch Moving Services"></div>
 
-            <div id="header-slider" class="bootstrap-carousel carousel slide" data-ride="carousel">
-              <!-- Indicators -->
-              <ol class="carousel-indicators">
-                <li data-target="#header-slider" data-slide-to="0" class="active"></li>
-                <li data-target="#header-slider" data-slide-to="1"></li>
-                <li data-target="#header-slider" data-slide-to="2"></li>
-              </ol>
 
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                  <img src="<? echo get_template_directory_uri(); ?>/images/show/normal/1600/1600.jpg" alt="...">
-                  <div class="carousel-caption">
+                <div class="truck-logo wow bounceInRight" data-wow-delay="0.1s"><img src="<? echo get_template_directory_uri(); ?>/images/truck-logo4.png" alt="Finch Moving Services"></div>
 
-                  </div>
-                </div>
-                <div class="item">
-                  <img src="<? echo get_template_directory_uri(); ?>/images/show/normal/1600/2-1600.jpg" alt="...">
-                  <div class="carousel-caption">
+                <div id="header-slider" class="bootstrap-carousel header-carousel carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators"></ol>
 
-                  </div>
-                </div>
-                <div class="item">
-                  <img src="<? echo get_template_directory_uri(); ?>/images/show/normal/1600/3-1600.jpg" alt="...">
-
-                  </div>
-                </div>
-              </div>
-
-              <!-- Controls -->
-              <a class="left carousel-left carousel-control" href="#header-slider">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-right carousel-control" href="#header-slider">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-           <!--
-            <div id="mobile-top" class="mobile-top">
-                <div class="mobile-phone"><i class="li_phone"></i><b>855 969 6683</b></div>
-                <a href="#estimate" id="btn-es-go-small" style="margin-top: 80%; margin-left: 10%" data-wow-delay="0.8s" class="btn-es-go wow bounceInRight" >Free Estimate <i class="ico li_paperplane"></i></a>
-            </div>
-            <div id="nice-slider" class="nice-slider nice-slider-fullwidth" style="overflow:hidden">
-
-                  <ul class="itemwrap slider-content">
-                    <? echo sliderImages($town, "1600", $templatePath, $templateUri); ?>
-                  </ul>
-
-                    <div class="top-wrap">
-
-                        <nav>
-                            <a href="#estimate" id="btn-es-go" data-wow-delay="0.8s" class="button-estimate wow bounceInRight" >Free Estimate <i class="ico li_paperplane"></i></a>
-                            <a class="slider-control prev" href="#"><i class="fa fa-angle-left"></i></a>
-                            <a class="slider-control next" href="#"><i class="fa fa-angle-right"></i></a>
-                        </nav>
-
-                        <div class="slider-caption caption-current" id="caption-1"><div class="wrp">
-                            <p><i class="li_diamond"></i>We are a non-franchised, locally owned and operated moving company for the local and long distance moving.</p>
-                        </div></div>
-
-                        <div class="slider-caption" id="caption-2"><div class="wrp">
-                            <p><i class="li_star"></i>We have a very deep passion for serving our clients best interests.</p>
-                        </div></div>
-
-                        <div class="slider-caption" id="caption-3"><div class="wrp">
-                            <p><i class="li_truck"></i>Get the seamless and stress-free move of your belongings in a timely manner with being cost friendly with Finch Movers.</p>
-                        </div></div>
-
-                        <div class="slider-caption" id="caption-4"><div class="wrp">
-                            <p><i class="li_like"></i>We pride ourselves on prompt and exceptional service and cost effective pricing.</p>
-                        </div></div>
-
-                        <div class="slider-caption" id="caption-5"><div class="wrp">
-                            <p><i class="li_clock"></i>Our fast and careful movers are dedicated to provide professional moving services.</p>
-                        </div></div>
-
-                         <div class="flt">
-                            <div class="header-wrapper">
-
-                            </div>
-                         </div>
-
+                    <div class="carousel-inner" role="listbox">
+                    <? echo sliderImagesCarousel ($town, "1600", $templatePath, $templateUri); ?>
                     </div>
-                </div> -->
+                </div>
+
+            </div>
             </div>
         </div>
 

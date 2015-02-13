@@ -3,7 +3,18 @@
 
 $(document).ready(function(){
 
-    var isiPad = navigator.userAgent.match(/iPad/i) != null;
+    function createSliderNavigation(obj){
+        var box = $(obj);
+        var count = $('.item', obj).length;
+        for(var i = 0; i < count; i++){
+            $('.carousel-indicators', box).append('<li data-target="'+obj+'" data-slide-to="'+i+'"></li>');
+        }
+        $(box).append('<a class="left carousel-control carousel-left" href="'+obj+'" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control carousel-right" href="'+obj+'" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>');
+    }
+
+    createSliderNavigation('#pricing-slider');
+    createSliderNavigation('#header-slider');
+
 
     function rand(min, max){
         return Math.floor((Math.random()*max)+min);
@@ -14,7 +25,7 @@ $(document).ready(function(){
             $(this).removeClass(className);
         });
     }
-        clearClass($('.ani'), 'ani');
+    clearClass($('.ani'), 'ani');
     function isMobile() {
       try{ document.createEvent("TouchEvent"); return true; }
       catch(e){ return false; }
@@ -23,16 +34,20 @@ $(document).ready(function(){
     $('body').flowtype({
      minFont   : 12,
      maxFont   : 18,
-     fontRatio : 30
+     fontRatio : 30,
+     minimum : 400,
+     maximum : 1200,
+     lineRatio : 1.45
     });
+
     $('.bootstrap-carousel').carousel();
  /*   $('#slider-wrapper').css({height: $(window).height()}); */
 
     $('.carousel-left').click(function(){
-        $('.bootstrap-carousel').carousel('prev');
+        $(this).parent().carousel('prev');
     });
     $('.carousel-right').click(function(){
-        $('.bootstrap-carousel').carousel('next');
+        $(this).parent().carousel('next');
     });
 
     $('.bg-parallax').parallax({positionY: 0,speed: 0.1});
@@ -45,7 +60,8 @@ $(document).ready(function(){
       triggerOnce: false
     };
 
-    $('.promo').waypoint(function(direction){
+    $('.box-light').waypoint(function(direction){
+    alert('lol');
       if(direction == 'down') {
         $('.button-up').removeClass('hidden animated bounceOutRight').addClass('animated bounceInRight visible');
       } else {
@@ -53,59 +69,17 @@ $(document).ready(function(){
       }
     });
 
-    if( !(isMobile()) && !(isiPad) ){
-
-        if( $(window).width() > 1000 ) {
-    /*
-            $('.wrap p, .wrap h2, .wrap h2, .wrap h3, #subpages .box-light-content a, .box-full ul, .box-full ol').each(function(){
-                $(this).addClass('ani-up');
-            });
-
-            $('.ani-up').waypoint(function(){
-              var effects = ["bounceInUp","fadeInUp", "zoomInUp","bounceInLeft","bounceInRight","fadeInLeft", "fadeInRight"];
-                var effect = effects[rand(0,effects.length-1)];
-                $(this).addClass('animated '+effect);
-            }, {offset: '115%', triggerOnce: true});
-
-            $('.ani').waypoint(function(){
-                var effects = ["bounceIn", "bounceInDown","bounceInLeft","bounceInRight","bounceInUp","fadeInDown", "fadeInLeft","fadeInUp", "fadeInRight", "flipInX",
-                "fadeInUpBig","rotateIn", "flipInX","flipInY", "rotateInDownLeft", "rotateInDownRight", "rollIn",
-                 "zoomIn","zoomInDown", "zoomInLeft", "zoomInRight"];
-                var effect = effects[rand(0,effects.length-1)];
-                $(this).addClass('animated '+effect);
-            }, {offset: '95%', triggerOnce: true});
-
-            $('.box-full ul li').each(function(){
-                $(this).html('<i class="fa fa-angle-right"></i> '+$(this).html());
-            });
-*/
-        } else {
-            $('.truck-hover').each(function(){
-                $(this).removeClass('truck-hover');
-            });
-            $('.ani, .ani-up').css({opacity: 1});
-            $('.wow').each(function(){
-                $(this).removeClass('wow');
-            });
-        }
-    } else {
-      //  $(".st-content").niceScroll({dblclickzoom: false, gesturezoom: false, cursorcolor:"#333",
-        //cursorwidth: '11px', cursorborder: '#444',cursorborderradius: '3px', scrollspeed: '10'});
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
 
         $('.truck-hover').each(function(){
             $(this).removeClass('truck-hover');
         });
-        clearClass($('.ani'), 'ani');
-        clearClass($('.box-price', 'price-hover'));
+        $('.ani, .ani-up').css({opacity: 1});
+        $('.wow').each(function(){
+            $(this).removeClass('wow');
+        });
     }
 
-/*
-    $('#btn-es-go').click(function(){
-        $(this).transition({scale: 2, rotateX: '-20deg', perspective: '120px', rotateX: '45deg', opacity: 0, x: '-900px'}, 1500, function(){
-            $(this).css({display: 'none'});
-        });
-    });
-*/
     $('.anal').removeClass('container');
 
     $('#menu-fixed li a').hover(function(){
@@ -120,7 +94,7 @@ $(document).ready(function(){
 
     $('a[href="#"]').on('click',function(e){e.preventDefault();});
 
- //   $('input[placeholder], textarea[placeholder]').placeholder();
+
     $('[title="Serving Areas"]').hide();
     $('[href="http://finchmovingservices.com/about/serving-areas/"]').hide();
     $('.wpcf7-submit').addClass('button button-submit');
@@ -129,31 +103,12 @@ $(document).ready(function(){
     $('.wpcf7-captchar').addClass('input-text').removeClass('wpcf7-form-control');
     $('.wpcf7-textarea').addClass('input-text').removeClass('wpcf7-form-control');
 
-  /*  $('.wpcf7 label').each(function(){
-      $(this).parent().find('.input-text').attr("placeholder", $(this).html()); $(this).remove();
-    });
-  */
-
     /* info tabs */
-
-
-    $('.tabs').delegate('li:not(.active)','click',function(){
-        $(this).addClass('active').siblings().removeClass('active').parents('.tab').find('.box').hide().eq($(this).index()).fadeIn(250);
-    });
 
     $('.wpcf7-validation-errors').mouseover(function() {
         $(this).fadeOut(500);
     });
 
-    if ( $(".tab").has(".tab-prev").length || $(".tab").has(".tab-next").length ) {
-        $('.tab-prev, .tab-next').click(function(){
-            var $active = $(this).parents(".tab").find(".tabs .active");
-            $next = $(this).hasClass('tab-prev') ? $active.prev() : $active.next();
-            if (!$next.length) $next = $(this).hasClass('tab-prev') ? $(this).parents(".tab").find('.tabs li:last') : $(this).parents(".tab").find('.tabs li:first');
-            $next.click();
-            return false;
-        });
-    }
 
     $('.button-submit').hover(function(){
          $(this).transition({scale:1});
@@ -181,9 +136,9 @@ $(document).ready(function(){
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            var offsetTop = target.position().top - target.closest('.st-content').position().top;
+            var offsetTop = target.position().top - target.closest('body').position().top;
             if (target.length) {
-              $('.st-content').animate({scrollTop: offsetTop}, 1200, 'easeInQuart');
+              $('body').animate({scrollTop: offsetTop}, 1200, 'easeInQuart');
               return false;
             }
 
