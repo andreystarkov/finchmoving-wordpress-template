@@ -8,10 +8,10 @@
         <div class="box-light anchor" id="estimate">
             <div class="wrap box-estimate">
                 <div class="box-light-content" style="margin-bottom:0px;">
-                    <h2 class="ani">Free Estimate</h2>
+                    <h2 class="ani">Free Quote</h2>
                     <p class="ani">Get the seamless and stress-free move of your belongings. We'll contact you as soon as possible.</p>
                     <div class="top-phone ani">
-                        <i class="li_phone"></i><b>855 969 6683</b>
+                        <i class="li_phone"></i><a id="estimate-phone" href="tel://8559696683">855 969 6683</a>
                         <span>free<br>call</span>
                     </div>
                 </div>
@@ -98,9 +98,9 @@
     window.addEventListener('DOMContentLoaded', function() {
         new QueryLoader2(document.querySelector("body"), {
             barColor: "#efefef",
-            backgroundColor: "#111",
-            percentage: true,
-            barHeight: 1,
+            backgroundColor: "#3b6028",
+            percentage: false,
+            barHeight: 10,
             minimumTime: 200,
             fadeOutTime: 1000
         });
@@ -159,7 +159,7 @@
                     orientation: 'vertical',
                     side: 'left',
                     hidden: true,
-                    animation: 'pushX',
+                    animation: 'fade',
                     clickToHide: true,
                     html: $('#menuContainer').html()
                   },

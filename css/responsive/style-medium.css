@@ -1,5 +1,6 @@
   /* 350-1000 */
 
+
   .slider-wrapper, #nice-slider, .slider-content,.top-wrap, header {
     height: 500px; max-height: 500px;
   }
@@ -52,14 +53,18 @@
 
   .img-truck-1 { background: url(../images/truck-small.jpg); }
 
-  #estimate { height: 900px; min-height: 900px; }
-
   #box-estimate { display: block; width: 100%; margin: 0 auto;}
 
   .box-light-content,.box-form { float: none; width: 90%; margin: 0 auto;}
 
   #top-menu-wrap { padding-left: 0px;}
+  .box-light {
+    padding: 25px 0 35px;
+  }
 
+  #navPanel ul li a, #navPanelBig ul li a {
+    font-size: 14px;
+  }
   .logo-small {
     z-index: 99999999;
     position: absolute;
@@ -92,7 +97,12 @@
    /* font-size: 56px;*/
   }
 
+.box-full h2, .box-full h1, .box-full h3 {
+  font-size: 2em;
+}
+
   .wrap p, .comments .box p {
+    font-size: 1em;
    /* font-size: 20px;
     line-height: 27px;*/
   }

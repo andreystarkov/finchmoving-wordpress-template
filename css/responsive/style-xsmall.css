@@ -1,5 +1,8 @@
   /* mobile styles */
+  #btn-es-go-mobile, .btn-es-go-mobile { display: block; }
+  #btn-es-go { display: none; }
 
+  #car-3 img { width: 126px; margin-top:4px; }
   .slider-wrapper, #nice-slider, .slider-content,.top-wrap {
     height: 500px; max-height: 500px;
   }
@@ -34,7 +37,8 @@
 
 
 /*  .button-up i { font-size:50px; }*/
-  .button-up { padding: 5px 11px; top: 10px; right: 10px;}
+  .button-up i { font-size: 50px ;}
+  .button-up { padding: 5px 11px; right: 0px; border-radius: 0;}
 
 /*  #st-trigger-effects .btn-nav i { font-size: 50px; }*/
 
@@ -62,8 +66,8 @@
   .box-light { padding-top: 15px; }
 
   .box-light .box-light-content, .box-form {
-     padding-left: 20px;
-     padding-right: 15px;
+     padding-left: 10px;
+     padding-right: 10px;
      padding-top:15px;
      padding-bottom: 15px;
      margin: 0;
@@ -77,8 +81,8 @@
   .button-submit { color: white !important; }
 
   .box-full, .container {
-     padding-left: 15px;
-     padding-right: 15px;
+     padding-left: 10px;
+     padding-right: 10px;
      padding-top:15px;
      padding-bottom: 15px;
      margin: 0;

@@ -31,10 +31,10 @@ $(document).ready(function(){
     }
 
     $('body').flowtype({
-     minFont   : 12,
+     minFont   : 10,
      maxFont   : 18,
      fontRatio : 30,
-     minimum : 400,
+     minimum : 380,
      maximum : 1200,
      lineRatio : 1.45
     });
@@ -59,8 +59,15 @@ $(document).ready(function(){
       triggerOnce: false
     };
 
+    $(window).scroll(function(){
+        if( $(this).scrollTop() > 700 ){
+            $('.button-up').fadeIn();
+        } else {
+          $('.button-up').fadeOut();
+        }
+    });
     $('.box-light').waypoint(function(direction){
-    alert('lol');
+
       if(direction == 'down') {
         $('.button-up').removeClass('hidden animated bounceOutRight').addClass('animated bounceInRight visible');
       } else {
@@ -77,6 +84,9 @@ $(document).ready(function(){
         $('.wow').each(function(){
             $(this).removeClass('wow');
         });
+    } else {
+
+   //   $('#slider-wrapper').css({height: $(window).height()});
     }
 
     $('.anal').removeClass('container');

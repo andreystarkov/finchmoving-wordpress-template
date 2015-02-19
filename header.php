@@ -61,12 +61,12 @@
     <meta charset="utf-8">
     <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
     <meta name="viewport" content="width=device-width; initial-scale=1; minimal-ui"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-touch-fullscreen" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Finch Moving Services">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate" />
+    <!-- <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate" /> -->
 
     <link rel="icon" type="image/png" href="<? echo get_template_directory_uri(); ?>/images/fav.png" />
 
@@ -90,17 +90,16 @@
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/alegreya/alegreya.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/fonts/lineicons/style.css" />
 
-      <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/all.css" />
+   <!--   <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/all.css" />-->
 
-    <!-- <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" /> -->
+    <!--   <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
 
-
-   <!--   <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />
+     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/tooltipster.css" /> -->
+    <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/tooltipster.css" />
 
 
     <!--[if lt IE 9]>
@@ -109,7 +108,7 @@
     <![endif]-->
 
     <script src="<? echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <!-- <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>-->
+    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>
 
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -165,7 +164,7 @@
     <style>
     /* rewrite this !!!! */
     html { background: black; }
-    #top-menu-wrap { z-index: 999 !important; }
+    #top-menu-wrap { z-index: 99999 !important; }
 
     .header-phone {
         top: 90px;
@@ -177,7 +176,7 @@
     }
 
     #qLoverlay {
-    background-color: #111;
+    background-color: #558b3a;
     position: fixed;
     z-index: 111666999787756;
     top: 0;
@@ -185,6 +184,7 @@
     width: 100%;
     height: 100%;
     }
+
     </style>
     <? } ?>
 </head>
@@ -192,7 +192,7 @@
     <div id="qLoverlay"></div>
     <div class="top-nav"></div>
 
-    <a href="#header" class="button-up hidden"><i class="fa fa-angle-up"></i></a>
+    <a href="#header" class="button-up"><i class="fa fa-angle-up"></i></a>
 
     <div id="top-menu-wrap" class="top-menu-wrap skel-layers-fixed">
         <ul class="fixed-menu" id="menu-fixed">
@@ -230,9 +230,10 @@
             <div class="the-company">
                 <div class="birdy wow bounceInDown" data-wow-delay="0.5s"><img src="<? echo get_template_directory_uri(); ?>/images/bird-shadow.png"></div>
                 <h1 class="wow fadeInDown" data-wow-delay="0.9s">Finch Moving</h1>
-            <a href="#estimate" id="btn-es-go" data-wow-delay="0.8s" class="button-estimate wow bounceInRight" >Free Estimate <i class="ico li_paperplane"></i></a>
+                <a href="#estimate" id="btn-es-go" data-wow-delay="0.8s" class="button-estimate wow bounceInRight" >Free Quote <i class="ico li_paperplane"></i></a>
 
             </div>
+                 <a href="#estimate" id="btn-es-go-mobile" data-wow-delay="0.8s" class="button-estimate btn-es-go wow bounceInRight">Free Quote <i class="ico li_paperplane"></i></a>
 
 
                 <div class="truck-logo wow bounceInRight" data-wow-delay="0.1s"><img src="<? echo get_template_directory_uri(); ?>/images/truck-logo4.png" alt="Finch Moving Services"></div>

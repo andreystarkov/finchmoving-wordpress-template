@@ -139,27 +139,27 @@
         <script>
 
         $(function () {
-            $("#menuContainer a[title=services]")
+            $("a[title=services]")
             .attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_moving_services/")
             .append('<i class="li_truck"></i>');
 
-            $("#menuContainer a[title=tips]")
+            $("a[title=tips]")
             .attr("href", "http://finchmovingservices.com/california/professional_movers_<? echo $town; ?>/")
             .append('<i class="li_bulb"></i>');
 
-            $("#menuContainer a[title=about]")
+            $("a[title=about]")
             .attr("href", "http://finchmovingservices.com/california/licensed_and_insured_movers_moving_company_<? echo $town; ?>")
             .append('<i class="li_study"></i>');
 
-            $("#menuContainer a[title=home]")
+            $("a[title=home]")
             .attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_movers_moving_companies/")
             .append('<i class="li_shop"></i>');
 
-            $("#menuContainer a[title=contact]")
+            $("a[title=contact]")
             .attr("href", "http://finchmovingservices.com/california/online_moving_quote_<? echo $town; ?>/")
             .append('<i class="li_paperplane"></i>');
 
-            $("#menuContainer a[title=pricing]").
+            $("a[title=pricing]").
             attr("href", "http://finchmovingservices.com/california/moving_companies_rates/<? echo $town; ?>_movers_prices/")
             .append('<i class="li_banknote"></i>');
           // $(".logo a").attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_movers_moving_companies/");

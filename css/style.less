@@ -4,6 +4,8 @@
 
 @import 'common.less';
 
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,500,700);
+@import url(http://fonts.googleapis.com/css?family=Alegreya+SC:400,700);
 @caps-narrow: 'bebas_neuebook';
 @caps-head: 'bebas_neue_regularregular';
 @head-serif: 'Alegreya SC';
@@ -22,6 +24,8 @@
 @yellow: #e4c024;
 @light: #dbd7d2;
 
+#navPanel, #navPanelBig { z-index: 1000000 !important;}
+
 body {
     overflow-x: hidden;
     background: #201e1c;
@@ -32,8 +36,8 @@ h1,h2,h3,h4,h5,h6,p {
  line-height: 1.45;
 }
 
-h1 { font-size: 4em; }
-h2 { font-size: 3em; }
+h1 { font-size: 3.7em; }
+h2 { font-size: 2.8em; }
 h3 { font-size: 2em; }
 .visible { visibility: visible; }
 .hidden { visibility: hidden; }
@@ -233,7 +237,7 @@ h3 { font-size: 2em; }
     h2,h1,h3 {
         font-family: @caps-head;
         font-weight: bold;
-        margin-bottom: 29px;
+        margin-bottom: 12px;
     }
 /*    h1 {
         font-size: 72px;
@@ -258,13 +262,13 @@ h3 { font-size: 2em; }
     }
 
     ul, ol {
-        margin-bottom: 30px;
+        margin-bottom: 25px;
         list-style: none;
         li {
             position: relative;
             margin-top: 5px; margin-bottom:5px;
-            font: 22px/32px @sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            padding-left: 20px;
+            font: 1.2em @sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding-left: 10px;
             i {
                 position: absolute;
                 display: inline-block;
@@ -392,7 +396,7 @@ h3 { font-size: 2em; }
     position: absolute;
     top: 15px;
     right: 20px;
-    z-index:9999999;
+    z-index:9;
     width: 400px;
 }
 
@@ -425,12 +429,23 @@ h3 { font-size: 2em; }
 
 @bg-button-estimate: darken(#70b54d, 12%);
 
+#btn-es-go-mobile {
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    border-radius: 0;
+    margin: 0 auto;
+    width: 100%;
+}
 .nice-slider nav a.button-estimate, #btn-es-go, .btn-es-go {
     position: relative;
     display: inline-block;
     max-width: 350px;
     margin: 3% auto;
-    z-index:999999;
+    z-index:99;
     font-family: @caps-narrow;
     transition:0.6s ease-in-out all;
    // line-height: 48px;
@@ -468,8 +483,9 @@ h3 { font-size: 2em; }
 
 .button-up {
     position: fixed;
-    right: 20px;
-    top: 15px;
+    display:none;
+    right: 15px;
+    bottom: 0px;
     z-index: 9999999999;
     border-radius: 86px;
     opacity: 1;
@@ -479,11 +495,11 @@ h3 { font-size: 2em; }
     padding: 10px 16px;
     padding-bottom: 10px;
     border-radius: 80px;
-    background: fade(@darkbrown, 10%);
+    background: fade(@green,50%);
     perspective: 100px;
     -webkit-perspective: 100px;
     i {
-        color: fade(@darkbrown, 70%);
+        color: fade(#fff, 90%);
         line-height: 45px;
         font-size: 65px;
     }
@@ -500,10 +516,9 @@ h3 { font-size: 2em; }
     z-index:99999;
     position: fixed;
     top: 15px;
-    width: 100%;
+    left: 130px;
     max-height: 75px;
     text-align: left;
-    padding-left: 125px;
 }
 
 // sub pages menu on top
@@ -980,7 +995,8 @@ input:focus::-webkit-input-placeholder {
     //  height: 90px !important;
     }
 }
-
+#btn-es-go-mobile { }
+#estimate-phone { color: #fff; }
 .top-phone {
     position: absolute;
     top: 0;
@@ -995,7 +1011,7 @@ input:focus::-webkit-input-placeholder {
     display: inline-block;
     i { color: fade(#fff, 70%); font-size: 0.8em; display: inline-block; margin-right: 12px; }
     span { color: fade(#fff, 70%); position: absolute; right: 12px; top: 9px; font-size: 0.5em;  line-height:0.9em; }
-    b { padding-top: 5px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.35); }
+    a { padding-top: 5px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.35); }
     font-weight: 700;
     font-family: @caps-narrow;
     font-size: 2.6em;
@@ -1273,17 +1289,15 @@ input:focus::-webkit-input-placeholder {
 
 }
 
-.carousel-inner { height: 100%; }
-.carousel-inner .item { height: 100%; }
 .header-carousel {
-  max-height: 100%;
+  // max-height: 100%;
   overflow: hidden;
   .item {
     overflow: hidden;
       img {
-        height: 100% !important;
+     //   height: 100% !important;
         max-width: none !important;
-        width: auto;
+        width: 100%;
       }
     }
 }
@@ -1311,11 +1325,12 @@ input:focus::-webkit-input-placeholder {
 }
 
 .header-carousel {
-    width: 100%; height: 100vh;
+    width: 100%;
+    // height: 100vh;
     position: relative;
 }
 .header-carousel img {
-    min-width: 100%;
+  //  min-width: 100%;
 }
 
 .carousel-indicators {
