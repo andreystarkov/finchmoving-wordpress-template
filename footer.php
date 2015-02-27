@@ -56,7 +56,9 @@
             <div class="floats">
                 <a href="http://www.facebook.com/FinchMovingCompany" class="contact ani ico-fb"><i class="fa fa-facebook-square"></i></a>
                 <a href="http://linkedin.com/pub/finch-moving/3a/114/125" class="contact ani ico-ld"><i class="fa fa-linkedin-square"></i></a>
-                <a href="http://twitter.com/FinchMoving" class="contact ico-tw"><i class="fa ani fa-twitter-square"></i></a>
+                <a href="http://twitter.com/FinchMoving" class="contact ico-tw"><i class="fa ani fa-twitter"></i></a>
+                <a href="#" class="contact ico-tw"><i class="fa fa-yelp"></i></a>
+                <a href="#" class="contact ico-tw"><i class="fa fa-google-plus-square"></i></a>
             </div>
 
         </div>
@@ -102,7 +104,8 @@
             percentage: false,
             barHeight: 10,
             minimumTime: 200,
-            fadeOutTime: 1000
+            fadeOutTime: 1000,
+            onLoadComplete: $('#preloadOverlay').hide()
         });
     });
     </script>
@@ -117,7 +120,7 @@
             breakpoints: {
                 xlarge: { media: '(min-width: 1300px) and (max-width:1600px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-xlarge.css', },
                 large: { media: '(min-width:1000) and (max-width: 1480px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-large.css'},
-                medium: { media: '(min-width: 480px) and (max-width: 1000px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-medium.css' },
+                medium: { media: '(min-width: 480px) and (max-width: 1024px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-medium.css' },
                 small: { media: '(max-width: 1000px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-small.css' },
                 xsmall: { media: '(max-width: 480px)', href: '<? echo get_template_directory_uri(); ?>/css/responsive/style-xsmall.css' },
                 mobile: { media: '(min-width: 320px) and (max-width: 1030px)'},

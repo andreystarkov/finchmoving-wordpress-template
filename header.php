@@ -156,6 +156,7 @@
     <style>
         html,body { margin-top: 0 !important; -webkit-text-size-adjust: none; }
         .spanning { overflow: hidden;}
+        .truck-logo { display: none; }
         .wow:first-child {
           visibility: hidden;
         }
@@ -163,6 +164,7 @@
     <?php if($topMenu != -1){ ?>
     <style>
     /* rewrite this !!!! */
+
     html { background: black; }
     #top-menu-wrap { z-index: 99999 !important; }
 
@@ -171,25 +173,13 @@
         left: 125px;
     }
 
-    #mobile-top {
-        position: relative;
-    }
-
-    #qLoverlay {
-    background-color: #558b3a;
-    position: fixed;
-    z-index: 111666999787756;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    }
+    #mobile-top { position: relative; }
 
     </style>
     <? } ?>
 </head>
 <body class="no-js">
-    <div id="qLoverlay"></div>
+    <div id="preloadOverlay" style="position:fixed; top:0; left:0; right:0; bottom:0; background-color:#3b6028; z-index:9999999994;"></div>
     <div class="top-nav"></div>
 
     <a href="#header" class="button-up"><i class="fa fa-angle-up"></i></a>

@@ -163,6 +163,21 @@
             attr("href", "http://finchmovingservices.com/california/moving_companies_rates/<? echo $town; ?>_movers_prices/")
             .append('<i class="li_banknote"></i>');
           // $(".logo a").attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_movers_moving_companies/");
+
+            // about us
+
+            // licence
+
+            $("a[title='Finch Moving License']").attr("href", "http://finchmovingservices.com/california/licensed_movers_<? echo $town; ?>/");
+            $("a[title='Finch Moving Reviews']").attr("href", "http://finchmovingservices.com/california/<? echo $town; ?>_movers_moving_companies_reviews/");
+            $("a[title='Finch Moving Insurance']").attr("href", "http://finchmovingservices.com/california/insured_movers_<? echo $town; ?>/");
+
+            // tips
+
+            $("a[title='How to Select a Mover']").attr("href", "http://finchmovingservices.com/california/how_to_select_a_mover_<? echo $town; ?>/");
+            $("a[title='Moving Checklist']").attr("href", "http://finchmovingservices.com/california/moving_checklist_<? echo $town; ?>/");
+            $("a[title='Packing Tips']").attr("href", "http://finchmovingservices.com/california/packing_tips_<? echo $town; ?>/");
+
         });
         </script>
       <?

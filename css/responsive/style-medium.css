@@ -33,10 +33,9 @@
       background-color: #c1beb6 !important;
       box-shadow: 0 -5px 7px rgba(0,0,0,0.5);
     }
-    #titleBar .fa-bars { rgba(85, 147, 71, 0.3) }
   #st-trigger-effects { left: 15px; top: 10px; }
   .button-up i { font-size:50px; }
-  .button-up { padding: 5px 11px; top: 10px; right: 10px;}
+  .button-up { padding: 5px 11px;  right: 0 !important; bottom: 0 !important; border-radius: 0; }
   #st-trigger-effects .btn-nav { padding: 8px 10px !important; font-size: 50px !important;}
   #st-trigger-effects .btn-nav i { font-size: 50px !important; }
   #box-estimate  { width:90%;
