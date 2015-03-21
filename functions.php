@@ -135,8 +135,20 @@
     }
 
     function makeLinks($town){
-    ?>
+
+        $curl = $_SERVER['REQUEST_URI'];
+        ?>
         <script>
+
+        <?
+        if(strpos($curl, "movers_moving_companies_reviews") != FALSE) { ?>$("a[title='Finch Moving Reviews']").addClass('submenu-current');<? }
+        if(strpos($curl, "licensed_movers_") != FALSE) { ?>$("a[title='Finch Moving License']").addClass('submenu-current');<? }
+        if(strpos($curl, "insured_movers_") != FALSE) { ?>$("a[title='Finch Moving Insurance']").addClass('submenu-current');<? }
+
+        if(strpos($curl, "moving_checklist_") != FALSE) { ?>$("a[title='Moving Checklist']").addClass('submenu-current');<? }
+        if(strpos($curl, "how_to_select_a_mover_") != FALSE) { ?>$("a[title='How to Select a Mover']").addClass('submenu-current');<? }
+        if(strpos($curl, "packing_tips_") != FALSE) { ?>$("a[title='Packing Tips']").addClass('submenu-current');<? }
+        ?>
 
         $(function () {
             $("a[title=services]")

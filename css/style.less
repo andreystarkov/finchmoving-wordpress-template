@@ -597,9 +597,13 @@ h3 { font-size: 2em; }
             color: mix(@light, #fff, 70%);
             &:hover {
               //  transform: perspective(100px) rotateX(5deg);
-                border-bottom: 4px solid darken(desaturate(@purple, 10%),12%);
+/*                border-bottom: 4px solid darken(desaturate(@purple, 10%),12%);
                 background: darken(desaturate(@purple, 10%), 6%);
-                box-shadow: 0 5px 12px fade(@darkbrown, 45%);
+                box-shadow: 0 5px 12px fade(@darkbrown, 45%);*/
+            border-bottom: 4px solid darken(desaturate(@green, 5%),20%);
+            background: darken(desaturate(@green, 5%), 12%);
+            box-shadow: 0 5px 12px fade(@darkbrown, 45%);
+            color: white;
             }
         }
 
@@ -1750,12 +1754,15 @@ a.button.button-stripe:active {
         overflow:hidden;
 
         i {
-            font-size:65px;
+            font-size:38px;
             display:inline-block;
             margin-right: 15px;
+            opacity:0.8;
             color: fade(@light, 35%);
             transition: 0.6s ease-in all;
-
+            &:hover{
+                opacity:1;
+            }
         }
 
     }
@@ -1763,7 +1770,7 @@ a.button.button-stripe:active {
     a {
         display: inline-block;
         float: left;
-        font-size: 30px;
+        font-size: 23px;
         color: darken(@blue, 15%);
         &:hover {
             i { color: @orange; }

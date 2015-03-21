@@ -147,7 +147,7 @@ $(document).ready(function(){
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
             var offsetTop = target.position().top - target.closest('body').position().top;
             if (target.length) {
-              $('body').animate({scrollTop: offsetTop}, 1200, 'easeInQuart');
+              $('body, html').animate({scrollTop: offsetTop}, 1200, 'easeInQuart');
               return false;
             }
 

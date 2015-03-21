@@ -50,15 +50,22 @@
         </div>
 
     <? } ?>
+    <style>
+    #footer .ico-fb i { color:#3A5795; }
+    #footer .ico-ld i { color:#0177B5; }
+    #footer .ico-tw i { color:#5EA9DD; }
+    #footer .ico-yelp i { color:#C72116; }
+    #footer .ico-google i { color:#DC4E38; }
 
-    <footer>
+    </style>
+    <footer id="footer">
         <div class="box-footer wrap contacts">
             <div class="floats">
                 <a href="http://www.facebook.com/FinchMovingCompany" class="contact ani ico-fb"><i class="fa fa-facebook-square"></i></a>
                 <a href="http://linkedin.com/pub/finch-moving/3a/114/125" class="contact ani ico-ld"><i class="fa fa-linkedin-square"></i></a>
                 <a href="http://twitter.com/FinchMoving" class="contact ico-tw"><i class="fa ani fa-twitter"></i></a>
-                <a href="#" class="contact ico-tw"><i class="fa fa-yelp"></i></a>
-                <a href="#" class="contact ico-tw"><i class="fa fa-google-plus-square"></i></a>
+                <a href="http://www.yelp.com/biz/finch-moving-san-diego-san-diego" class="contact ico-yelp"><i class="fa fa-yelp"></i></a>
+                <a href="https://plus.google.com/115840740562737641834/about?hl=en" class="contact ico-google"><i class="fa fa-google-plus"></i></a>
             </div>
 
         </div>

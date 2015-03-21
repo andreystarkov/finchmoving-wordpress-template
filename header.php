@@ -37,6 +37,7 @@
       $town = $_SESSION["town"];
     }
 
+
     if(strpos($curl, "free_moving_estimate") != FALSE) $car_curr = "#car-1";
      if( (strpos($curl, "packing_services") != FALSE) && (strpos($curl, "_packers") != FALSE) ) $car_curr = "#car-2";
      if(strpos($curl, "small_moves") != FALSE) $car_curr = "#car-3";
@@ -92,7 +93,7 @@
 
    <!--   <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/all.css" />-->
 
-    <!--   <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" />-->
+    <!--  <link rel="stylesheet/less" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.less" /> -->
 
      <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<? echo get_template_directory_uri(); ?>/css/bootstrap.css" />
@@ -107,8 +108,8 @@
         <script src="<? echo get_template_directory_uri(); ?>/js/ie/respond.js"></script>
     <![endif]-->
 
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <script src="<? echo get_template_directory_uri(); ?>/js/vendor/less-1.7.5.min.js"></script>
+    <script src="<? echo get_template_directory_uri(); ?>/js/misc/modernizr.js"></script>
+   <!-- <script src="<? echo get_template_directory_uri(); ?>/js/misc/less.js"></script>-->
 
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -151,6 +152,26 @@
         "</ul>";
          }
 
+        if(
+            (strpos($curl, "movers_moving_companies_reviews") != FALSE) or
+            (strpos($curl, "licensed_movers_") != FALSE) or
+            (strpos($curl, "insured_movers_") != FALSE)
+            ) {
+            $topMenu = "<li><a href='#' rel='bookmark' title='Finch Moving Reviews'>Finch Moving Reviews</a></li>".
+            "<li><a href='#' rel='bookmark' title='Finch Moving License'>Finch Moving License</a></li>".
+            "<li><a href='#' rel='bookmark' title='Finch Moving Insurance'>Finch Moving Insurance</a></li>";
+        }
+
+
+        if(
+            (strpos($curl, "moving_checklist_") != FALSE) or
+            (strpos($curl, "how_to_select_a_mover_") != FALSE) or
+            (strpos($curl, "packing_tips_") != FALSE)
+            ) {
+            $topMenu = "<li><a href='#' rel='bookmark' title='Moving Checklist'>Moving Checklist</a></li>".
+            "<li><a href='#' rel='bookmark' title='How to Select a Mover'>How to Select a Mover</a></li>".
+            "<li><a href='#' rel='bookmark' title='Packing Tips'>Packing Tips</a></li>";
+        }
     ?>
 
     <style>
@@ -174,7 +195,7 @@
     }
 
     #mobile-top { position: relative; }
-
+    #menu-fixed li, .fixed-menu li { float: left;}
     </style>
     <? } ?>
 </head>
@@ -186,8 +207,8 @@
 
     <div id="top-menu-wrap" class="top-menu-wrap skel-layers-fixed">
         <ul class="fixed-menu" id="menu-fixed">
-        <?php if($topMenu != -1) { echo $topMenu; }
-
+        <?php
+        if($topMenu != -1) { echo $topMenu; }
         ?>
         </ul>
     </div>
@@ -204,8 +225,10 @@
 
     <nav class="menu-boxy" id="menuContainer" style="display:none">
         <?
+
         wp_nav_menu(array( 'theme_location' => 'primary_navigation', 'walker' => new roots_nav_walker(),
                          'menu_id' => 'topmenu', 'menu_class' => 'top-menu-list', 'fallback_cb' => 'prime_menu_fallback' ));
+
         ?>
     </nav>
 
